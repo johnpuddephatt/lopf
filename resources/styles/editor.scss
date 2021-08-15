@@ -1,0 +1,17 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'common/global';
+
+.block-editor-block-list__layout {
+  @apply font-sans text-lg antialiased #{!important};
+}
+
+.wp-block {
+  @apply max-w-screen-md;
+
+  &.editor-post-title__block .editor-post-title__input {
+    @apply font-sans font-extrabold text-6xl #{!important};
+  }
+}

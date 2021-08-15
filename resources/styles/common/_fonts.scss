@@ -1,0 +1,26 @@
+@layer base {
+  @font-face {
+    font-family: 'LOPF-Sans';
+    font-weight: 400;
+    src: url(../fonts/Sans-Regular.woff) format('woff'),
+      url(../fonts/Sans-Regular.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'LOPF-Sans';
+    font-weight: 600;
+    src: url(../fonts/Sans-SemiBold.woff) format('woff'),
+      url(../fonts/Sans-SemiBold.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'LOPF-Sans';
+    font-weight: 700;
+    src: url(../fonts/Sans-Bold.woff) format('woff'),
+      url(../fonts/Sans-Bold.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'LOPF-Serif';
+    font-weight: 700;
+    src: url(../fonts/Serif.woff) format('woff'),
+      url(../fonts/Serif.woff2) format('woff2');
+  }
+}

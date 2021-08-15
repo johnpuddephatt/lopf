@@ -1,0 +1,110 @@
+@import 'fonts';
+@import 'patterns';
+@import 'person-block';
+
+#app {
+  overflow: hidden;
+}
+
+.has-background {
+  @apply p-4 md:p-8 #{!important};
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0 !important;
+  }
+}
+
+.hidden-on-mobile {
+  @apply hidden md:block;
+}
+
+#ez-toc-container {
+  .single-project & {
+    .ez-toc-title {
+      display: none;
+    }
+  }
+  .ez-toc-title {
+    @apply text-2xl;
+  }
+
+  li {
+    @apply mb-4 text-gray-600;
+  }
+}
+
+.ez-toc-title {
+  @apply text-xl font-bold mb-4;
+}
+
+.screen-reader-text {
+  display: none;
+}
+
+.nav-links {
+  @apply mt-8 flex justify-between;
+}
+
+.nav-previous,
+.nav-next {
+  @apply inline-flex px-6 py-2 text-lg text-white bg-blue border-0 rounded focus:outline-none hover:bg-blue-light;
+}
+
+.is-style-large {
+  @apply text-2xl font-extrabold;
+}
+
+.alignfull {
+  width: 100% !important;
+  max-width: none !important;
+  // img {
+  //   width: 100%;
+  //   max-width: none;
+  // }
+}
+
+hr,
+.wp-block-separator,
+.prose hr {
+  width: 40%;
+  opacity: 1;
+  @apply border-t-0 border-b-2 border-sky;
+
+  &.is-style-wide {
+    width: 100%;
+  }
+}
+
+.prose hr {
+  margin-left: 0 !important;
+}
+
+.prose {
+  ul > li::before {
+    @apply bg-orange-light #{!important};
+
+    transform: scale(2.5);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  }
+}
+
+.wp-block-columns {
+  @apply flex gap-4;
+}
+
+.wp-block-column {
+  @apply flex-1;
+}
+
+.wp-block .wp-block-media-text {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+
+  .wp-block-media-text__content {
+    padding: 0 8% 0 8%;
+  }
+}

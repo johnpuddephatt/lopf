@@ -1,0 +1,58 @@
+.wp-block-person {
+  + .wp-block-person {
+    margin-top: 1.5em;
+  }
+  @apply border-4 border-sky;
+
+  .wp-block-columns {
+    @apply bg-black flex items-center;
+  }
+
+  [data-type='mrn/button'] {
+    position: static;
+  }
+
+  .wp-block-column {
+    position: relative;
+  }
+
+  .block-editor-block-list__block {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .button {
+    position: absolute;
+    transform-origin: center;
+    @apply right-4 top-1/2 transition;
+    transform: translateY(-50%);
+
+    path {
+      stroke-width: 100;
+    }
+
+    &[aria-expanded='true'] {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  h3 {
+    @apply text-4xl font-bold text-white mt-2 mb-1  #{!important};
+  }
+
+  h4 {
+    @apply text-2xl font-bold text-blue  #{!important};
+  }
+
+  .person-details {
+    @apply py-4 lg:px-12;
+  }
+
+  figure {
+    @apply my-0 #{!important};
+
+    figcaption {
+      display: none;
+    }
+  }
+}

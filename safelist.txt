@@ -1,0 +1,8 @@
+alignfull
+text-2xl
+text-6xl
+has-background
+has-purple-background-color
+has-light-purple-background-color
+has-orange-background-color
+has-light-orange-background-color
