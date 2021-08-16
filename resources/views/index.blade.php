@@ -2,7 +2,8 @@
 
 @section('content')
 
-@include('partials.section-header', ['background' => 'bg-purple', 'text' => 'text-sky'])
+@include('partials.section-header', ['background' => 'bg-orange', 'text' => 'text-blue', 'pretext' =>
+'text-purple'])
 
 <div class="container max-w-5xl px-4 py-48 mx-auto">
   @if (! have_posts())
