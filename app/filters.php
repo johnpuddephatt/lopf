@@ -19,6 +19,10 @@ add_filter('excerpt_length', function() {
     return 27;
 });
 
+add_filter('body_class', function($classes) {
+    return array_merge($classes, ['text-gray-700']);
+});
+
 
 /*
  *

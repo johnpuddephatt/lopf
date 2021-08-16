@@ -11,7 +11,7 @@
     </div>
     <div
         class="pl-8 border-l-14 {{ match($key % 4) { 0 => 'border-orange', 1 => 'border-blue', 2 => 'border-sky', 3 => 'border-pink'} }}">
-        <h3 class="mt-2 mb-4 text-3xl font-bold">{!! get_the_title($page->ID) !!}</h3>
+        <h3 class="mt-2 mb-4 text-3xl font-bold text-blue">{!! get_the_title($page->ID) !!}</h3>
         <p class="text-lg">{!! get_the_excerpt($page->ID, )!!}</p>
         <p class="mt-4 text-lg font-bold text-blue">Read more</p>
     </div>

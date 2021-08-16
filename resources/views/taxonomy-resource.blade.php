@@ -4,9 +4,9 @@
 <div class="flex flex-row w-full border-t">
   @include('partials.resource-sidebar')
   <div class="flex-1">
-    <div class="container flex flex-row max-w-5xl mt-12">
+    <div class="container flex flex-row max-w-5xl my-12">
 
-      <div class="mb-12">
+      <div>
 
         <div class="inline-flex mt-12 mb-4 text-xl text-gray-500 md:mb-6">
           <a class="" href="/">Home</a>

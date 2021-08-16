@@ -36,7 +36,7 @@
 
     @if( $posts )
     <div id="project-posts" class="pt-16 mb-12">
-      <h2 class="text-3xl font-bold">Updates</h2>
+      <h2 class="text-3xl font-bold text-blue">Updates</h2>
       <p class="mt-4 mb-16">The latest articles about <strong>{{ the_title() }}</strong></p>
       @foreach($posts as $related_post)
       @include('partials.post-card', ['post_id' => $related_post->ID])
@@ -52,7 +52,7 @@
 
     @if( $resources)
     <div class="pt-16" id="project-resources">
-      <h2 class="text-3xl font-bold">Resources</h2>
+      <h2 class="text-3xl font-bold text-blue">Resources</h2>
       <p class="mt-4 mb-8">Reports and files relating to <strong>{{ the_title() }}</strong></p>
 
       @foreach($resources as $resource)

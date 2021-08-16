@@ -94,7 +94,7 @@ module.exports = {
         none: '1.1',
       },
       backgroundImage: () => ({}),
-      typography: {
+      typography: theme => ({
         DEFAULT: {
           css: {
             hr: {
@@ -108,14 +108,12 @@ module.exports = {
         },
         lg: {
           css: {
-            // h2: {
-            //   fontSize: '3rem',
-            //   fontWeight: 800,
-            //   lineHeight: 1,
-            // },
+            h2: {
+              color: theme('colors.blue.DEFAULT'),
+            },
           },
         },
-      },
+      }),
     },
     gutenberg: theme => ({
       // Create block color palette utility classes that WordPress uses.
