@@ -18,8 +18,10 @@
 
     </div>
 
-    <div class="relative flex-none w-1/2 pl-32 -mr-8 overlay ">
-      {!! $hero_image !!}
+    <div class="relative flex-none w-1/2 pl-40 -mr-8">
+      <div class="overlay">
+        {!! $hero_image !!}
+      </div>
 
     </div>
 

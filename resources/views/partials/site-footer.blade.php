@@ -34,6 +34,12 @@
         </div>
         @endif
 
+        @if(!empty($secondaryNavigationFooter))
+        <div class="flex-shrink w-full text-xl md:-ml-6 lg:ml-0 xl:w-1/6 lg:w-1/5 md:w-1/2">
+          {!! $secondaryNavigationFooter !!}
+        </div>
+        @endif
+
         @if(!empty($tertiaryNavigation))
         <div class="w-full text-xl lg:w-1/5 md:-ml-6 lg:ml-0 xl:w-1/6 md:w-1/2">
           {!! $tertiaryNavigation !!}
