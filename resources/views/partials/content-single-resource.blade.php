@@ -3,7 +3,7 @@
 
     <div class="w-full mt-12 lg:w-3/4">
 
-      @if($file_oembed)
+      @if(isset($file_oembed))
       {!! $file_oembed !!}
       @else
       <x-button href=" {{ $file_upload }}">Download file</x-button>

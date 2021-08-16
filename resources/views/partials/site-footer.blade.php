@@ -1,8 +1,8 @@
 <footer>
   <div class="antialiased text-gray-100 bg-blue">
     <div class="container pt-24 pb-16 ">
-      <div class="flex flex-wrap order-first gap-8 text-center md:text-left">
-        <div class="flex-shrink w-full mt-3 lg:w-1/4 md:w-1/2">
+      <div class="flex flex-wrap order-first space-y-8 text-center md:space-x-8 md:space-y-0 md:text-left">
+        <div class="flex-shrink w-full mt-3 text-center md:text-left lg:w-1/4 md:w-1/2">
           <x-logo text="blue" background="white" />
         </div>
         <div class="flex-shrink w-full mr-auto lg:mt-0 xl:w-1/3 lg:w-1/4">
@@ -29,19 +29,19 @@
 
         </div>
         @if(!empty($primaryNavigationFooter))
-        <div class="flex-shrink w-full text-xl md:-ml-6 lg:ml-0 xl:w-1/6 lg:w-1/5 md:w-1/2">
+        <div class="flex-shrink w-full text-xl xl:w-1/6 lg:w-1/5 md:w-1/2">
           {!! $primaryNavigationFooter !!}
         </div>
         @endif
 
         @if(!empty($secondaryNavigationFooter))
-        <div class="flex-shrink w-full text-xl md:-ml-6 lg:ml-0 xl:w-1/6 lg:w-1/5 md:w-1/2">
+        <div class="flex-shrink w-full text-xl xl:w-1/6 lg:w-1/5 md:w-1/2">
           {!! $secondaryNavigationFooter !!}
         </div>
         @endif
 
         @if(!empty($tertiaryNavigation))
-        <div class="w-full text-xl lg:w-1/5 md:-ml-6 lg:ml-0 xl:w-1/6 md:w-1/2">
+        <div class="w-full text-xl lg:w-1/5 lg:ml-0 xl:w-1/6 md:w-1/2">
           {!! $tertiaryNavigation !!}
         </div>
         @endif

@@ -9,10 +9,10 @@
         <a class="" href="/resources">Resources</a>
         <span class="px-3">&gt;</span>
 
-        @if($types)
+        @if($resource_types)
 
-        <a href="{{ get_term_link($types[0]->term_id, 'resourcetype') }}">
-          {{ $types[0]->name }}
+        <a href="{{ get_term_link($resource_types[0]->term_id, 'resourcetype') }}">
+          {{ $resource_types[0]->name }}
         </a>
         @endif
       </div>
@@ -24,7 +24,7 @@
       </h2>
 
       @if($date)
-      <p>{{ $date }}</p>
+      <p class="mt-4">{{ $date }}</p>
       @endif
 
       @if(!empty($post->post_excerpt))
@@ -32,13 +32,15 @@
         !!}</p>
       @endif
 
+      @if($resource_keylearnings)
       <div class="mt-6">
-        @foreach($keylearnings as $keylearning)
+        @foreach($resource_keylearnings as $keylearning)
         <x-button href="{{ get_term_link($keylearning->term_id, 'resourcekeylearning') }}">
           {{ $keylearning->name }}
         </x-button>
         @endforeach
       </div>
+      @endif
 
     </div>
   </div>
