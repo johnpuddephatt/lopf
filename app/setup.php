@@ -380,6 +380,11 @@ add_action( 'admin_head', function() {
         padding: 5px;
         line-height: inherit;
     }
+
+    .media-frame .unsplash-browser .attachments, .media-frame .unsplash-browser .no-media, .media-frame .unsplash-browser .unsplash-error {
+        bottom: 0 !important;
+        overflow-y: auto !important;
+    }
 	</style>
 	<?php
 });
