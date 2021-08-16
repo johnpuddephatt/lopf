@@ -11,9 +11,9 @@
 
     <div class="max-w-4xl pb-24 md:flex-1 lg:pb-0">
 
-      <h2 class="text-5xl font-bold lg:text-6xl text-purple">{{ $title }}</h2>
+      <h2 class="text-5xl font-bold leading-none lg:leading-none lg:text-6xl text-purple">{{ $title }}</h2>
 
-      <p class="mt-8 text-xl antialiased font-semibold leading-tight text-max-w-xl">{!! $subtitle
+      <p class="mt-8 text-xl antialiased font-semibold text-max-w-xl">{!! $subtitle
         !!}</p>
 
     </div>

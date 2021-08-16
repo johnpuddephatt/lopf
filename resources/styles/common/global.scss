@@ -86,10 +86,11 @@ hr,
 
 .prose {
   ul > li::before {
-    @apply bg-orange-light #{!important};
+    @apply bg-sky #{!important};
 
     transform: scale(2.5);
-    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: url(#teardrop);
+    border-radius: 0;
   }
 }
 

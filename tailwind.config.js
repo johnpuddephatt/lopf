@@ -90,6 +90,9 @@ module.exports = {
         12: '12px',
         14: '14px',
       },
+      lineHeight: {
+        none: '1.1',
+      },
       backgroundImage: () => ({}),
       typography: {
         DEFAULT: {

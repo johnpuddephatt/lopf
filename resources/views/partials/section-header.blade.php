@@ -7,7 +7,7 @@
       <h2 class="font-serif text-4xl antialiased {{ $pretext ?? 'text-white' }}">{{ $post->post_title }}</h2>
 
       @if(!empty($post->post_excerpt))
-      <p class="max-w-xl mt-8 text-6xl antialiased font-bold leading-tight {{ $text ?? 'text-sky' }}">{!!
+      <p class="max-w-xl mt-8 text-6xl leading-none lg:leading-none antialiased font-bold {{ $text ?? 'text-sky' }}">{!!
         $post->post_excerpt
         !!}</p>
       @endif
