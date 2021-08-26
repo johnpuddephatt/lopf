@@ -19,7 +19,7 @@ add_action('init', function() {
           'publicly_queryable' => true,
           'has_archive' => true,
           'rewrite' => array(
-              'slug' => 'resources'
+            'slug' => str_replace('/','',wp_make_link_relative(get_permalink(get_option('page_for_resources'))))
           ),
           'menu_icon' => 'dashicons-category',
           'menu_position' => 4,
