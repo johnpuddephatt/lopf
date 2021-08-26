@@ -18,7 +18,7 @@ add_action('init', function() {
           'public' => true,
           'has_archive' => true,
           'rewrite' => array(
-              'slug' => 'projects'
+              'slug' => get_permalink(get_option('page_for_projects'))
           ),
           'menu_icon' => 'dashicons-image-filter',
           'menu_position' => 4,
