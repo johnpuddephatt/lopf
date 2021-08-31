@@ -100,17 +100,14 @@ module.exports = {
             hr: {
               borderTopColor: null,
             },
-            // h2: {
-            //   fontSize: '2.25rem',
-            //   fontWeight: 800,
-            // },
+            h2: {
+              color: theme('colors.blue.DEFAULT'),
+            },
           },
         },
         lg: {
           css: {
-            h2: {
-              color: theme('colors.blue.DEFAULT'),
-            },
+            h2: {},
           },
         },
       }),
