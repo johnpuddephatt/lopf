@@ -29,6 +29,49 @@ add_action('init', function() {
     );
 });
 
+add_action( 'init', function() {
+    $args = array(
+        'hierarchical'          => false,
+        'labels'                => [
+            'name'              => 'Types',
+            'singular_name'     => 'Type',
+            'add_new_item'      => 'Add new resource type',
+            'search_items'      => 'Search resource types',
+            'edit_item'         => 'Edit type'
+        ],
+        'meta_box_cb'           => "post_categories_meta_box",
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'query_var'             => true,
+        'public'                => true,
+        'rewrite'               => [
+            'slug' => 'resource/type',
+        ],
+    );
+ 
+    register_taxonomy( 'resourcetype', 'resource', $args );
+}, 10 );
+
+
+add_action( 'init', function() {
+    register_taxonomy( 'resourcekeylearning', 'resource',     [
+        'hierarchical'          => false,
+        'labels'                => [
+            'name'              => 'Key learnings',
+            'singular_name'     => 'Key learning',
+            'add_new_item'      => 'Add new key learning',
+            'search_items'      => 'Search key learnings',
+            'edit_item'         => 'Edit key learning'
+        ],
+        'meta_box_cb'       => "post_categories_meta_box",
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'query_var'             => true,
+        'public'            => true,
+        'rewrite'               => array( 'slug' => 'resource/key-learning' ),
+    ] );
+}, 10 );
+
 
 
 /**

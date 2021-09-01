@@ -5,7 +5,7 @@
             {!! get_the_title($post_id ?? null) !!}
         </h3>
         <div class="hidden md:block">
-            {{ get_field( 'date', $post_id ?? null ) ? DateTime::createFromFormat('d/m/Y', get_field( 'date', $post_id ?? null ))->format(get_option('date_format')) : null}}
+            {{ get_field( 'date', $post_id ?? null ) }}
         </div>
     </div>
     <x-icon.arrow-right class="w-8 h-12 text-pink" />

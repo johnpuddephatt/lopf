@@ -1,38 +1,101 @@
 <template>
-  <div class="relative flex flex-col overflow-hidden border-t lg:flex-row">
-    <div class="relative flex-1 map-container">
-      <l-map
-        ref="myMap"
-        :zoom="zoom"
-        :center="center"
-        :options="{ attributionControl: false }"
+  <div>
+    <div class="container max-w-5xl my-4">
+      <button
+        class="px-4 mr-2 text-xl leading-loose rounded-full bg-sky-light"
+        :class="{ 'bg-blue text-white': view == 'map' }"
+        @click="view = 'map'"
       >
-        <l-control-attribution position="bottomleft"></l-control-attribution>
-        <l-icon-default :image-path="imagePath"></l-icon-default>
-        <l-tile-layer :url="url" :attribution="attribution" />
-        <l-marker
-          :ref="`${group.slug}-marker`"
-          v-for="group in groups"
-          :key="group.slug"
-          @click="scrollTo(group.slug)"
-          :lat-lng="[group.address.lat, group.address.lng]"
-        >
-        </l-marker>
-      </l-map>
+        Map view
+      </button>
+      <button
+        class="px-4 text-xl leading-loose rounded-full bg-sky-light"
+        :class="{ 'bg-blue text-white': view == 'list' }"
+        @click="view = 'list'"
+      >
+        List view
+      </button>
     </div>
     <div
-      class="absolute top-0 bottom-0 right-0 w-1/4 max-w-sm overflow-y-auto divide-y shadow-2xl bg-sky-lightest map-sidebar bg-opacity-90"
+      v-if="view == 'map'"
+      class="relative flex flex-col overflow-hidden border-t lg:flex-row"
     >
+      <div class="relative flex-1 map-container">
+        <l-map
+          ref="myMap"
+          :zoom="zoom"
+          :center="center"
+          :options="{ attributionControl: false }"
+        >
+          <l-control-attribution position="bottomleft"></l-control-attribution>
+          <l-icon-default :image-path="imagePath"></l-icon-default>
+          <l-tile-layer :url="url" :attribution="attribution" />
+          <l-marker
+            :ref="`${group.slug}-marker`"
+            v-for="group in groups"
+            :key="group.slug"
+            @click="scrollTo(group.slug)"
+            :lat-lng="[group.address.lat, group.address.lng]"
+          >
+          </l-marker>
+        </l-map>
+      </div>
+      <div
+        class="absolute top-0 bottom-0 right-0 w-1/4 max-w-sm overflow-y-auto divide-y shadow-2xl bg-sky-lightest map-sidebar bg-opacity-90"
+      >
+        <div class="mx-4 my-3">
+          <input
+            class="w-full px-3 py-2 leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
+            type="text"
+            v-model="search"
+            placeholder="Search by name.."
+          />
+        </div>
+
+        <a
+          :ref="`${group.slug}-sidebar`"
+          :href="group.link"
+          :key="group.slug"
+          class="block px-4 py-6 hover:bg-sky-light"
+          :class="{ 'bg-sky-light': selected == group.slug }"
+          v-for="group in filteredList"
+        >
+          <p
+            v-if="group.neighbourhood_network"
+            class="inline-block px-2 pt-0.5 -ml-0.5 mb-1 text-xs font-normal rounded-md bg-blue-lightest"
+          >
+            Neighbourhood network
+          </p>
+          <h3 class="font-bold">{{ group.title.rendered }}</h3>
+
+          <div class="text-xs" v-html="group.address.address"></div>
+        </a>
+
+        <div class="p-4 rounded" v-if="!filteredList.length">
+          No groups to show you.
+        </div>
+      </div>
+    </div>
+    <div v-else class="container max-w-5xl my-4">
       <a
         :ref="`${group.slug}-sidebar`"
         :href="group.link"
         :key="group.slug"
-        class="block px-4 py-8 hover:bg-sky-light"
+        class="block py-8"
         :class="{ 'bg-sky-light': selected == group.slug }"
         v-for="group in groups"
       >
-        <h3 class="font-bold">{{ group.title.rendered }}</h3>
-        <div class="text-xs" v-html="group.address.address"></div>
+        <h3 class="text-xl font-bold">
+          {{ group.title.rendered }}
+          <p
+            v-if="group.neighbourhood_network"
+            class="inline-block px-2 pt-0.5 ml-3 text-base font-normal rounded-lg bg-blue-lightest"
+          >
+            Neighbourhood network
+          </p>
+        </h3>
+
+        <div class="text" v-html="group.address.address"></div>
       </a>
     </div>
   </div>
@@ -63,7 +126,9 @@ export default {
   },
   data() {
     return {
+      view: 'map',
       groups: [],
+      search: null,
       selected: null,
       imagePath: null,
       zoom: 12,
@@ -73,6 +138,24 @@ export default {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     };
+  },
+  computed: {
+    filteredList() {
+      if (!this.search) {
+        return this.groups;
+      } else {
+        return this.groups.filter(group => {
+          return (
+            group.title.rendered
+              .toLowerCase()
+              .includes(this.search.toLowerCase()) ||
+            group.address.address
+              .toLowerCase()
+              .includes(this.search.toLowerCase())
+          );
+        });
+      }
+    },
   },
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;

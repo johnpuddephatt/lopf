@@ -10,7 +10,6 @@ use function Roots\asset;
 
 include('PostTypes/Project.php');
 include('PostTypes/Resource.php');
-include('PostTypes/NeighbourhoodNetwork.php');
 include('PostTypes/Member.php');
 
 
@@ -311,49 +310,6 @@ add_filter('pre_get_posts', function($query){
  * 
  */
 
-add_action( 'init', function() {
-    $args = array(
-        'hierarchical'          => false,
-        'labels'                => [
-            'name'              => 'Types',
-            'singular_name'     => 'Type',
-            'add_new_item'      => 'Add new resource type',
-            'search_items'      => 'Search resource types',
-            'edit_item'         => 'Edit type'
-        ],
-        'meta_box_cb'           => "post_categories_meta_box",
-        'show_ui'               => true,
-        'show_admin_column'     => true,
-        'query_var'             => true,
-        'public'                => true,
-        'rewrite'               => [
-            'slug' => 'resource/type',
-        ],
-    );
- 
-    register_taxonomy( 'resourcetype', 'resource', $args );
-}, 10 );
-
-
-add_action( 'init', function() {
-    register_taxonomy( 'resourcekeylearning', 'resource',     [
-        'hierarchical'          => false,
-        'labels'                => [
-            'name'              => 'Key learnings',
-            'singular_name'     => 'Key learning',
-            'add_new_item'      => 'Add new key learning',
-            'search_items'      => 'Search key learnings',
-            'edit_item'         => 'Edit key learning'
-        ],
-        'meta_box_cb'       => "post_categories_meta_box",
-        'show_ui'               => true,
-        'show_admin_column'     => true,
-        'query_var'             => true,
-        'public'            => true,
-        'rewrite'               => array( 'slug' => 'resource/key-learning' ),
-    ] );
-}, 10 );
-
 add_action( 'admin_head', function() {
 	?>
 	<style type="text/css">
@@ -407,3 +363,20 @@ add_image_size( 'square-l', 960, 960, true );
 add_image_size( 'square', 800, 800, true );
 add_image_size( 'square-s', 640, 640, true );
 add_image_size( 'square-xs', 320, 320, true );
+
+
+add_filter('pre_get_posts',function ($query) {
+   if ($query->is_search) {
+
+
+    $query->set( 'tax_query', [
+        [
+            'taxonomy' => 'resourcetype',
+            'field' => 'term_id',
+            'terms' => [intval($_GET['post_resourcetype'])],
+            'operator'=> 'IN'
+        ]
+    ] );
+   }
+   return $query;
+});

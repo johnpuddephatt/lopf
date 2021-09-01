@@ -27,7 +27,6 @@ class Resource extends Composer
             global $post;
 
             return [
-            "date" => get_post_meta( $post->ID, 'date', true ) ? \DateTime::createFromFormat('Ymd', get_post_meta( $post->ID, 'date', true ))->format(get_option('date_format')) : null,
             "file_upload" =>get_field('file_upload', $post->ID),
             "file_oembed" => get_field('file_oembed', $post->ID),
             "resource_types" => get_the_terms($post->ID, 'resourcetype') ?? [],

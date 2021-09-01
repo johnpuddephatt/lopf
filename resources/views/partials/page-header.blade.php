@@ -23,7 +23,7 @@
       @endif
 
 
-      <h2 class="font-serif text-6xl text-blue">
+      <h2 class="max-w-4xl font-serif text-6xl text-blue">
         {!! $title !!}
       </h2>
 

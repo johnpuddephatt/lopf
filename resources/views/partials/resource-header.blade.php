@@ -23,9 +23,7 @@
         {!! $title !!}
       </h2>
 
-      @if($date)
-      <p class="mt-4">{{ $date }}</p>
-      @endif
+      <p class="mt-4">{{ get_field( 'date', $post_id ?? null ) }}</p>
 
       @if(!empty($post->post_excerpt))
       <p class="max-w-xl mt-8 text-xl font-extrabold leading-snug tracking-tight md:text-2xl">{!! $post->post_excerpt

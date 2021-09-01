@@ -42,6 +42,13 @@ add_action('init', function() {
         if( $address ) {
             $data->data['address'] = $address;
         }
+        $neighbourhood_network = get_field('neighbourhood_network', $post->ID, true );
+        if( $neighbourhood_network && $neighbourhood_network == true) {
+            $data->data['neighbourhood_network'] = true;
+        }
+        else {
+            $data->data['neighbourhood_network'] = false;
+        }
         return $data;
     }, 10, 3 );
 

@@ -10,8 +10,15 @@
   <form class="flex max-w-3xl p-8 mx-auto my-16 space-x-2 bg-blue-lightest" role="search" action="{{ home_url('/') }}"
     method="get" id="searchform">
     <input type="text" name="s" placeholder="Search resources"
-      class="w-full px-3 py-2 text-2xl leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
+      class="w-full px-3 py-2 text-2xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
     <input type="hidden" name="post_type" value="resource" />
+    <select
+      class="px-3 py-2 text-xl leading-tight text-gray-700 border rounded shadow focus:outline-none focus:shadow-outline"
+      name="post_resourcetype">
+      @foreach($types as $key => $type)
+      <option value="{{$type->term_id}}">{{ $type->name}}</option>
+      @endforeach
+    </select>
     <input
       class="inline-flex px-6 py-2 text-2xl font-bold border-2 text-violet-700 border-violet-600 focus:outline-none hover:border-violet-500"
       type="submit" alt="Search" value="Search" />

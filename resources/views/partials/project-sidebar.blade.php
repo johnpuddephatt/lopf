@@ -7,9 +7,8 @@
         </h2>
 
         @foreach($projects as $key => $project)
-
-        <a href="{{ $project->link }}"
-            class="px-8 hover:bg-sky-lightest block py-3 text-lg @if($post->link == $project->link) bg-sky text-blue @else text-gray-600 @endif">
+        <a href="{{ get_permalink($project->ID) }}"
+            class="px-8 hover:bg-sky-lightest block py-3 text-lg @if(get_permalink() == get_permalink($project->ID)) bg-sky text-blue @else text-gray-600 @endif">
             <span class="block w-48 mx-auto mr-16">{{ $project->post_title }}</span>
         </a>
         @endforeach
