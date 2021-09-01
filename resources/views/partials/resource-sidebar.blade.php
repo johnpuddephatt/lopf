@@ -1,7 +1,7 @@
 <aside class="pt-24 pb-12 border-r">
     <nav class="">
         <h2 class="px-8 mb-6 text-xl font-bold text-blue">
-            <a class="block w-48 mx-auto mr-16" href="/resources">
+            <a class="block mx-auto mr-16 w-60" href="/resources">
                 Resources
             </a>
         </h2>
@@ -10,7 +10,7 @@
         @foreach($types as $key => $type)
         <a href="{{ get_term_link($type->term_id, 'resourcetype') }}" class="hover:bg-sky-lightest px-8 block py-3 text-lg @if($_SERVER['REQUEST_URI'] == get_term_link($type->term_id, 'resourcetype'))bg-sky text-blue @else text-gray-600
         @endif">
-            <span class="block w-48 mx-auto mr-16">{{ $type->name }}</span>
+            <span class="block mx-auto mr-16 w-60">{{ $type->name }}</span>
         </a>
         @endforeach
 
@@ -21,7 +21,7 @@
 
         <a href="{{ get_term_link($keylearning->term_id, 'resourcekeylearning') }}" class="hover:bg-sky-lightest px-8 block py-3 text-lg @if($_SERVER['REQUEST_URI'] == get_term_link($keylearning->term_id, 'resourcekeylearning')) bg-sky text-blue @else text-gray-600
                 @endif">
-            <span class="block w-48 mx-auto mr-16">{{ $keylearning->name }}</span>
+            <span class="block mx-auto mr-16 w-60">{{ $keylearning->name }}</span>
         </a>
         @endforeach
 
