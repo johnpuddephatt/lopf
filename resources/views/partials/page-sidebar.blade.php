@@ -3,7 +3,7 @@
     <nav class="">
         <h2 class="px-6 mb-6 text-xl font-bold 2xl:px-8 text-blue">
             <a class="block mx-auto mr-16 w-60" href=" {{ $parent->permalink}}">
-                {{ $parent->title}}
+                {!! $parent->title !!}
             </a>
         </h2>
         @foreach($siblings as $page)

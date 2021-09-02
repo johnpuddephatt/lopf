@@ -4,9 +4,10 @@
         <h3 class="mt-0 mb-1 text-xl font-bold body-font">
             {!! $resource->post_title !!}
         </h3>
-        <div class="hidden md:block">
-            {{ get_field( 'date', $resource->ID ) ? DateTime::createFromFormat('d/m/Y', get_field( 'date', $resource->ID ))->format(get_option('date_format')) : null}}
-        </div>
+        @if(get_field(' date')) <div class="hidden md:block">
+    {{ get_field( 'date', $resource->ID ) }}
+    </div>
+    @endif
     </div>
     <x-icon.arrow-right class="w-8 h-12 text-pink" />
 </a>

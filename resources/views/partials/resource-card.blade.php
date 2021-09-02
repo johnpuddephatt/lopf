@@ -4,9 +4,10 @@
         <h3 class="mt-0 mb-1 text-xl font-bold text-blue body-font">
             {!! get_the_title($post_id ?? null) !!}
         </h3>
-        <div class="hidden md:block">
-            {{ get_field( 'date', $post_id ?? null ) }}
-        </div>
+        @if(get_field(' date')) <div class="hidden md:block">
+    {{ get_field( 'date', $post_id ?? null ) }}
+    </div>
+    @endif
     </div>
     <x-icon.arrow-right class="w-8 h-12 text-pink" />
 </a>

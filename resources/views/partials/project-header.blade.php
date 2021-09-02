@@ -17,7 +17,7 @@
       <div class="inline-flex mt-12 mb-4 text-xl text-gray-500 md:mb-6">
         <a class="" href="/">Home</a>
         <span class="px-3">&gt;</span>
-        <a class="" href="{{ $parent->permalink}}">{{ $parent->title}}</a>
+        <a class="" href="{{ $parent->permalink}}">{!! $parent->title !!}</a>
       </div>
       @endif
 
