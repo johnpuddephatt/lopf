@@ -2,14 +2,14 @@
   <div>
     <div class="container max-w-5xl my-4">
       <button
-        class="px-4 mr-2 text-xl leading-loose rounded-full bg-sky-light"
+        class="px-4 mr-2 text-xl leading-loose rounded-full"
         :class="view == 'map' ? 'bg-blue text-white' : 'bg-sky-light'"
         @click="view = 'map'"
       >
         Map view
       </button>
       <button
-        class="px-4 text-xl leading-loose rounded-full bg-sky-light"
+        class="px-4 text-xl leading-loose rounded-full"
         :class="view == 'list' ? 'bg-blue text-white' : 'bg-sky-light'"
         @click="view = 'list'"
       >
