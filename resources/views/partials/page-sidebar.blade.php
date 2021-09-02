@@ -1,5 +1,5 @@
 @if($siblings)
-<aside class="hidden pt-24 pb-12 border-r md:block">
+<aside class="hidden pt-24 pb-12 border-r xl:block">
     <nav class="">
         <h2 class="px-6 mb-6 text-xl font-bold 2xl:px-8 text-blue">
             <a class="block mx-auto mr-16 w-60" href=" {{ $parent->permalink}}">

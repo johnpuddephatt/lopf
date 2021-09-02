@@ -4,7 +4,7 @@
 <div class="flex flex-row w-full border-t">
   @include('partials.resource-sidebar')
   <div class="flex-1">
-    <div class="container flex flex-row max-w-5xl my-12">
+    <div class="container flex flex-row my-12 xl:max-w-5xl">
 
       <div>
 
@@ -27,7 +27,7 @@
 
     </div>
     <div class="bg-gray-100">
-      <div class="container max-w-5xl py-24 space-y-8">
+      <div class="container py-24 space-y-8 xl:max-w-5xl">
 
         @if (! have_posts())
         <x-alert type="warning">

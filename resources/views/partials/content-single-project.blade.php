@@ -3,7 +3,7 @@
     <div class="flex flex-col gap-8 md:gap-16 lg:flex-row-reverse">
 
       <div class="max-w-screen-sm pt-8 md:pt-12 lg:w-1/4">
-        <div class="sticky z-10 p-4 mx-auto bg-white b-96 top-16">
+        <div class="sticky z-10 mx-auto bg-white md:p-4 b-96 top-16">
           <x-heading level="2" class="mb-4">Jump to</x-heading>
 
           <nav>

@@ -86,7 +86,7 @@ hr,
 
 .prose {
   ul > li::before {
-    @apply bg-sky #{!important};
+    @apply bg-blue-lightest #{!important};
 
     transform: scale(2.5);
     clip-path: url(#teardrop);

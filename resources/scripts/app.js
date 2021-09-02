@@ -11,3 +11,13 @@ Vue.component('group-map', groupMap);
 var vm = new Vue({
   el: '#app',
 });
+
+document.getElementById('main-menu-button').addEventListener('click', e => {
+  e.currentTarget.innerText =
+    e.currentTarget.innerText == 'Menu' ? 'Close menu' : 'Menu';
+  document.body.scrollTop = 0;
+  document.body.classList.toggle('overflow-hidden');
+  document.getElementById('main-menu').classList.toggle('left-full');
+  document.getElementById('main-menu').classList.toggle('left-0');
+  document.getElementById('main-menu-container').scrollTop = 0;
+});

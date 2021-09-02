@@ -4,8 +4,7 @@
         <h3 class="mt-0 mb-1 text-xl font-bold text-blue body-font">
             {!! get_the_title($post_id ?? null) !!}
         </h3>
-        @if(get_field(' date')) <div class="hidden md:block">
-    {{ get_field( 'date', $post_id ?? null ) }}
+        @if(get_field("date")) <div class="hidden md:block"> {{ get_field( 'date', $post_id ?? null ) }}
     </div>
     @endif
     </div>

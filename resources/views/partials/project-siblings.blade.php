@@ -1,6 +1,6 @@
 @if(isset($projects) and $projects)
 <div class="border-t">
-    <div class="container max-w-5xl py-32 mx-auto">
+    <div class="container py-24 mx-auto xl:max-w-5xl 2xl:py-32">
         <h3 class="pb-12 text-xl font-bold text-blue md:text-3xl text-violet-200">More projects</h3>
         @foreach($projects as $project)
         <a class="flex items-center mt-2 mb-4 -ml-10 text-lg text-blue " href="{{ get_permalink($project->ID) }}">

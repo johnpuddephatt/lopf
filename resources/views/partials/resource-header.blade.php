@@ -1,5 +1,5 @@
 <div>
-  <div class="container max-w-5xl mt-12">
+  <div class="container mt-12 xl:max-w-5xl">
 
     <div>
 

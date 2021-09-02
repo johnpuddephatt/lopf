@@ -5,7 +5,7 @@
 .pattern {
   &::before {
     content: '';
-    @apply -left-12 -top-16 z-20 block -bottom-24 -right-24 z-20 block absolute bg-no-repeat bg-contain bg-center;
+    @apply lg:-left-12 -left-6 -top-8 lg:-top-16 z-20 block lg:-bottom-24 -bottom-12 -right-12 lg:-right-24 z-20 block absolute bg-no-repeat bg-contain bg-center;
     background-image: url(../../public/images/background-1.svg);
 
     .bg-purple & {

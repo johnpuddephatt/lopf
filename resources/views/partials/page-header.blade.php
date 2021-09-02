@@ -1,5 +1,5 @@
 <div>
-  <div class="container max-w-5xl mt-12">
+  <div class="container mt-12 xl:max-w-5xl">
 
     @if(has_post_thumbnail($post && isset($post->ID) ? $post->ID : '') &&
     isset(wp_get_attachment_metadata(get_post_thumbnail_id($post && isset($post->ID) ? $post->ID :
@@ -23,7 +23,7 @@
       @endif
 
 
-      <h2 class="max-w-3xl font-serif text-6xl text-blue">
+      <h2 class="max-w-3xl font-serif text-5xl xl:text-6xl text-blue">
         {!! $title !!}
       </h2>
 

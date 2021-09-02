@@ -1,5 +1,5 @@
 <article @php(post_class())>
-  <div class="container max-w-5xl mx-auto mb-32">
+  <div class="container mx-auto mb-32 xl:max-w-5xl">
 
     <div class="w-full mt-12 lg:w-3/4">
 

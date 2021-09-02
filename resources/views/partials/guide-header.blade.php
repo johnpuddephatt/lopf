@@ -3,7 +3,7 @@
   <div
     class="container relative z-10 flex flex-col-reverse items-center gap-4 px-4 mx-auto max-w-7xl min-h-header-sm lg:min-h-header md:gap-8 md:flex-row">
 
-    <div class="max-w-5xl pb-28 md:flex-1 md:pb-40 md:my-auto">
+    <div class="xl:max-w-5xl pb-28 md:flex-1 md:pb-40 md:my-auto">
       @if(isset($parent))
       <a class="inline-flex items-center pb-2 mb-8 text-xl font-extrabold border-b-4 md:text-3xl text-violet-200 border-violet-300"
         href="{{ $parent->permalink}}">{{ $parent->title}}</a>

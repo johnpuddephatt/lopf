@@ -26,13 +26,13 @@ class Nav extends Composer
         if($this->view->name() == 'partials.site-header') {
             return [
                 'primaryNavigation' => $this->navigation('primary_navigation', [
-                    'menu_class' => 'flex flex-col lg:flex-row'
+                    'menu_class' => 'flex flex-col md:flex-row'
                 ], [
                     'level-0-link' => 'hover:border-blue',
                     'level-1-link' => 'text-lg'
                 ]),
                 'secondaryNavigation' => $this->navigation('secondary_navigation', [
-                    'menu_class' => 'flex flex-col lg:flex-row'
+                    'menu_class' => 'flex flex-col md:flex-row'
                 ]),
             ];
         }

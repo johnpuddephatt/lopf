@@ -1,7 +1,7 @@
 <article @php(post_class())>
 
 
-    <div class="container max-w-5xl pb-32 mx-auto">
+    <div class="container pb-32 mx-auto xl:max-w-5xl">
 
         <div class="flex flex-col gap-8 md:gap-16 lg:flex-row-reverse">
 
