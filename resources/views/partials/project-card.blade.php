@@ -13,7 +13,7 @@
 
         <p class="font-extrabold mb-3 text-xl @if($key % 2 == 0) text-orange-400 @else text-violet-200 @endif">Project.
         </p>
-        <x-heading size="3" class=" md:mb-10 xl:text-4xl 2xl:text-5xl">{{ $project->post_title }}</x-heading>
+        <x-heading size="3" class="md:mb-10 xl:text-4xl 2xl:text-5xl">{{ $project->post_title }}</x-heading>
         <p class="hidden mt-4 mb-2 text-sm md:block md:text-base">{{ $project->post_excerpt }}</p>
         <p class="font-extrabold inline-flex items-center text-xl @if($key % 2 == 0) text-orange-400 @else text-violet-200 @endif lowercase hover:text-white "
             title="read more">

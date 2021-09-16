@@ -366,9 +366,7 @@ add_image_size( 'square-xs', 320, 320, true );
 
 
 add_filter('pre_get_posts',function ($query) {
-   if ($query->is_search) {
-
-
+   if ($query->is_search && isset($_GET['post_resourcetype'])) {
     $query->set( 'tax_query', [
         [
             'taxonomy' => 'resourcetype',
