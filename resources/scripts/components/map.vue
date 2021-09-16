@@ -32,7 +32,7 @@
           <l-tile-layer :url="url" :attribution="attribution" />
           <l-marker
             :ref="`${group.slug}-marker`"
-            v-for="group in groups"
+            v-for="group in filteredGroups"
             :key="group.slug"
             @click="scrollTo(group.slug)"
             :lat-lng="[group.address.lat, group.address.lng]"
@@ -68,7 +68,11 @@
           </p>
           <h3 class="font-bold">{{ group.title.rendered }}</h3>
 
-          <div class="text-xs" v-html="group.address.address"></div>
+          <div
+            class="text-xs"
+            v-if="group.address"
+            v-html="group.address.address"
+          ></div>
         </a>
 
         <div class="p-4 rounded" v-if="!filteredList.length">
