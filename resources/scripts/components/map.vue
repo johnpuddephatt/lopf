@@ -32,7 +32,7 @@
           <l-tile-layer :url="url" :attribution="attribution" />
           <l-marker
             :ref="`${group.slug}-marker`"
-            v-for="group in filteredGroups"
+            v-for="group in filteredList"
             :key="group.slug"
             @click="scrollTo(group.slug)"
             :lat-lng="[group.address.lat, group.address.lng]"
