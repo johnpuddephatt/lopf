@@ -142,7 +142,7 @@ export default {
   computed: {
     filteredList() {
       let groupsWithAddress = this.groups.filter(group => {
-        return group.address.lat && group.address.lng;
+        return group.address;
       });
       if (!this.search) {
         return groupsWithAddress;
