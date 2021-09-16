@@ -175,7 +175,7 @@ export default {
   },
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;
-    let cinemas = fetch(`/wp-json/wp/v2/${this.type}`)
+    let cinemas = fetch(`/wp-json/wp/v2/${this.type}?per_page=100`)
       .then(response => response.json())
       .then(data => (this.groups = data));
   },
