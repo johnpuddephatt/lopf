@@ -81,13 +81,21 @@
       </div>
     </div>
     <div v-else class="container max-w-5xl my-4">
+      <div class="mt-8">
+        <input
+          class="w-full max-w-xl px-3 py-2 text-xl leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
+          type="text"
+          v-model="search"
+          placeholder="Search by name.."
+        />
+      </div>
       <a
         :ref="`${group.slug}-sidebar`"
         :href="group.link"
         :key="group.slug"
         class="block py-8"
         :class="{ 'bg-sky-light': selected == group.slug }"
-        v-for="group in groups"
+        v-for="group in filteredList"
       >
         <h3 class="text-xl font-bold">
           {{ group.title.rendered }}
@@ -148,6 +156,7 @@ export default {
       let groupsWithAddress = this.groups.filter(group => {
         return group.address;
       });
+      console.log(groupsWithAddress);
       if (!this.search) {
         return groupsWithAddress;
       } else {
