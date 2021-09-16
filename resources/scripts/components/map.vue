@@ -141,10 +141,13 @@ export default {
   },
   computed: {
     filteredList() {
+      let groupsWithAddress = this.groups.filter(group => {
+        return group.address.lat && group.address.lng;
+      });
       if (!this.search) {
-        return this.groups;
+        return groupsWithAddress;
       } else {
-        return this.groups.filter(group => {
+        return groupsWithAddress.filter(group => {
           return (
             group.title.rendered
               .toLowerCase()
