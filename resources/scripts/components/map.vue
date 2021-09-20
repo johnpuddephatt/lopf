@@ -179,7 +179,7 @@ export default {
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;
     let cinemas = fetch(
-      `/wp-json/wp/v2/${this.type}?filter[orderby]=title&per_page=100`
+      `/wp-json/wp/v2/${this.type}?filter[orderby]=title&per_page=100&order=asc`
     )
       .then(response => response.json())
       .then(data => (this.groups = data));
