@@ -66,7 +66,7 @@
           >
             Neighbourhood network
           </p>
-          <h3 class="font-bold">{{ group.title.rendered }}</h3>
+          <h3 class="font-bold" v-html="group.title.rendered"></h3>
 
           <div
             class="text-xs"
@@ -95,10 +95,10 @@
         :key="group.slug"
         class="block py-8"
         :class="{ 'bg-sky-light': selected == group.slug }"
-        v-for="group in filteredList"
+        v-for="group in groups"
       >
         <h3 class="text-xl font-bold">
-          {{ group.title.rendered }}
+          <span v-html="group.title.rendered"></span>
           <p
             v-if="group.neighbourhood_network"
             class="inline-block px-2 pt-0.5 ml-3 text-base font-normal rounded-lg bg-blue-lightest"
@@ -107,7 +107,11 @@
           </p>
         </h3>
 
-        <div class="text" v-html="group.address.address"></div>
+        <div
+          class="text"
+          v-if="group.address"
+          v-html="group.address.address"
+        ></div>
       </a>
     </div>
   </div>
@@ -156,7 +160,6 @@ export default {
       let groupsWithAddress = this.groups.filter(group => {
         return group.address;
       });
-      console.log(groupsWithAddress);
       if (!this.search) {
         return groupsWithAddress;
       } else {
@@ -175,7 +178,9 @@ export default {
   },
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;
-    let cinemas = fetch(`/wp-json/wp/v2/${this.type}?per_page=100`)
+    let cinemas = fetch(
+      `/wp-json/wp/v2/${this.type}?filter[orderby]=title&per_page=100`
+    )
       .then(response => response.json())
       .then(data => (this.groups = data));
   },
