@@ -379,6 +379,10 @@ add_filter('pre_get_posts',function ($query) {
    return $query;
 });
 
+add_filter( 'post_type_link', function (  $url, $post, $leavename ) {    
+    return wp_make_link_relative($url);
+}, 10, 3 );
+
 add_filter( 'page_link', function (  $url, $post, $leavename ) {    
     return wp_make_link_relative($url);
 }, 10, 3 );
