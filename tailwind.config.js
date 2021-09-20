@@ -97,6 +97,11 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
+            a: {
+              color: theme('colors.blue.DEFAULT'),
+              textDecorationColor: theme('colors.blue.lightest'),
+              textDecorationThickness: '3px',
+            },
             hr: {
               borderTopColor: null,
             },
