@@ -110,3 +110,18 @@ hr,
     padding: 0 8% 0 8%;
   }
 }
+
+.wp-block-button .wp-block-button__link {
+  @apply text-blue text-lg rounded-full bg-sky no-underline py-3 px-8 border-blue-light hover:border-blue border;
+}
+
+details {
+  @apply m-4 border border-blue;
+
+  > div {
+    @apply border-t border-blue;
+  }
+}
+summary {
+  @apply bg-sky py-3 px-4 -m-4 text-blue;
+}
