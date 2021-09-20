@@ -1,5 +1,5 @@
 <article @php(post_class('bg-purple-hexagons bg-no-repeat bg-1/2 bg-left-bottom'))>
-  <div class="container max-w-5xl pb-32 mx-auto">
+  <div class="container max-w-5xl pb-16 mx-auto">
     <div class="flex flex-col gap-8 md:gap-16 lg:flex-row-reverse">
 
       <div class="max-w-screen-sm pt-8 md:pt-12 lg:w-1/4">
@@ -33,35 +33,41 @@
       </div>
 
     </div>
+  </div>
 
-    @if( $posts )
-    <div id="project-posts" class="pt-16 mb-12">
-      <h2 class="text-3xl font-bold text-blue">Updates</h2>
-      <p class="mt-4 mb-16">The latest articles about <strong>{{ the_title() }}</strong></p>
-      @foreach($posts as $related_post)
-      @include('partials.post-card', ['post_id' => $related_post->ID])
-      @endforeach
+  @if( $posts )
+  <div class="border-t bg-gray-50">
+    <div class="container max-w-5xl pb-16 mx-auto ">
+      <div id="project-posts" class="pt-16 ">
+        <h2 class="text-3xl font-bold text-blue">Project updates</h2>
+        <p class="mt-4 mb-16">The latest articles about <strong>{{ the_title() }}</strong></p>
+        @foreach($posts as $related_post)
+        @include('partials.post-card', ['post_id' => $related_post->ID])
+        @endforeach
 
-      <div class="mt-16 text-center">
-        <x-button href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}?project={{ $post->post_name }}">View
-          all {{ $post->post_title }} updates
-        </x-button>
+        <div class="mt-16 text-center">
+          <x-button href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}?project={{ $post->post_name }}">View
+            all {{ $post->post_title }} updates
+          </x-button>
+        </div>
       </div>
     </div>
-    @endif
-
-    @if( $resources)
-    <div class="pt-16" id="project-resources">
-      <h2 class="text-3xl font-bold text-blue">Resources</h2>
-      <p class="mt-4 mb-8">Reports and files relating to <strong>{{ the_title() }}</strong></p>
-
-      @foreach($resources as $resource)
-      @include('partials.project-resource-card')
-      @endforeach
-
-    </div>
-    @endif
-
   </div>
+  @endif @if( $resources)
+  <div class="border-t">
+    <div class="container max-w-5xl pb-12 mx-auto">
+      <div class="pt-16" id="project-resources">
+        <h2 class="text-3xl font-bold text-blue">Related resources</h2>
+        <p class="mt-4 mb-8">Reports and files relating to <strong>{{ the_title() }}</strong></p>
+
+        @foreach($resources as $resource)
+        @include('partials.project-resource-card')
+        @endforeach
+
+      </div>
+    </div>
+  </div>
+  @endif
+
 
 </article>

@@ -6,3 +6,5 @@ has-purple-background-color
 has-light-purple-background-color
 has-orange-background-color
 has-light-orange-background-color
+border-blue
+border-blue-light
