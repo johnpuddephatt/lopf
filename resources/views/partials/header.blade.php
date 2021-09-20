@@ -1,5 +1,5 @@
 <div>
-  <div class="container max-w-3xl mt-12">
+  <div class="container max-w-3xl mb-16 mt-36 ">
 
     <h2 class="font-serif text-6xl text-blue">
       {!! $title !!}

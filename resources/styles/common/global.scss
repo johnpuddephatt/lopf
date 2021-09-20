@@ -121,7 +121,16 @@ hr,
 
 details {
   @apply mb-4 p-4 border border-blue;
+
+  > div {
+    @apply pt-6;
+  }
 }
 summary {
   @apply bg-sky py-3 px-4 -m-4 text-blue cursor-pointer text-lg;
+}
+
+cite p::before,
+cite p::after {
+  content: none;
 }
