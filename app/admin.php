@@ -803,6 +803,8 @@ add_action('customize_preview_init', function () {
     wp_enqueue_script('sage/customizer.js', asset('scripts/customizer.js')->uri(), ['customize-preview'], null, true);
 });
 
+if(class_exists('\Kirki')) {
+
 \Kirki::add_config( 'theme_config_id', array(
 	'capability'    => 'edit_theme_options',
 	'option_type'   => 'option',
@@ -850,3 +852,5 @@ $pages = array_reduce(
       'limit' => 4
     ],
   ] );
+
+}
