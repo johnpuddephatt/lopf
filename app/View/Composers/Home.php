@@ -19,33 +19,53 @@ class Home extends Composer
     ];
 
     public function with() {
+
         return [
-            "title" => get_theme_mod('home_hero_title'),
-            "subtitle" => get_theme_mod('home_hero_subtitle'),
+            "hero_title" => get_theme_mod('home_hero_title'),
+            "hero_subtitle" => get_theme_mod('home_hero_subtitle'),
             "hero_image" => wp_get_attachment_image(get_theme_mod('home_hero_image'), 'square', false, [
                'class' => 'w-full clip-teardrop',
                'sizes' => '(orientation: portrait) 100vw, 50vw'
             ]),
-            "case_study_image" => wp_get_attachment_image(get_theme_mod('home_case_study_image'), 'square', false, [
-               'class' => 'absolute right-0 w-3/4 md:w-1/2 clip-hexagon md:-bottom-32',
-               'sizes' => '(orientation: portrait) 80vw, 50vw'
+
+            "announcement_title" => get_theme_mod('home_announcement_title'),
+            "announcement_text" => get_theme_mod('home_announcement_text'),
+            "announcement_link" => get_theme_mod('home_announcement_link'),
+            "announcement_linktext" => get_theme_mod('home_announcement_linktext'),
+            "announcement_enabled" => get_theme_mod('home_announcement_enabled'),
+
+            "groups_title" => get_theme_mod('home_groups_title'),
+            "groups_description" => get_theme_mod('home_groups_description'),
+            "groups_enabled" => get_theme_mod('home_groups_enabled'),
+
+            "blocks_enabled" => get_theme_mod('home_blocks_enabled'),
+            "blocks" => get_posts([
+            'post_type' => 'any',
+            'numberposts' => '4',
+            'include' => array_reduce(
+                get_option('home_blocks')['blocks'],
+                    function( $result, $item ) {
+                        $result[] = intval($item['item']);
+                        return $result;
+                    }
+                )
             ]),
-            "projects" => get_option('home_projects') ? get_posts([
-                'post_type' => 'project',
-                'orderby' => 'post__in',
-                'include' => array_reduce(
-                                get_option('home_projects')['projects'],
-                                    function( $result, $item ) {
-                                        $result[] = $item['page'];
-                                        return $result;
-                                    }
-                                ),
-                'numberposts' => 4
-    
-            ]) : [],
-           "posts" => get_posts([
+
+            "research_title" => get_theme_mod('home_research_title'),
+            "research_description" => get_theme_mod('home_research_description'),
+            "research_enabled" => get_theme_mod('home_research_enabled'),
+
+            "join_pretitle" => get_theme_mod('home_join_pretitle'),
+            "join_title" => get_theme_mod('home_join_title'),
+            "join_enabled" => get_theme_mod('home_join_enabled'),
+            "join_image" => wp_get_attachment_image(get_theme_mod('home_join_image'), 'twothirds', false, [
+               'class' => 'w-full',
+               'sizes' => '(orientation: portrait) 100vw, 30vw'
+            ]),
+
+            "posts" => get_posts([
                 'post_type' => 'post',
-                'numberposts' => 3
+                'numberposts' => 4
             ])
         ];
     }

@@ -386,3 +386,43 @@ add_filter( 'post_type_link', function (  $url, $post, $leavename ) {
 add_filter( 'page_link', function (  $url, $post, $leavename ) {    
     return wp_make_link_relative($url);
 }, 10, 3 );
+
+
+if( is_admin() ) {
+    // LETS REMOVE THE HTML FILTERING
+    remove_filter( 'pre_term_description', 'wp_filter_kses' );
+    remove_filter( 'term_description', 'wp_kses_data' );
+    // LETS ADD OUR NEW CAT DESCRIPTION BOX
+    add_filter('resourcekeylearning_edit_form_fields', function ($tag) {
+        ?>
+        <table class="form-table">
+            <tr class="form-field">
+                <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
+                <td>
+                <?php
+                    $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );  
+            wp_editor(html_entity_decode($tag->description , ENT_QUOTES, 'UTF-8'), 'description1', $settings);
+                ?>
+                <br />
+                <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
+                </td>
+            </tr>
+        </table>
+        <?php
+    });
+
+    // HIDE THE DEFAULT CAT DESCRIPTION BOX USING JQUERY
+    add_action('admin_head', function () {
+        global $current_screen;
+        if ( $current_screen->id == 'edit-resourcekeylearning' )
+        {
+        ?>
+            <script type="text/javascript">
+            jQuery(function($) {
+                $('textarea#description').closest('tr.form-field').remove();
+            });
+            </script>
+        <?php
+        }
+    });
+}

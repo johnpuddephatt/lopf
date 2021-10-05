@@ -127,30 +127,6 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ]);
 
 
-
-
-
-    $wp_customize->add_section(
-      'home_projects',
-      array(
-          'title' => 'Projects',
-          'description' => '',
-          'priority' => 15,
-          'panel'=>'home_panel',
-        )
-    );
-
-    $wp_customize->add_setting(
-        'home_projects',
-        
-        array(
-            'transport' => 'refresh',
-            'default' => '',
-          'sanitize_callback' => 'absint'
-        )
-    );
-
-
     /*
     ** Contact details
     */
@@ -468,6 +444,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
       }
     ]);
 
+    // Company info
     $wp_customize->get_setting('company_info')->transport = 'postMessage';
 
     $wp_customize->add_control(
@@ -480,13 +457,216 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     )
     );
 
-
-    // Home hero 
+    // Home announcement 
 
     $wp_customize->add_section(
-      'home_case_study',
+      'home_announcement',
       array(
-          'title' => 'Case study',
+          'title' => 'Announcement',
+          'description' => 'A simple announcement. Let people know what’s happening – a new job vacancy, an award won etc.',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+    $wp_customize->add_setting(
+        'home_announcement_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_announcement_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_announcement',
+      'settings' => 'home_announcement_enabled',
+    )
+    );
+
+
+    $wp_customize->add_setting(
+        'home_announcement_title',
+      array(
+        'transport' => 'refresh',
+        'default' => 'Announcement'
+      )
+    );
+
+    $wp_customize->add_control(
+    'home_announcement_title',
+    array(
+      'type' => 'text',
+      'label' => 'Title',
+      'section' => 'home_announcement',
+      'settings' => 'home_announcement_title',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_announcement_text'
+    );
+
+    $wp_customize->add_control(
+    'home_announcement_text',
+    array(
+      'type' => 'textarea',
+      'label' => 'Description',
+      'section' => 'home_announcement',
+      'settings' => 'home_announcement_text',
+    )
+    );
+
+    $wp_customize->add_setting(
+      'home_announcement_link'
+    );
+
+    $wp_customize->add_control(
+    'home_announcement_link',
+    array(
+      'type' => 'text',
+      'label' => 'Link (URL)',
+      'section' => 'home_announcement',
+      'settings' => 'home_announcement_link',
+    )
+    );
+
+    $wp_customize->add_setting(
+      'home_announcement_linktext',
+      array(
+        'transport' => 'refresh',
+        'default' => 'Read more'
+      )
+    );
+
+    $wp_customize->add_control(
+    'home_announcement_linktext',
+    array(
+      'type' => 'text',
+      'label' => 'Link text',
+      'section' => 'home_announcement',
+      'settings' => 'home_announcement_linktext',
+    )
+    );
+
+
+     // Home 'groups' section 
+
+    $wp_customize->add_section(
+      'home_groups',
+      array(
+          'title' => 'Groups',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+       $wp_customize->add_setting(
+        'home_groups_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_groups_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_groups',
+      'settings' => 'home_groups_enabled',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_groups_title'
+    );
+
+    $wp_customize->add_control(
+    'home_groups_title',
+    array(
+      'type' => 'text',
+      'label' => 'Title',
+      'section' => 'home_groups',
+      'settings' => 'home_groups_title',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_groups_description',
+      array(
+        'transport' => 'refresh',
+        'default' => 'Discover local community groups across Leeds'
+      )
+    );
+
+    $wp_customize->add_control(
+    'home_groups_description',
+    array(
+      'type' => 'textarea',
+      'label' => 'Description',
+      'section' => 'home_groups',
+      'settings' => 'home_groups_description',
+    )
+    );
+
+        // Home 'research' section 
+
+    $wp_customize->add_section(
+      'home_research',
+      array(
+          'title' => 'Resources',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+           $wp_customize->add_setting(
+        'home_research_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_research_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_research',
+      'settings' => 'home_research_enabled',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_research_title'
+    );
+
+    $wp_customize->add_control(
+    'home_research_title',
+    array(
+      'type' => 'text',
+      'label' => 'Title',
+      'section' => 'home_research',
+      'settings' => 'home_research_title',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_research_description'
+    );
+
+    $wp_customize->add_control(
+    'home_research_description',
+    array(
+      'type' => 'textarea',
+      'label' => 'Description',
+      'section' => 'home_research',
+      'settings' => 'home_research_description',
+    )
+    );
+
+    // Home 'join' section 
+
+    $wp_customize->add_section(
+      'home_join',
+      array(
+          'title' => 'Join us',
           'description' => '',
           'priority' => 25,
           'panel'=>'home_panel',
@@ -494,57 +674,118 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     );
 
     $wp_customize->add_setting(
-        'home_case_study_image'
+      'home_join_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_join_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_join',
+      'settings' => 'home_join_enabled',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_join_image'
     );
 
     $wp_customize->add_control(
         new \WP_Customize_Media_Control(
           $wp_customize,
-          'home_case_study_image',
+          'home_join_image',
           array(
             'label' => 'Image',
-            'section' => 'home_case_study',
-            'settings' => 'home_case_study_image',
+            'section' => 'home_join',
+            'settings' => 'home_join_image',
             'transport' => 'postMessage'
           )
         )
     );
 
     $wp_customize->add_setting(
-        'home_case_study_text',
-        array(          
-          'sanitize_callback' => 'sanitize_textarea_field',
-          'transport' => 'postMessage'
-        )
+        'home_join_pretitle'
     );
 
     $wp_customize->add_control(
-    'home_case_study_text',
+    'home_join_pretitle',
     array(
-      'type' => 'textarea',
-      'label' => 'Case study text',
-      'section' => 'home_case_study',
-      'settings' => 'home_case_study_text',
+      'type' => 'text',
+      'label' => 'Pre-title',
+      'section' => 'home_join',
+      'settings' => 'home_join_pretitle',
     )
     );
 
     $wp_customize->add_setting(
-        'home_case_study_name',
-        array(          
-          'sanitize_callback' => 'sanitize_text_field',
-          'transport' => 'postMessage'
-        )
+        'home_join_title'
     );
 
     $wp_customize->add_control(
-    'home_case_study_name',
+    'home_join_title',
     array(
-      'type' => 'text',
-      'label' => 'Case study name',
-      'section' => 'home_case_study',
-      'settings' => 'home_case_study_name',
+      'type' => 'textarea',
+      'label' => 'Title',
+      'section' => 'home_join',
+      'settings' => 'home_join_title',
     )
     );
+
+    // Home 'blocks' section 
+
+    $wp_customize->add_setting(
+      'home_blocks_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_blocks_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_blocks',
+      'settings' => 'home_blocks_enabled',
+    )
+    );
+
+    $wp_customize->add_section(
+      'home_blocks',
+      array(
+          'title' => 'Configurable blocks',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+    // Home 'blog' section 
+
+    $wp_customize->add_section(
+      'home_blog',
+      array(
+          'title' => 'Blog',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+    $wp_customize->add_setting(
+      'home_blog_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_blog_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_blog',
+      'settings' => 'home_blog_enabled',
+    )
+    );
+
+
+
 
 
 
@@ -562,123 +803,50 @@ add_action('customize_preview_init', function () {
     wp_enqueue_script('sage/customizer.js', asset('scripts/customizer.js')->uri(), ['customize-preview'], null, true);
 });
 
-// \Kirki::add_config( 'theme_config_id', array(
-// 	'capability'    => 'edit_theme_options',
-// 	'option_type'   => 'option',
-// 	'option_name' => 'home_projects'
-// ) );
+\Kirki::add_config( 'theme_config_id', array(
+	'capability'    => 'edit_theme_options',
+	'option_type'   => 'option',
+	'option_name' => 'home_blocks'
+) );
 
-// $choices = array_reduce(
-//             get_posts( 'post_type=project&posts_per_page=-1' ),
-//             function( $result, $item ) {
-//                 $result[$item->ID] = $item->post_title;
-//                 return $result;
-//             }
-//         );
+$projects = array_reduce(
+            get_posts( 'post_type=project&posts_per_page=-1' ),
+            function( $result, $item ) {
+                $result[$item->ID] = $item->post_title;
+                return $result;
+            }
+        );
 
-// if($choices) {
+$pages = array_reduce(
+            get_posts( 'post_type=page&posts_per_page=-1' ),
+            function( $result, $item ) {
+                $result[$item->ID] = $item->post_title;
+                return $result;
+            }
+        );
 
-//   \Kirki::add_field( 'theme_config_id', [
-//     'type'        => 'repeater',
-//     'label'       => esc_attr__( 'Repeater Control', 'kirki' ),
-//     'section'     => 'home_projects',
-//     'priority'    => 10,
-//     'row_label' => [
-//       'type'  => 'field',
-//       'value' => esc_html__( 'Your Custom Value.', 'kirki' ),
-//       'field' => 'page',
-//     ],
-//     'settings'    => 'projects',
-//     'fields' => [
-//       'page' => [
-//         'type'        => 'select',
-//         // 'label'       => esc_html__( 'Link Text', 'kirki' ),
-//         'default'     => array_key_first($choices),
-//               'choices' => $choices
-//       ]
-//     ],
-//     'choices' => [
-//       'limit' => 3
-//     ],
-//   ] );
-// }
 
-// /**
-//  * Registers the control and whitelists it for JS templating.
-//  *
-//  * @since 1.0
-//  * @param WP_Customize_Manager $wp_customize The WP_Customize_Manager object.
-//  * @return void
-//  */
-// add_action( 'customize_register', function( $wp_customize ) {
-// 	$wp_customize->register_control_type( '\Kirki\Control\Repeater' );
-// } );
 
-// /**
-//  * Add Customizer settings & controls.
-//  * 
-//  * @since 1.0
-//  * @param WP_Customize_Manager $wp_customize The WP_Customize_Manager object.
-//  * @return void
-//  */
-// add_action( 'customize_register', function( $wp_customize ) {
 
-// 	// Add settings.
-// 	$wp_customize->add_setting( new \Kirki\Settings\Repeater( $wp_customize, 'my_repeater_setting', [
-// 		'default'           => [
-// 			[
-// 				'link_text'   => esc_html__( 'Kirki Site', 'theme_textdomain' ),
-// 				'link_url'    => 'https://aristath.github.io/kirki/',
-// 				'link_target' => '_self',
-// 			],
-// 			[
-// 				'link_text'   => esc_html__( 'Kirki Repository', 'theme_textdomain' ),
-// 				'link_url'    => 'https://github.com/aristath/kirki',
-// 				'link_target' => '_self',
-// 			],
-// 		],
-// 		'type'              => 'theme_mod',
-// 		'capability'        => 'edit_theme_options',
-// 		'transport'         => 'refresh',
-// 		'sanitize_callback' => function( $value ) { // Custom sanitization callback.
-// 			$value = ( is_array( $value ) ) ? $value : json_decode( urldecode( $value ), true );
-// 			$value = ( empty( $value ) || ! is_array( $value ) ) ? [] : $value;
-
-// 			foreach ( $value as $row_index => $row_data ) {
-// 				$value[ $row_index ]['link_text'] = isset( $row_data['link_text'] ) ? sanitize_text_field( $row_data['link_text'] ) : '';
-// 				$value[ $row_index ]['link_url'] = isset( $row_data['link_url'] ) ? esc_url( $row_data['link_url'] ) : '';
-// 				$value[ $row_index ]['link_target'] = isset( $row_data['link_target'] ) && in_array( $row_data['link_target'], [ '_self', '_blank', '_parent', '_top' ], true ) ? $row_data['link_target'] : '_self';
-// 			}
-// 		},
-// 	] ) );
-
-// 	// Add controls.
-// 	$wp_customize->add_control( new \Kirki\Control\Repeater( $wp_customize, 'my_repeater_setting', [
-// 		'label'   => esc_html__( 'My Control', 'theme_textdomain' ),
-// 		'section' => 'home_projects',
-// 		'fields'  => [
-// 			'link_text'   => [
-// 				'type'        => 'text',
-// 				'label'       => esc_html__( 'Link Text', 'theme_textdomain' ),
-// 				'description' => esc_html__( 'This will be the label for your link', 'theme_textdomain' ),
-// 				'default'     => '',
-// 			],
-// 			'link_url'    => [
-// 				'type'        => 'text',
-// 				'label'       => esc_html__( 'Link URL', 'theme_textdomain' ),
-// 				'description' => esc_html__( 'This will be the link URL', 'theme_textdomain' ),
-// 				'default'     => '',
-// 			],
-// 			'link_target' => [
-// 				'type'        => 'radio',
-// 				'label'       => esc_html__( 'Link Target', 'theme_textdomain' ),
-// 				'description' => esc_html__( 'This will be the link target', 'theme_textdomain' ),
-// 				'default'     => '_self',
-// 				'choices'     => [
-// 					'_blank' => esc_html__( 'New Window', 'theme_textdomain' ),
-// 					'_self'  => esc_html__( 'Same Frame', 'theme_textdomain' ),
-// 				],
-// 			],
-// 		],
-// 	] ) );
-// } );
+  \Kirki::add_field( 'theme_config_id', [
+    'type'        => 'repeater',
+    'label'       => esc_attr__( 'Repeater Control', 'kirki' ),
+    'section'     => 'home_blocks',
+    'priority'    => 10,
+    'row_label' => [
+      'type'  => 'field',
+      'value' => 'page',
+      'field' => 'item',
+    ],
+    'settings'    => 'blocks',
+    'fields' => [
+      'item' => [
+        'type'        => 'select',
+        'default'     => array_key_first($pages),
+        'choices' => ($pages + $projects)
+      ]
+    ],
+    'choices' => [
+      'limit' => 4
+    ],
+  ] );

@@ -23,7 +23,6 @@ module.exports = {
     },
     container: {
       center: true,
-
       padding: {
         DEFAULT: '1rem',
         sm: '1.5rem',
@@ -83,6 +82,7 @@ module.exports = {
     },
     extend: {
       borderRadius: {
+        big: '6em',
         giant: '12em',
       },
       borderWidth: {
