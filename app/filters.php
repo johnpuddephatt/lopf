@@ -20,7 +20,7 @@ add_filter('excerpt_length', function() {
 });
 
 add_filter('body_class', function($classes) {
-    return array_merge($classes, ['text-gray-700']);
+    return array_merge($classes, ['text-gray-700', 'bg-white']);
 });
 
 

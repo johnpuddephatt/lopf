@@ -66,7 +66,11 @@ class Home extends Composer
             "posts" => get_posts([
                 'post_type' => 'post',
                 'numberposts' => 4
-            ])
+            ]),
+
+            "signup_title" => get_theme_mod('home_signup_title'),
+            "signup_buttontext" => get_theme_mod('home_signup_buttontext'),
+            "signup_enabled" => get_theme_mod('home_signup_enabled'),
         ];
     }
 

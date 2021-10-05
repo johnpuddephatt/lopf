@@ -607,7 +607,62 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     )
     );
 
-        // Home 'research' section 
+
+
+
+    // Home 'blocks' section 
+
+    $wp_customize->add_setting(
+      'home_blocks_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_blocks_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_blocks',
+      'settings' => 'home_blocks_enabled',
+    )
+    );
+
+    $wp_customize->add_section(
+      'home_blocks',
+      array(
+          'title' => 'Configurable blocks',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+    // Home 'blog' section 
+
+    $wp_customize->add_section(
+      'home_blog',
+      array(
+          'title' => 'Blog',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
+
+    $wp_customize->add_setting(
+      'home_blog_enabled'
+    );
+
+    $wp_customize->add_control(
+    'home_blog_enabled',
+    array(
+      'type' => 'checkbox',
+      'label' => 'Enabled',
+      'section' => 'home_blog',
+      'settings' => 'home_blog_enabled',
+    )
+    );
+
+            // Home 'research' section 
 
     $wp_customize->add_section(
       'home_research',
@@ -661,7 +716,9 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     )
     );
 
-    // Home 'join' section 
+
+
+        // Home 'join' section 
 
     $wp_customize->add_section(
       'home_join',
@@ -732,55 +789,57 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     )
     );
 
-    // Home 'blocks' section 
+    // Home 'newsletter' section 
+
+    $wp_customize->add_section(
+      'home_signup',
+      array(
+          'title' => 'Newsletter signup',
+          'description' => '',
+          'priority' => 25,
+          'panel'=>'home_panel',
+        )
+    );
 
     $wp_customize->add_setting(
-      'home_blocks_enabled'
+      'home_signup_enabled'
     );
 
     $wp_customize->add_control(
-    'home_blocks_enabled',
+    'home_signup_enabled',
     array(
       'type' => 'checkbox',
       'label' => 'Enabled',
-      'section' => 'home_blocks',
-      'settings' => 'home_blocks_enabled',
+      'section' => 'home_signup',
+      'settings' => 'home_signup_enabled',
     )
     );
 
-    $wp_customize->add_section(
-      'home_blocks',
-      array(
-          'title' => 'Configurable blocks',
-          'description' => '',
-          'priority' => 25,
-          'panel'=>'home_panel',
-        )
-    );
-
-    // Home 'blog' section 
-
-    $wp_customize->add_section(
-      'home_blog',
-      array(
-          'title' => 'Blog',
-          'description' => '',
-          'priority' => 25,
-          'panel'=>'home_panel',
-        )
-    );
-
     $wp_customize->add_setting(
-      'home_blog_enabled'
+        'home_signup_title'
     );
 
     $wp_customize->add_control(
-    'home_blog_enabled',
+    'home_signup_title',
     array(
-      'type' => 'checkbox',
-      'label' => 'Enabled',
-      'section' => 'home_blog',
-      'settings' => 'home_blog_enabled',
+      'type' => 'textarea',
+      'label' => 'Title',
+      'section' => 'home_signup',
+      'settings' => 'home_signup_title',
+    )
+    );
+
+    $wp_customize->add_setting(
+        'home_signup_buttontext'
+    );
+
+    $wp_customize->add_control(
+    'home_signup_buttontext',
+    array(
+      'type' => 'text',
+      'label' => 'Button text',
+      'section' => 'home_signup',
+      'settings' => 'home_signup_buttontext',
     )
     );
 
