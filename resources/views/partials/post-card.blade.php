@@ -1,6 +1,6 @@
 <a href="{{ get_permalink($post_id ?? null) }}" @php(post_class('flex items-center flex-row justify-between body-font
     max-w-3xl'))>
-    @if(!$hide_circles)
+    @if(!isset($hide_circles) || !$hide_circles)
     <div class="flex-none hidden mr-12 rounded-full lg:block h-36 w-36 bg-orange-lightest"></div>
     @endif
     <div class="pl-6 border-l-8 border-orange">

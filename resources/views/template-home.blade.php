@@ -12,7 +12,8 @@
 
       <div class="max-w-4xl pb-24 md:flex-1 lg:pb-0">
 
-        <h2 class="text-4xl font-bold leading-none 2xl:text-5xl lg:leading-none lg:text-6xl text-purple">{!! $hero_title
+        <h2 class="text-4xl font-bold leading-none 2xl:text-6xl lg:leading-none lg:text-5xl text-purple">
+          {!! $hero_title
           !!}</h2>
 
         <p class="mt-8 text-xl antialiased font-semibold text-max-w-xl">{!! $hero_subtitle
