@@ -84,11 +84,15 @@
     <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">Latest posts</h2>
     <div class="grid grid-cols-1 gap-16 mt-16 lg:grid-cols-2">
       @foreach($posts as $post)
-      @include('partials.post-card', ['hide_circles' => true])
+      @include('partials.post-card', [
+      'hide_circles' => true,
+      'post_id' => $post->ID
+      ])
       @endforeach
     </div>
     <div class="mt-16 text-center">
-      <a href="/" class="inline-block px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
+      <a href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}"
+        class="inline-block px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
         See all posts
       </a>
     </div>

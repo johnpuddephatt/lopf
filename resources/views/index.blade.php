@@ -14,7 +14,7 @@
   {!! get_search_form(false) !!}
   @endif
 
-  <div class="space-y-8">
+  <div class="space-y-8 xl:space-y-16">
     @while(have_posts()) @php(the_post())
     @include('partials.post-card')
     @endwhile
