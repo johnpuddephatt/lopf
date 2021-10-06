@@ -14,10 +14,11 @@
   {!! get_search_form(false) !!}
   @endif
 
-
-  @while(have_posts()) @php(the_post())
-  @include('partials.post-card')
-  @endwhile
+  <div class="space-y-8">
+    @while(have_posts()) @php(the_post())
+    @include('partials.post-card')
+    @endwhile
+  </div>
 
   {!! get_the_posts_navigation() !!}
 </div>
