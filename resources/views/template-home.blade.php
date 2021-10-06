@@ -68,8 +68,10 @@
 
     @foreach($blocks as $block)
     <div class="flex flex-col space-y-8">
-      {!! get_the_post_thumbnail($block->ID, 'twothirds', ['class' => "rounded rounded-tr-big"]) !!}
-      <h3 class="text-3xl font-bold leading-tight text-purple">{!! get_the_title($block->ID) !!}</h3>
+      <a href="{{ get_permalink($block->ID) }}">{!! get_the_post_thumbnail($block->ID, 'twothirds', ['class' => "rounded
+        rounded-tr-big"]) !!}</a>
+      <h3 class="text-3xl font-bold leading-tight text-purple"><a href="{{ get_permalink($block->ID) }}">{!!
+          get_the_title($block->ID) !!}</a></h3>
       <div>
         {!! wp_trim_words(get_the_excerpt($block->ID), 30) !!}
       </div>
