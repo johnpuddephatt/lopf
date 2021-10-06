@@ -101,7 +101,7 @@
   </div>
 
   @if($research_enabled)
-  <div class="container flex flex-col-reverse items-center space-y-8 lg:space-x-8 lg:space-y-0 lg:flex-row max-w-7xl">
+  <div class="container flex flex-col-reverse items-center max-w-5xl space-y-8 lg:space-x-8 lg:space-y-0 lg:flex-row">
     <div class="flex flex-col items-start flex-1 space-y-6 ">
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $research_title !!}</h2>
       <p>{!! $research_description !!}</p>
