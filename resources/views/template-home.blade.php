@@ -129,7 +129,7 @@
         </a>
       </div>
       <div
-        class="relative flex-none max-w-xs mb-16 ml-auto -mr-16 lg:w-3/5 lg:mb-0 lg:max-w-none lg:ml-16 pattern pattern--alt">
+        class="relative flex-none max-w-xs mb-16 ml-auto -mr-16 lg:w-1/2 lg:mb-0 lg:max-w-none lg:ml-16 pattern pattern--alt">
         {!! $join_image !!}
       </div>
     </div>
