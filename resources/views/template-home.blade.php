@@ -71,7 +71,7 @@
       {!! get_the_post_thumbnail($block->ID, 'twothirds', ['class' => "rounded rounded-tr-big"]) !!}
       <h3 class="text-3xl font-bold leading-tight text-purple">{!! get_the_title($block->ID) !!}</h3>
       <div>
-        {!! get_the_excerpt($block->ID) !!}
+        {!! wp_trim_words(get_the_excerpt($block->ID)) !!}
       </div>
       <a class="text-lg font-bold text-blue" href="{{ get_permalink($block->ID) }}">Read more</a>
     </div>
