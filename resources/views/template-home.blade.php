@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col pb-24 space-y-24 lg:mb-32 lg:space-y-32">
+<div class="flex flex-col pb-12 space-y-12 lg:mb-16 lg:space-y-16 2xl:mb-24 2xl:space-y-24">
   <div class="relative pr-8 bg-sky">
     <div
       class="container z-10 flex flex-col-reverse items-center pr-0 mx-auto max-w-7xl min-h-header-sm lg:min-h-header md:flex-row">
