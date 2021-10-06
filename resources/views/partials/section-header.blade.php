@@ -20,7 +20,7 @@
     isset(wp_get_attachment_metadata(get_post_thumbnail_id($post->ID))['sizes']['twothirds']))
     <div class="relative flex-1 max-w-xs mb-16 ml-auto lg:mb-0 lg:max-w-none lg:ml-16 lg:-mr-16 pattern">
       {!! get_the_post_thumbnail(isset($post->ID) ? $post->ID : '', 'twothirds', ['class' => "
-      w-full
+      w-full rounded
       "]) !!}
     </div>
     @endif

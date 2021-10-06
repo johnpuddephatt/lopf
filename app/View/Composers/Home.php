@@ -59,7 +59,7 @@ class Home extends Composer
             "join_title" => get_theme_mod('home_join_title'),
             "join_enabled" => get_theme_mod('home_join_enabled'),
             "join_image" => wp_get_attachment_image(get_theme_mod('home_join_image'), 'twothirds', false, [
-               'class' => 'w-full',
+               'class' => 'w-full rounded',
                'sizes' => '(orientation: portrait) 100vw, 30vw'
             ]),
 
