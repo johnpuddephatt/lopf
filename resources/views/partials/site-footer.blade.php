@@ -6,7 +6,7 @@
         <div class="flex-shrink w-full mt-3 text-center md:text-left lg:w-1/4 md:w-1/2">
           <x-logo text="blue" background="white" />
         </div>
-        <div class="flex-shrink w-full mr-auto lg:pt-4 xl:w-1/3 md:w-1/4">
+        <div class="flex-shrink w-full mr-auto lg:pt-4 2xl:w-1/3 md:w-1/4">
           @if(get_theme_mod('contact_address'))
           <p class="mb-4 text-base site-footer--address contact-address">{!!
             nl2br(strip_tags(get_theme_mod('contact_address')))
@@ -30,13 +30,13 @@
 
         </div>
         @if(!empty($primaryNavigationFooter))
-        <div class="flex-shrink w-full text-xl xl:w-1/6 lg:w-1/5 md:w-1/4">
+        <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4 lg:ml-auto">
           {!! $primaryNavigationFooter !!}
         </div>
         @endif
 
         @if(!empty($secondaryNavigationFooter))
-        <div class="flex-shrink w-full text-xl xl:w-1/6 lg:w-1/5 md:w-1/4">
+        <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4">
           {!! $secondaryNavigationFooter !!}
         </div>
         @endif
