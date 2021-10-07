@@ -903,7 +903,7 @@ $pages = array_reduce(
     'fields' => [
       'item' => [
         'type'        => 'select',
-        'default'     => array_key_first($pages),
+        'default'     => $pages ? array_key_first($pages) : null,
         'choices' => ($pages + $projects)
       ]
     ],

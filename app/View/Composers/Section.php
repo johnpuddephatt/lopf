@@ -46,6 +46,8 @@ class Section extends Composer
     public function children() {
         global $post; 
 
+        if($post) {
+
         return get_posts([
             'post_type'        => 'page',
             'post_parent'    => $post->ID,
@@ -53,5 +55,6 @@ class Section extends Composer
             'order' => 'ASC',
             'numberposts' => -1
         ]);
+    }
     }
 }

@@ -20,6 +20,10 @@
 
         <p class="max-w-xl mt-8 text-lg font-medium leading-snug md:text-xl">{!!
           get_queried_object()->description !!}</p>
+
+        <div class="mt-8 prose">
+          {!!get_field('content', get_queried_object()->taxonomy . '_' . get_queried_object()->term_id) !!}
+        </div>
       </div>
 
       @svg('icons.' . get_field('icon', get_queried_object()->taxonomy . '_' . get_queried_object()->term_id),'w-48
@@ -31,10 +35,9 @@
 
         @if (! have_posts())
         <x-alert type="warning">
-          {!! __('Sorry, no results were found.', 'sage') !!}
+          {!! __('Sorry, no matching resources were found.', 'sage') !!}
         </x-alert>
 
-        {!! get_search_form(false) !!}
         @endif
         @while(have_posts()) @php(the_post())
         @include('partials.resource-card')

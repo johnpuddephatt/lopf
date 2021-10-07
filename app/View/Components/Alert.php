@@ -26,10 +26,10 @@ class Alert extends Component
      * @var array
      */
     public $types = [
-        'default' => 'text-indigo-50 bg-indigo-400',
-        'success' => 'text-green-50 bg-green-400',
-        'caution' => 'text-yellow-50 bg-yellow-400',
-        'warning' => 'text-red-50 bg-red-400',
+        'default' => 'py-4 text-white bg-blue-light border-l-8 border-blue shadow rounded    ',
+        'success' => 'py-4 text-black bg-sky-lightest border-l-8 border-sky shadow rounded',
+        'caution' => 'py-4 text-black bg-orange-lightest border-l-8 border-orange shadow rounded',
+        'warning' => 'py-4 text-black bg-pink-lightest border-l-8 border-pink shadow rounded',
     ];
 
     /**

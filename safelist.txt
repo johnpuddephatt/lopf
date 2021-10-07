@@ -8,3 +8,4 @@ has-orange-background-color
 has-light-orange-background-color
 border-blue
 border-blue-light
+border-sky

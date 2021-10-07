@@ -82,13 +82,7 @@ add_action('enqueue_block_editor_assets', function () {
  */
 add_action('after_setup_theme', function () {
 
-
     add_action( 'init', function(){
-
-        add_filter('acf/fields/google_map/api', function( $api ){
-            $api['key'] = env('GOOGLE_MAPS', 'AIzaSyAnc7Dwhlv93SenK1wFiQ-LW5dMTXydHKw');
-            return $api;
-        });
 
         function my_acf_init() {
             acf_update_setting('google_api_key', 'AIzaSyAnc7Dwhlv93SenK1wFiQ-LW5dMTXydHKw');
@@ -257,18 +251,6 @@ add_action('after_setup_theme', function () {
 
 add_post_type_support( 'page', 'excerpt' );
 
-add_filter( 'gettext', function ( $translation, $original )
-{
-	if ( 'Excerpt' == $original ) {
-		return 'Summary';
-	}else{
-		$pos = strpos($original, 'Excerpts are optional');
-		if ($pos !== false) {
-			return null;
-		}
-	}
-    return $translation;
-}, 10, 2 );
 
 
 /**
@@ -295,14 +277,6 @@ add_action('widgets_init', function () {
     ] + $config);
 });
 
-add_filter('pre_get_posts', function($query){
-    if ($query->is_search && !is_admin() ) {
-        if(isset($_GET['post_type'])) {
-            $query->set('post_type',[$_GET['post_type']]);
-        }       
-    }
-    return $query;
-});
 
 /*
  *
@@ -365,64 +339,3 @@ add_image_size( 'square-s', 640, 640, true );
 add_image_size( 'square-xs', 320, 320, true );
 
 
-add_filter('pre_get_posts',function ($query) {
-   if ($query->is_search && isset($_GET['post_resourcetype'])) {
-    $query->set( 'tax_query', [
-        [
-            'taxonomy' => 'resourcetype',
-            'field' => 'term_id',
-            'terms' => [intval($_GET['post_resourcetype'])],
-            'operator'=> 'IN'
-        ]
-    ] );
-   }
-   return $query;
-});
-
-add_filter( 'post_type_link', function (  $url, $post, $leavename ) {    
-    return wp_make_link_relative($url);
-}, 10, 3 );
-
-add_filter( 'page_link', function (  $url, $post, $leavename ) {    
-    return wp_make_link_relative($url);
-}, 10, 3 );
-
-
-if( is_admin() ) {
-    // LETS REMOVE THE HTML FILTERING
-    remove_filter( 'pre_term_description', 'wp_filter_kses' );
-    remove_filter( 'term_description', 'wp_kses_data' );
-    // LETS ADD OUR NEW CAT DESCRIPTION BOX
-    add_filter('resourcekeylearning_edit_form_fields', function ($tag) {
-        ?>
-        <table class="form-table">
-            <tr class="form-field">
-                <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
-                <td>
-                <?php
-                    $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );  
-            wp_editor(html_entity_decode($tag->description , ENT_QUOTES, 'UTF-8'), 'description1', $settings);
-                ?>
-                <br />
-                <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
-                </td>
-            </tr>
-        </table>
-        <?php
-    });
-
-    // HIDE THE DEFAULT CAT DESCRIPTION BOX USING JQUERY
-    add_action('admin_head', function () {
-        global $current_screen;
-        if ( $current_screen->id == 'edit-resourcekeylearning' )
-        {
-        ?>
-            <script type="text/javascript">
-            jQuery(function($) {
-                $('textarea#description').closest('tr.form-field').remove();
-            });
-            </script>
-        <?php
-        }
-    });
-}

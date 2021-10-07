@@ -55,8 +55,9 @@
     <div class="flex flex-col items-start space-y-6">
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $groups_title !!}</h2>
       <p>{!! $groups_description !!}</p>
-      <a href="/" class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
-        Search groups
+      <a href="/activities-and-services/find-a-group-or-neighbourhood-network/"
+        class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
+        Search groups and neighbourhood networks
       </a>
     </div>
   </div>
@@ -105,7 +106,8 @@
     <div class="flex flex-col items-start flex-1 space-y-6 ">
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $research_title !!}</h2>
       <p>{!! $research_description !!}</p>
-      <a href="/" class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
+      <a href="{{ get_permalink(get_option('page_for_resources')) }}"
+        class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
         Explore our resources
       </a>
     </div>
@@ -124,7 +126,8 @@
         <p class="max-w-xl text-4xl antialiased font-bold leading-none lg:text-6xl lg:leading-none text-sky">
           {!! $join_title !!}
         </p>
-        <a href="/" class="px-8 py-2 text-lg font-bold text-white lowercase border-2 border-white rounded-2xl">
+        <a href="/get-involved/become-a-member-organisation/"
+          class="px-8 py-2 text-lg font-bold text-white lowercase border-2 border-white rounded-2xl">
           Find out more
         </a>
       </div>

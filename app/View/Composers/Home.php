@@ -41,6 +41,7 @@ class Home extends Composer
             "blocks_enabled" => get_theme_mod('home_blocks_enabled'),
             "blocks" => get_posts([
             'post_type' => 'any',
+            'orderby' => 'post__in',
             'numberposts' => '4',
             'include' => array_reduce(
                 get_option('home_blocks')['blocks'],

@@ -2,12 +2,19 @@
 
 @section('content')
 
-@if(isset($_GET['all']))
+@if(isset($_GET['all']) || isset($_GET['resourceProjectID']))
 
 @php query_posts([
 'post_type' => 'resource',
 'order' => isset($_GET['order']) ? $_GET['order'] : 'ASC',
-'orderby' => isset($_GET['orderby']) ? $_GET['orderby'] : 'date'
+'orderby' => isset($_GET['orderby']) ? $_GET['orderby'] : 'date',
+'meta_query' => isset($_GET['resourceProjectID']) ? [
+[
+'key' => 'project',
+'value' => '"' . $_GET['resourceProjectID'] . '"',
+'compare' => 'LIKE'
+]
+] : null
 ]); @endphp
 
 
@@ -20,8 +27,14 @@
       <a class="" href="/resources">Resources</a>
     </div>
     <h2 class="max-w-3xl font-serif text-6xl text-blue">
+      @if(isset($_GET['resourceProjectID']))
+      {{ get_post($_GET['resourceProjectID'])->post_title }} resources
+      @else
       All resources
+      @endif
     </h2>
+
+    @if(!isset($_GET['resourceProjectID']))
     <div>
       <a href="?all&orderby=title&order=ASC"
         class="px-4 py-2 text-xl leading-loose rounded-full @if('?' . $_SERVER['QUERY_STRING'] == '?all&orderby=title&order=ASC') bg-blue text-white @else bg-sky-light @endif">Alphabetical</a>
@@ -29,6 +42,8 @@
         class="px-4 py-2 text-xl leading-loose rounded-full @if('?' . $_SERVER['QUERY_STRING'] == '?all&orderby=post_date&order=DESC') bg-blue text-white @else bg-sky-light @endif">Newest
         first</a>
     </div>
+    @endif
+
     @while(have_posts()) @php(the_post())
     @include('partials.resource-card')
     @endwhile

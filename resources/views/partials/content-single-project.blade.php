@@ -41,28 +41,40 @@
       <div id="project-posts" class="pt-16 ">
         <h2 class="text-3xl font-bold text-blue">Project updates</h2>
         <p class="mt-4 mb-16">The latest articles about <strong>{{ the_title() }}</strong></p>
+
         @foreach($posts as $related_post)
         @include('partials.post-card', ['post_id' => $related_post->ID])
         @endforeach
 
         <div class="mt-16 text-center">
-          <x-button href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}?project={{ $post->post_name }}">View
-            all {{ $post->post_title }} updates
+          <x-button href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}?postProjectID={{ $post->ID }}">
+            View all {{ $post->post_title }} updates
           </x-button>
         </div>
+
       </div>
     </div>
   </div>
-  @endif @if( $resources)
+  @endif
+
+  @if( $resources)
   <div class="border-t">
     <div class="container max-w-5xl pb-12 mx-auto">
       <div class="pt-16" id="project-resources">
         <h2 class="text-3xl font-bold text-blue">Related resources</h2>
         <p class="mt-4 mb-8">Reports and files relating to <strong>{{ the_title() }}</strong></p>
 
-        @foreach($resources as $resource)
-        @include('partials.project-resource-card')
-        @endforeach
+        <div class="space-y-4">
+          @foreach($resources as $resource)
+          @include('partials.project-resource-card')
+          @endforeach
+        </div>
+
+        <div class="mt-16 text-center">
+          <x-button href="{{ get_permalink( get_option( 'page_for_resources' ) ) }}?resourceProjectID={{ $post->ID }}">
+            View all {{ $post->post_title }} resources
+          </x-button>
+        </div>
 
       </div>
     </div>

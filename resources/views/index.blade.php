@@ -10,8 +10,6 @@
   <x-alert type="warning">
     {!! __('Sorry, no results were found.', 'sage') !!}
   </x-alert>
-
-  {!! get_search_form(false) !!}
   @endif
 
   <div class="space-y-8 xl:space-y-16">
