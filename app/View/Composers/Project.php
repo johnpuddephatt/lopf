@@ -39,7 +39,7 @@ class Project extends Composer
     }
 
     public function resources() {
-        return array_slice(get_field('resources'),0, 6);
+        return get_field('resources') ? array_slice(get_field('resources'),0, 6) : null;
     }
 
     public function posts() {
