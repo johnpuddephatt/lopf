@@ -182,6 +182,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
     gutenberg.colors,
     gutenberg.fontSizes,
     gutenberg.foregroundColors,

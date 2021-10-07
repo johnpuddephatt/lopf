@@ -43,6 +43,7 @@
     "vue-template-compiler": "^2.6.14"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.3.4",
     "leaflet": "^1.7.1",
     "tailwind-gutenberg": "github:huubl/tailwind-gutenberg-components",
     "tailwindcss-gutenberg": "github:generoi/tailwindcss-gutenberg",
