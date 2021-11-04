@@ -19,7 +19,8 @@ class Member extends Composer
 
     public function with() {
         return [
-            'contact_details' => $this->contact_details()
+            'contact_details' => $this->contact_details(),
+            'neighbourhood_network' => get_field('neighbourhood_network')
         ];
     }
 
@@ -42,6 +43,7 @@ class Member extends Composer
         $contact->facebook = get_field('facebook');
         $contact->twitter = get_field('twitter');
         $contact->website = get_field('website');
+        $contact->address = get_field('address') ? get_field('address')['address'] : null;
         return $contact;
     }
 }

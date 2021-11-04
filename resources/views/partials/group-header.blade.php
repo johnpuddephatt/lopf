@@ -13,13 +13,30 @@
       {!! $title !!}
     </h2>
 
+    @if($neighbourhood_network)
+    <x-button>Neighbourhood Network</x-button>
+    @endif
+
     @if(!empty($post->post_excerpt))
     <p class="max-w-xl mt-8 text-xl font-extrabold leading-snug tracking-tight md:text-2xl">
       {!! $post->post_excerpt !!}
     </p>
     @endif
 
-    <div class="divide-y divide-solid divide-blue-lightest">
+    <div class="pt-12 divide-y divide-solid divide-sky-light">
+
+      @if($contact_details->address)
+      <p class="flex py-3 item-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1 text-blue-lightest" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        Address: {{ $contact_details->address }}</a>
+      </p>
+
+      @endif
       @if($contact_details->phone)
       <p class="flex py-3 item-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1 text-blue-lightest" fill="none" viewBox="0 0 24 24"
