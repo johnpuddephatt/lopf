@@ -19,7 +19,7 @@
     </p>
     @endif
 
-    <div class="divide-x divide-solid divide-blue-lightest">
+    <div class="divide-y divide-solid divide-blue-lightest">
       @if($contact_details->phone)
       <p class="flex py-3 item-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1 text-blue-lightest" fill="none" viewBox="0 0 24 24"
