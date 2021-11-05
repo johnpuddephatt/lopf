@@ -15,12 +15,13 @@
 
           <p class="mb-4 text-base">
             @if(get_theme_mod('contact_email'))
-            <a class="block mb-4 site-footer--email contact-email"
-              href="mailto:{{ get_theme_mod('contact_email') }}">{{ get_theme_mod('contact_email') }}</a>
+            <a class="block mb-4 site-footer--email contact-email" href="mailto:{{ get_theme_mod('contact_email') }}">{{
+              get_theme_mod('contact_email') }}</a>
             @endif
             @if(get_theme_mod('contact_phone') || get_theme_mod('contact_phone_human'))
             <a class="block site-footer--phone contact-phone"
-              href="tel:{{ get_theme_mod('contact_phone') ?? get_theme_mod('contact_phone_human') }}">{{ get_theme_mod('contact_phone_human') ?? get_theme_mod('contact_phone') }}</a>
+              href="tel:{{ get_theme_mod('contact_phone') ?? get_theme_mod('contact_phone_human') }}">{{
+              get_theme_mod('contact_phone_human') ?? get_theme_mod('contact_phone') }}</a>
             @endif
           </p>
 
@@ -29,11 +30,11 @@
           @endif
 
         </div>
-        @if(!empty($primaryNavigationFooter))
+        {{-- @if(!empty($primaryNavigationFooter))
         <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4 !lg:ml-auto">
           {!! $primaryNavigationFooter !!}
         </div>
-        @endif
+        @endif --}}
 
         @if(!empty($secondaryNavigationFooter))
         <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4">
@@ -42,7 +43,7 @@
         @endif
 
         @if(!empty($tertiaryNavigation))
-        <div class="w-full text-xl lg:w-1/5 lg:ml-0 xl:w-1/6 md:w-1/4">
+        <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4">
           {!! $tertiaryNavigation !!}
         </div>
         @endif
