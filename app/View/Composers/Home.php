@@ -25,6 +25,7 @@ class Home extends Composer
             "hero_subtitle" => get_theme_mod('home_hero_subtitle'),
             "hero_image" => wp_get_attachment_image(get_theme_mod('home_hero_image'), 'square', false, [
                'class' => 'w-full clip-teardrop',
+               'alt' => get_theme_mod('home_hero_image_alt'),
                'sizes' => '(orientation: portrait) 100vw, 50vw'
             ]),
 
@@ -60,6 +61,7 @@ class Home extends Composer
             "join_title" => get_theme_mod('home_join_title'),
             "join_enabled" => get_theme_mod('home_join_enabled'),
             "join_image" => wp_get_attachment_image(get_theme_mod('home_join_image'), 'twothirds', false, [
+                'alt' => 'Photo of older person playing sport in wheelchair',
                'class' => 'w-full rounded',
                'sizes' => '(orientation: portrait) 100vw, 30vw'
             ]),

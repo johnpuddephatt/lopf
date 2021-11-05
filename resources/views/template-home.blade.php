@@ -1,11 +1,11 @@
 {{--
-  Template Name: Home
+Template Name: Home
 --}}
 
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col pb-12 space-y-12 lg:mb-16 lg:space-y-16 2xl:mb-24 2xl:space-y-24">
+<div class="flex flex-col w-screen pb-12 space-y-12 overflow-x-hidden lg:mb-16 lg:space-y-16 2xl:mb-24 2xl:space-y-24">
   <div class="relative pr-8 bg-sky">
     <div
       class="container z-10 flex flex-col-reverse items-center pr-0 mx-auto max-w-7xl min-h-header-sm lg:min-h-header md:flex-row">
@@ -50,7 +50,7 @@
   @if($groups_enabled)
   <div class="container flex flex-col items-center space-y-8 lg:space-x-16 lg:space-y-0 lg:flex-row max-w-7xl">
     <div class="flex-none w-2/5 py-12 text-center ">
-      <img src="@asset('/images/map.svg')" />
+      <img alt="Map icon" src="@asset('/images/map.svg')" />
     </div>
     <div class="flex flex-col items-start space-y-6">
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $groups_title !!}</h2>
@@ -112,7 +112,8 @@
       </a>
     </div>
     <div class="flex-none w-2/5 py-12 text-center">
-      <img src="@asset('/images/resources.svg')" /></div>
+      <img alt="Icon of clipboard" src="@asset('/images/resources.svg')" />
+    </div>
   </div>
   @endif
 

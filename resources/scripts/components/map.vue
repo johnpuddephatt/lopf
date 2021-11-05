@@ -146,8 +146,10 @@
 
     <!-- List view -->
     <div v-else class="container max-w-5xl my-12">
-      <div class="flex flex-row gap-8 px-8 mb-6 bg-blue-lightest">
-        <div class="flex items-center flex-grow max-w-lg gap-2 px-3 py-3">
+      <div
+        class="flex flex-col gap-8 px-8 py-4 mb-6 lg:flex-row bg-blue-lightest"
+      >
+        <div class="flex items-center flex-grow max-w-lg gap-4">
           <label for="type-selector">Show:</label>
           <select class="flex-grow" v-model="showing" id="type-selector">
             <option value="neighbourhood_networks"
@@ -156,7 +158,7 @@
             <option value="all">All groups</option>
           </select>
         </div>
-        <div class="flex flex-row items-center flex-grow gap-2 my-8">
+        <div class="flex flex-row items-center flex-grow gap-2">
           <label for="list-search">Search:</label>
           <input
             id="list-search"
@@ -319,7 +321,6 @@ export default {
 
       return groups.filter(group => {
         if (this.showing == 'neighbourhood_networks') {
-          console.log('showing:', this.showing);
           return group.neighbourhood_network;
         } else {
           return true;
