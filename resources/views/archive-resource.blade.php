@@ -54,10 +54,9 @@
 
 @include('partials.section-header', ['background' => 'bg-sky', 'text' => 'text-purple', 'pretext' => 'text-blue' ])
 
-<div class="container ">
+<div class="container py-24 space-y-16">
 
-  <form
-    class="flex flex-wrap max-w-3xl p-8 mx-auto my-16 space-y-2 lg:space-y-0 lg:space-x-2 lg:flex-nowrap bg-blue-lightest"
+  <form class="flex flex-wrap max-w-3xl p-8 mx-auto space-y-2 lg:space-y-0 lg:space-x-2 lg:flex-nowrap bg-blue-lightest"
     role="search" action="{{ home_url('/') }}" method="get" id="searchform">
     <input type="text" name="s" placeholder="Search resources"
       class="w-full px-3 py-2 text-xl leading-tight text-gray-700 border rounded shadow appearance-none lg:text-2xl focus:outline-none focus:shadow-outline" />
@@ -73,58 +72,55 @@
       type="submit" alt="Search" value="Search" />
   </form>
 
-  <div class="flex flex-col max-w-3xl mx-auto mb-12 lg:space-y-12 lg:py-12">
-    <h2 class="mt-2 mb-8 text-3xl font-bold lg:text-4xl text-blue">Browse all resources</h2>
+  <div class="flex flex-col max-w-3xl mx-auto lg:space-y-8">
+    <h2 class="text-3xl font-bold lg:text-4xl text-blue">Browse all resources</h2>
     <a href="?all" class="flex flex-row items-center content-center space-x-4 md:items-start xl:space-x-12">
       @svg('icons.report', 'flex-none h-20 w-20 xl:w-40
       xl:h-40')
       <div>
         <h3 class="mt-2 text-2xl font-bold lg:text-3xl text-blue">View all</h3>
-        <p class="hidden mt-4 md:block lg:text-lg">See all resources</p>
+        <p class="hidden mt-4 md:block lg:text-lg">See all resources and browse them either alphabetically or
+          chronologically.</p>
         <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
       </div>
     </a>
   </div>
 
-  <div class="flex flex-col max-w-3xl py-12 mx-auto mb-12 lg:space-y-12">
-    <h2 class="mt-2 mb-8 text-3xl font-bold lg:text-4xl text-blue">Browse by type</h2>
+  <div class="flex flex-col max-w-3xl mx-auto lg:space-y-8">
+    <h2 class="text-3xl font-bold lg:text-4xl text-blue">Browse by type</h2>
 
-    <div class="space-y-10 lg:space-y-20">
+    @foreach($types as $key => $type)
+    <a href="{{ get_term_link($type->term_id, 'resourcetype') }}" @php(post_class('flex items-center md:items-start
+      content-center flex-row space-x-4 xl:space-x-12'))>
 
-      @foreach($types as $key => $type)
-      <a href="{{ get_term_link($type->term_id, 'resourcetype') }}" @php(post_class('flex items-center md:items-start
-        content-center flex-row space-x-4 xl:space-x-12'))>
-
-        @svg('icons.' . get_field('icon', 'resourcetype_' . $type->term_id), 'flex-none h-20 w-20 xl:w-40
-        xl:h-40')
-        <div>
-          <h3 class="mt-2 text-2xl font-bold lg:text-3xl text-blue">{{ $type->name }}</h3>
-          <p class="hidden mt-4 md:block lg:text-lg">{{ $type->description}}</p>
-          <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
-        </div>
-      </a>
-      @endforeach
-    </div>
+      @svg('icons.' . get_field('icon', 'resourcetype_' . $type->term_id), 'flex-none h-20 w-20 xl:w-40
+      xl:h-40')
+      <div>
+        <h3 class="mt-2 text-2xl font-bold lg:text-3xl text-blue">{{ $type->name }}</h3>
+        <p class="hidden mt-4 md:block lg:text-lg">{{ $type->description}}</p>
+        <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
+      </div>
+    </a>
+    @endforeach
   </div>
 
 
-  <div class="flex flex-col max-w-3xl pb-12 mx-auto mb-24 lg:space-y-12">
-    <h2 class="mt-2 mb-8 text-3xl font-bold lg:text-4xl text-blue">Browse by key learning</h2>
-    <div class="space-y-10 lg:space-y-20">
-      @foreach($keylearnings as $key => $keylearning)
-      <a href="{{ get_term_link($keylearning->term_id, 'resourcekeylearning') }}" @php(post_class('flex items-center
-        md:items-start content-center flex-row space-x-4 xl:space-x-12'))>
-        @svg('icons.' . get_field('icon', 'resourcekeylearning_' . $keylearning->term_id), 'flex-none h-20 w-20 xl:w-40
-        xl:h-40')
-        <div>
-          <h3 class="mt-2 text-2xl font-bold lg:text-3xl text-blue">{{ $keylearning->name }}</h3>
-          <p class="hidden mt-4 md:block lg:text-lg">{{ $keylearning->description}}</p>
-          <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
-        </div>
-      </a>
-      @endforeach
-    </div>
+  <div class="flex flex-col max-w-3xl mx-auto lg:space-y-12">
+    <h2 class="text-3xl font-bold lg:text-4xl text-blue">Browse by key learning</h2>
+    @foreach($keylearnings as $key => $keylearning)
+    <a href="{{ get_term_link($keylearning->term_id, 'resourcekeylearning') }}" @php(post_class('flex items-center
+      md:items-start content-center flex-row space-x-4 xl:space-x-12'))>
+      @svg('icons.' . get_field('icon', 'resourcekeylearning_' . $keylearning->term_id), 'flex-none h-20 w-20 xl:w-40
+      xl:h-40')
+      <div>
+        <h3 class="mt-2 text-2xl font-bold lg:text-3xl text-blue">{{ $keylearning->name }}</h3>
+        <p class="hidden mt-4 md:block lg:text-lg">{{ $keylearning->description}}</p>
+        <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
+      </div>
+    </a>
+    @endforeach
   </div>
+</div>
 
 </div>
 @endif

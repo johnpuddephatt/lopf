@@ -10,7 +10,9 @@
       </button>
       <button
         class="px-4 text-xl leading-loose rounded-full"
-        :class="view == 'list' ? 'bg-blue text-white' : 'bg-sky-light'"
+        :class="
+          view == 'list' ? 'bg-blue text-white' : 'bg-sky-light hover:bg-sky'
+        "
         @click="view = 'list'"
       >
         List view
@@ -28,9 +30,9 @@
           :options="{ attributionControl: false }"
         >
           <l-control-attribution position="bottomleft"></l-control-attribution>
-          <l-icon-default :image-path="imagePath"></l-icon-default>
           <l-tile-layer :url="url" :attribution="attribution" />
           <l-marker
+            :icon="group.neighbourhood_network ? orangeIcon : blueIcon"
             :ref="`${group.slug}-marker`"
             v-for="group in filteredList"
             :key="group.slug"
@@ -41,36 +43,102 @@
         </l-map>
       </div>
       <div
-        class="absolute top-0 bottom-0 right-0 w-1/4 max-w-sm overflow-y-auto divide-y shadow-2xl bg-sky-lightest map-sidebar bg-opacity-90"
+        class="top-0 bottom-0 right-0 overflow-y-auto shadow-2xl lg:absolute lg:w-1/3 lg:max-w-sm bg-sky-lightest map-sidebar bg-opacity-90"
       >
-        <div class="mx-4 my-3">
-          <input
-            class="w-full px-3 py-2 leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
-            type="text"
-            v-model="search"
-            placeholder="Search by name.."
-          />
+        <div class="bg-blue-lightest">
+          <div class="flex items-center gap-2 px-3 py-3">
+            <label for="type-selector">Show:</label>
+            <select class="flex-grow" v-model="showing" id="type-selector">
+              <option value="neighbourhood_networks"
+                >Neighbourhood Networks</option
+              >
+              <option value="all">All groups</option>
+            </select>
+          </div>
+          <div class="flex flex-row bg-blue-lightest">
+            <button
+              @click="filterTab = 'name'"
+              class="px-4 py-3"
+              :class="{ 'bg-blue-light text-white': filterTab == 'name' }"
+            >
+              Filter by name
+            </button>
+            <button
+              @click="filterTab = 'postcode'"
+              class="px-4 py-3"
+              :class="{ 'bg-blue-light text-white': filterTab == 'postcode' }"
+            >
+              Sort by postcode
+            </button>
+          </div>
+          <div
+            v-if="filterTab == 'name'"
+            class="flex flex-row items-center gap-2 px-3 py-3 bg-blue-light"
+          >
+            <input
+              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
+              type="text"
+              aria-label="Filter results by name"
+              v-model="search"
+              placeholder="Search by name.."
+            />
+            <button class="text-white" @click="search = null">Clear</button>
+          </div>
+          <div
+            v-if="filterTab == 'postcode'"
+            class="flex flex-row items-center gap-2 px-3 py-3 bg-blue-light"
+          >
+            <input
+              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
+              type="text"
+              aria-label="Filter results by name"
+              v-model="postcode"
+              placeholder="Enter postcode and press enter"
+              @keyup.enter="convertPostcodeToLatLng"
+            />
+            <button
+              v-if="!latLng"
+              class="text-white"
+              @click="convertPostcodeToLatLng"
+            >
+              Search
+            </button>
+            <button
+              v-if="latLng"
+              class="text-white"
+              @click="latLng = postcode = null"
+            >
+              Clear
+            </button>
+          </div>
         </div>
 
         <a
           :ref="`${group.slug}-sidebar`"
           :href="group.link"
           :key="group.slug"
-          class="block px-4 py-6 hover:bg-sky-light"
-          :class="{ 'bg-sky-light': selected == group.slug }"
+          class="block px-4 py-6 border-b border-blue-lightest hover:bg-sky-light"
+          :class="{
+            'bg-sky-light ml-0 border-l-8 border-blue': selected == group.slug,
+          }"
           v-for="group in filteredList"
         >
           <p
             v-if="group.neighbourhood_network"
-            class="inline-block px-2 pt-0.5 -ml-0.5 mb-1 text-xs font-normal rounded-md bg-blue-lightest"
+            class="inline-block -ml-1 px-2 pt-0.5 mb-1 text-sm font-normal rounded-md bg-orange-light"
           >
-            Neighbourhood network
+            Neighbourhood Network
           </p>
-          <h3 class="font-bold" v-html="group.title.rendered"></h3>
+          <h3 class="text-lg font-bold" v-html="group.title.rendered"></h3>
 
           <div
-            class="text-xs"
-            v-if="group.address"
+            class="text"
+            v-if="group.area_covered"
+            v-html="group.area_covered"
+          ></div>
+          <div
+            class="text-sm"
+            v-else-if="group.address"
             v-html="group.address.address"
           ></div>
         </a>
@@ -80,22 +148,36 @@
         </div>
       </div>
     </div>
-    <div v-else class="container max-w-5xl my-4">
-      <div class="mt-8">
-        <input
-          class="w-full max-w-xl px-3 py-2 text-xl leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
-          type="text"
-          v-model="search"
-          placeholder="Search by name.."
-        />
+
+    <!-- List view -->
+    <div v-else class="container max-w-5xl my-12">
+      <div class="flex flex-row gap-8 px-8 mb-6 bg-blue-lightest">
+        <div class="flex items-center flex-grow max-w-lg gap-2 px-3 py-3">
+          <label for="type-selector">Show:</label>
+          <select class="flex-grow" v-model="showing" id="type-selector">
+            <option value="neighbourhood_networks"
+              >Neighbourhood Networks</option
+            >
+            <option value="all">All groups</option>
+          </select>
+        </div>
+        <div class="flex flex-row items-center flex-grow gap-2 my-8">
+          <label for="list-search">Search:</label>
+          <input
+            id="list-search"
+            class="w-full max-w-lg px-3 py-3 leading-tight text-gray-700 border rounded-full shadow appearance-none focus:outline-none focus:shadow-outline"
+            type="text"
+            v-model="search"
+            placeholder="Search by name.."
+          />
+        </div>
       </div>
       <a
         :ref="`${group.slug}-sidebar`"
         :href="group.link"
         :key="group.slug"
         class="block py-8"
-        :class="{ 'bg-sky-light': selected == group.slug }"
-        v-for="group in groups"
+        v-for="group in getGroupsFilteredByType(groups)"
       >
         <h3 class="text-xl font-bold">
           <span v-html="group.title.rendered"></span>
@@ -109,7 +191,12 @@
 
         <div
           class="text"
-          v-if="group.address"
+          v-if="group.area_covered"
+          v-html="group.area_covered"
+        ></div>
+        <div
+          class="text"
+          v-else-if="group.address"
           v-html="group.address.address"
         ></div>
       </a>
@@ -142,6 +229,10 @@ export default {
   },
   data() {
     return {
+      showing: 'neighbourhood_networks',
+      filterTab: 'name',
+      latLng: null,
+      postcode: null,
       view: 'map',
       groups: [],
       search: null,
@@ -149,21 +240,54 @@ export default {
       imagePath: null,
       zoom: 12,
       center: latLng(53.7993475, -1.5032696),
+      blueIcon: L.icon({
+        iconUrl: `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/marker-icon.png`,
+        iconRetinaUrl: `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/marker-icon-2x.png`,
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+      }),
+      orangeIcon: L.icon({
+        iconUrl: `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/marker-icon-orange.png`,
+        iconRetinaUrl: `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/marker-icon-orange-2x.png`,
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+      }),
       url:
         'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     };
   },
+  watch: {
+    latLng: function() {
+      if (this.latLng && this.latLng.length) {
+        this.$refs.myMap.mapObject.flyTo(
+          latLng(this.latLng[0], this.latLng[1]),
+          14
+        );
+      } else {
+        this.$refs.myMap.mapObject.flyTo(this.center, this.zoom);
+      }
+      // zoom/pan map.
+      // if null, reset map zoom/pan
+    },
+  },
   computed: {
     filteredList() {
+      if (!this.groups) {
+        return null;
+      }
+
       let groupsWithAddress = this.groups.filter(group => {
         return group.address;
       });
-      if (!this.search) {
-        return groupsWithAddress;
-      } else {
-        return groupsWithAddress.filter(group => {
+
+      let groupsFilteredByType = this.getGroupsFilteredByType(
+        groupsWithAddress
+      );
+
+      if (this.filterTab == 'name' && this.search) {
+        return groupsFilteredByType.filter(group => {
           return (
             group.title.rendered
               .toLowerCase()
@@ -173,18 +297,44 @@ export default {
               .includes(this.search.toLowerCase())
           );
         });
+      } else if (this.filterTab == 'postcode' && this.postcode) {
+        return groupsFilteredByType
+          .map(entry => {
+            if (entry.latitude && entry.longitude) {
+              entry.distance = this.distanceFromUserLatLng(entry);
+            } else {
+              entry.distance == null;
+            }
+            return entry;
+          })
+          .sort((a, b) => {
+            return a.distance - b.distance;
+          });
+      } else {
+        return groupsWithAddress;
       }
     },
   },
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;
-    let cinemas = fetch(
+    let groups = fetch(
       `/wp-json/wp/v2/${this.type}?orderby=title&per_page=100&order=asc`
     )
       .then(response => response.json())
       .then(data => (this.groups = data));
   },
   methods: {
+    getGroupsFilteredByType(groups) {
+      if (!groups && !this.groups) return null;
+
+      return groups.filter(group => {
+        if (this.showing == 'neighbourhood_networks')
+          return group.neighbourhood_network;
+        else {
+          return true;
+        }
+      });
+    },
     scrollTo(slug) {
       this.selected = slug;
       this.$refs[`${slug}-sidebar`][0].scrollIntoView({
@@ -192,6 +342,53 @@ export default {
         block: 'center',
         inline: 'nearest',
       });
+    },
+    convertPostcodeToLatLng: function() {
+      fetch(`//api.postcodes.io/postcodes/${this.postcode.split(' ').join('')}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.status == 200) {
+            this.latLng = [data.result.latitude, data.result.longitude];
+            this.error = null;
+            this.postcode = this.postcode.toUpperCase();
+          } else {
+            this.error = data.error;
+          }
+        });
+    },
+    distanceFromUserLatLng: function(entry) {
+      let distance = this.distance(
+        entry.address.lat,
+        entry.address.lng,
+        this.latLng[0],
+        this.latLng[1]
+      );
+      return Math.round(distance * 10) / 10;
+    },
+    distance(lat1, lon1, lat2, lon2) {
+      if (lat1 == lat2 && lon1 == lon2) {
+        return 0;
+      } else {
+        var radlat1 = (Math.PI * lat1) / 180;
+        var radlat2 = (Math.PI * lat2) / 180;
+        var theta = lon1 - lon2;
+        var radtheta = (Math.PI * theta) / 180;
+        var dist =
+          Math.sin(radlat1) * Math.sin(radlat2) +
+          Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+        if (dist > 1) {
+          dist = 1;
+        }
+        dist = Math.acos(dist);
+        dist = (dist * 180) / Math.PI;
+        dist = dist * 60 * 1.1515;
+        // dist = dist * 1.609344;
+        return dist;
+      }
+    },
+    clearPostcode: function() {
+      this.latLng = [];
+      this.postcode = null;
     },
   },
 };

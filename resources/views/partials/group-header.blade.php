@@ -18,7 +18,7 @@
     @endif
 
     @if(!empty($post->post_excerpt))
-    <p class="max-w-xl mt-8 text-xl font-extrabold leading-snug tracking-tight md:text-2xl">
+    <p class="max-w-xl mt-8 text-xl font-bold leading-snug tracking-tight md:text-2xl">
       {!! $post->post_excerpt !!}
     </p>
     @endif
