@@ -37,7 +37,7 @@
         @endif --}}
 
         @if(!empty($secondaryNavigationFooter))
-        <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4">
+        <div class="flex-shrink w-full text-xl 2xl:w-1/6 lg:w-1/5 md:w-1/4 !lg:ml-auto">
           {!! $secondaryNavigationFooter !!}
         </div>
         @endif
