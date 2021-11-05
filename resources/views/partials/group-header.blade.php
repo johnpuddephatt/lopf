@@ -14,7 +14,7 @@
     </h2>
 
     @if($neighbourhood_network)
-    <p class="inline-block -ml-1 px-6 py-2 pt-0.5 mb-1 text-lg font-normal rounded-md bg-orange-light">Neighbourhood
+    <p class="inline-block px-6 py-2 mt-4 text-lg font-normal rounded-md bg-orange-light">Neighbourhood
       Network
     </p>
     @endif
