@@ -132,14 +132,9 @@
           <h3 class="text-lg font-bold" v-html="group.title.rendered"></h3>
 
           <div
-            class="text"
+            class="text-sm"
             v-if="group.area_covered"
             v-html="group.area_covered"
-          ></div>
-          <div
-            class="text-sm"
-            v-else-if="group.address"
-            v-html="group.address.address"
           ></div>
         </a>
 
@@ -193,11 +188,6 @@
           class="text"
           v-if="group.area_covered"
           v-html="group.area_covered"
-        ></div>
-        <div
-          class="text"
-          v-else-if="group.address"
-          v-html="group.address.address"
         ></div>
       </a>
     </div>
@@ -311,7 +301,7 @@ export default {
             return a.distance - b.distance;
           });
       } else {
-        return groupsWithAddress;
+        return groupsFilteredByType;
       }
     },
   },
@@ -328,9 +318,10 @@ export default {
       if (!groups && !this.groups) return null;
 
       return groups.filter(group => {
-        if (this.showing == 'neighbourhood_networks')
+        if (this.showing == 'neighbourhood_networks') {
+          console.log('showing:', this.showing);
           return group.neighbourhood_network;
-        else {
+        } else {
           return true;
         }
       });
