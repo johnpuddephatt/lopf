@@ -88,25 +88,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
       'settings' => 'home_hero_title',
     )
     );
-
-    $wp_customize->add_setting(
-        'home_hero_image_alt',
-        array(          
-          'sanitize_callback' => 'sanitize_textarea_field',
-          'transport' => 'postMessage'
-        )
-    );
-
-    $wp_customize->add_control(
-    'home_hero_image_alt',
-    array(
-      'type' => 'text',
-      'label' => 'Title',
-      'section' => 'home_hero',
-      'settings' => 'home_hero_image_alt',
-    )
-    );
-
+    
     $wp_customize->selective_refresh->add_partial('home_hero_title', [
       'selector' => '.home-hero-title',
       'container_inclusive' => false,
