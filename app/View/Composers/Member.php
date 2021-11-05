@@ -20,7 +20,8 @@ class Member extends Composer
     public function with() {
         return [
             'contact_details' => $this->contact_details(),
-            'neighbourhood_network' => get_field('neighbourhood_network')
+            'neighbourhood_network' => get_field('neighbourhood_network'),
+            'area_covered' => get_field('area_covered')
         ];
     }
 
