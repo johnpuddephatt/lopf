@@ -48,7 +48,7 @@ class Navwalker extends \Walker_Nav_Menu {
         $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
         $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
         if($depth == 0) {
-            $atts['class']  = 'inline-flex py-2 px-1 md:px-2 my-1 mx-2 xl:mx-4 border-b-2 border-transparent items-center';
+            $atts['class']  = 'inline-flex py-2 px-1 md:px-2 my-1 mx-2 lg:mx-3 2xl:mx-4 border-b-2 border-transparent items-center';
             $atts['class']  .= isset($this->styles['level-0-link']) ? ' ' . $this->styles['level-0-link'] : '';
         }
         else {
