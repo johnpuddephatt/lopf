@@ -1,14 +1,8 @@
 @include('svg-paths')
 @include('partials.site-header', ['alternative_header' => $alternative_header ?? false ])
 
-<main id="main" class="main">
+<main id="main" class="w-screen overflow-x-hidden main">
   @yield('content')
 </main>
-
-@hasSection('sidebar')
-<aside class="sidebar">
-  @yield('sidebar')
-</aside>
-@endif
 
 @include('partials.site-footer')

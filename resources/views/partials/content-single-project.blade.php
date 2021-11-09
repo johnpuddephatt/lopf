@@ -42,9 +42,11 @@
         <h2 class="text-3xl font-bold text-blue">Project updates</h2>
         <p class="mt-4 mb-16">The latest articles about <strong>{{ the_title() }}</strong></p>
 
-        @foreach($posts as $related_post)
-        @include('partials.post-card', ['post_id' => $related_post->ID])
-        @endforeach
+        <div class="space-y-4">
+          @foreach($posts as $related_post)
+          @include('partials.post-card', ['post_id' => $related_post->ID])
+          @endforeach
+        </div>
 
         <div class="mt-16 text-center">
           <x-button href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}?postProjectID={{ $post->ID }}">
