@@ -55,9 +55,9 @@ Template Name: Home
     <div class="flex flex-col items-start space-y-6">
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $groups_title !!}</h2>
       <p>{!! $groups_description !!}</p>
-      <a href="/activities-and-services/find-a-group-or-neighbourhood-network/"
-        class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
-        Search groups and neighbourhood networks
+
+      <a href="{{ $groups_link }}" class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
+        {{ $groups_linktext ? $groups_linktext : 'Read more' }}
       </a>
     </div>
   </div>

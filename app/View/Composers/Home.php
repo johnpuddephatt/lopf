@@ -37,6 +37,8 @@ class Home extends Composer
             "groups_title" => get_theme_mod('home_groups_title'),
             "groups_description" => get_theme_mod('home_groups_description'),
             "groups_enabled" => get_theme_mod('home_groups_enabled'),
+            "groups_link" => get_theme_mod('home_groups_link'),
+            "groups_linktext" => get_theme_mod('home_groups_linktext'),
 
             "blocks_enabled" => get_theme_mod('home_blocks_enabled'),
             "blocks" => get_posts([

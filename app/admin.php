@@ -607,6 +607,38 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     )
     );
 
+        $wp_customize->add_setting(
+      'home_groups_link'
+    );
+
+    $wp_customize->add_control(
+    'home_groups_link',
+    array(
+      'type' => 'text',
+      'label' => 'Link (URL)',
+      'section' => 'home_groups',
+      'settings' => 'home_groups_link',
+    )
+    );
+
+    $wp_customize->add_setting(
+      'home_groups_linktext',
+      array(
+        'transport' => 'refresh',
+        'default' => 'Read more'
+      )
+    );
+
+    $wp_customize->add_control(
+    'home_groupst_linktext',
+    array(
+      'type' => 'text',
+      'label' => 'Link text',
+      'section' => 'home_groups',
+      'settings' => 'home_groups_linktext',
+    )
+    );
+
 
 
 
