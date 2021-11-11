@@ -82,7 +82,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     $wp_customize->add_control(
     'home_hero_title',
     array(
-      'type' => 'text',
+      'type' => 'textarea',
       'label' => 'Title',
       'section' => 'home_hero',
       'settings' => 'home_hero_title',
@@ -113,7 +113,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     $wp_customize->add_control(
     'home_hero_subtitle',
     array(
-      'type' => 'text',
+      'type' => 'textarea',
       'label' => 'Subtitle',
       'section' => 'home_hero',
       'settings' => 'home_hero_subtitle',
