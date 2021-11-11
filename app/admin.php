@@ -87,7 +87,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
       'section' => 'home_hero',
       'settings' => 'home_hero_title',
       'input_attrs' => array(
-        'maxlength' => 60
+        'maxlength' => 75
     )
     )
     );
