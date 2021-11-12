@@ -40,8 +40,8 @@ Template Name: Home
         <h3 class="text-xl font-bold">{!! $announcement_title ? $announcement_title : 'Announcement' !!}</h3>
         <p>{!! $announcement_text !!}</p>
       </div>
-      <a href="{{ $announcement_link }}" class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-pink">
-        {{ $announcement_linktext ? $announcement_linktext : 'Read more' }}
+      <a href="{{ $announcement_link }}" class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-pink">
+        {{ $announcement_linktext ? $announcement_linktext : 'read more' }}
       </a>
     </div>
   </div>
@@ -56,8 +56,8 @@ Template Name: Home
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $groups_title !!}</h2>
       <p>{!! $groups_description !!}</p>
 
-      <a href="{{ $groups_link }}" class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
-        {{ $groups_linktext ? $groups_linktext : 'Read more' }}
+      <a href="{{ $groups_link }}" class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue">
+        {{ $groups_linktext ? $groups_linktext : 'read more' }}
       </a>
     </div>
   </div>
@@ -95,8 +95,8 @@ Template Name: Home
     </div>
     <div class="mt-16 text-center">
       <a href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}"
-        class="inline-block px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
-        See all posts
+        class="inline-block px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue">
+        see all posts
       </a>
     </div>
   </div>
@@ -107,8 +107,8 @@ Template Name: Home
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $research_title !!}</h2>
       <p>{!! $research_description !!}</p>
       <a href="{{ get_permalink(get_option('page_for_resources')) }}"
-        class="px-8 py-2 text-lg font-bold lowercase border-2 rounded-2xl border-blue">
-        Explore our resources
+        class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue">
+        explore our resources
       </a>
     </div>
     <div class="flex-none w-2/5 py-12 text-center">
@@ -128,8 +128,8 @@ Template Name: Home
           {!! $join_title !!}
         </p>
         <a href="/get-involved/become-a-member-organisation/"
-          class="px-8 py-2 text-lg font-bold text-white lowercase border-2 border-white rounded-2xl">
-          Find out more
+          class="px-8 py-2 text-lg font-bold text-white border-2 border-white rounded-2xl">
+          find out more
         </a>
       </div>
       <div
@@ -145,12 +145,19 @@ Template Name: Home
     <div class="flex flex-col items-center flex-1 max-w-2xl py-16 space-y-16 text-center">
       <h2 class="font-serif text-4xl leading-tight 2xl:leading-tight 2xl:text-5xl text-blue">{!! nl2br($signup_title)
         !!}</h2>
-      <form class="flex flex-row w-full space-x-4">
-        <input placeholder="Enter your email address" aria-label="Enter your email address"
-          class="flex-1 w-full px-8 py-2 text-lg lowercase border-2 rounded-2xl border-blue" type="text" />
+      <form method="POST"
+        action="//timetoshineleeds.us1.list-manage.com/subscribe/post?u=37893676631f957b3e7e5b3f7&id=d4a417b661"
+        class="flex flex-row w-full space-x-4">
+        <input name="EMAIL" placeholder="Enter your email address" aria-label="Enter your email address"
+          class="flex-1 w-full px-8 py-2 text-lg border-2 rounded-2xl border-blue" type="text" />
         <input type="submit" value="{{ $signup_buttontext }}"
           class="px-8 py-2 text-lg font-bold text-white lowercase bg-purple rounded-2xl" />
       </form>
+      <p class="text-sm">By submitting this form you acknowledge that the information you provide will be
+        transferred to our marketing platform (Mailchimp) for
+        processing in accordance with their <a class="underline" href="https://mailchimp.com/legal/privacy/"
+          target="_blank">Privacy
+          Policy and Terms</a>.</p>
     </div>
   </div>
   @endif
