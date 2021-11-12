@@ -83,6 +83,7 @@ Template Name: Home
 
   @endif
 
+  @if($blog_enabled)
   <div class="container pt-32 border-t max-w-8xl">
     <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">Latest posts</h2>
     <div class="grid grid-cols-1 gap-16 mt-16 lg:grid-cols-2">
@@ -100,6 +101,7 @@ Template Name: Home
       </a>
     </div>
   </div>
+  @endif
 
   @if($research_enabled)
   <div class="container flex flex-col-reverse items-center max-w-5xl space-y-8 lg:space-x-8 lg:space-y-0 lg:flex-row">

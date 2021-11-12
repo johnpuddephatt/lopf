@@ -66,6 +66,7 @@ class Home extends Composer
                'sizes' => '(orientation: portrait) 100vw, 30vw'
             ]),
 
+            "blog_enabled" => get_theme_mod('home_blog_enabled'),
             "posts" => get_posts([
                 'post_type' => 'post',
                 'numberposts' => 4
