@@ -12,7 +12,7 @@
         @if($resource_types)
 
         <a href="{{ get_term_link($resource_types[0]->term_id, 'resourcetype') }}">
-          {{ $resource_types[0]->name }}
+          {!! $resource_types[0]->name !!}
         </a>
         @endif
       </div>

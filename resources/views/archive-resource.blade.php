@@ -6,6 +6,7 @@
 
 @php query_posts([
 'post_type' => 'resource',
+'numberposts' => -1,
 'order' => isset($_GET['order']) ? $_GET['order'] : 'ASC',
 'orderby' => isset($_GET['orderby']) ? $_GET['orderby'] : 'date',
 'meta_query' => isset($_GET['resourceProjectID']) ? [
