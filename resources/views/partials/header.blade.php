@@ -33,14 +33,14 @@
         {!! get_avatar(get_the_author_meta('ID'), 32, null, 'Profile image for ' . get_the_author(), [
         "class" => "object-cover w-10 h-10 mr-2 rounded-full"
         ]) !!}
-        <div>
+        <div class="leading-tight">
           <p class="text-sm font-semibold tracking-tight text-black">
             <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" rel="author" class="fn">
               {{ get_the_author() }}
             </a>
           </p>
-          @if(the_field('role', 'user_' . get_the_author_meta('ID')))
-          <p class="text-sm font-normal tracking-tight text-gray-400">
+          @if(get_the_field('role', 'user_' . get_the_author_meta('ID')))
+          <p class="text-xs font-normal tracking-tight text-gray-400">
             {{ the_field('role', 'user_' . get_the_author_meta('ID')) }}
           </p>
           @endif
