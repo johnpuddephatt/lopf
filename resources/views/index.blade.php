@@ -18,7 +18,9 @@
     @endwhile
   </div>
 
-  {!! get_the_posts_navigation() !!}
+  <div class="mt-16">
+    {!! get_the_posts_navigation() !!}
+  </div>
 </div>
 
 @endsection
