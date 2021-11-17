@@ -5,9 +5,13 @@
             {!! get_the_title($post_id ?? null) !!}
         </h3>
         <div class="flex gap-4">
-            @if(get_field("date")) <div class="hidden md:block"> {{ get_field( ' date', $post_id ?? null )
-    }}</div>@endif
-    @if(get_field("publisher")) <div class="hidden md:block"> {{ get_field( 'publisher', $post_id ?? null ) }}</div>
+            @if(get_field("date"))
+            <div class="hidden md:block">
+                {{ get_field( "date", $post_id ?? null ) }} </div>
+    @endif
+    @if(get_field("publisher"))
+    <div class="hidden md:block">
+        {{ get_field( "publisher", $post_id ?? null ) }} </div>
     @endif
     </div>
     </div>
