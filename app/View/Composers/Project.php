@@ -15,14 +15,16 @@ class Project extends Composer
         // 'partials.page-header',
         'partials.project-sidebar',
         'partials.content-single-project',
+        'partials.project-header',
         'partials.project-siblings',
     ];
 
     public function with() {
         return [
-           "projects" => $this->projects(),
+           "projects" => $this->projects(),        
            "resources" => $this->resources(),
-           "posts" => $this->posts()
+           "posts" => $this->posts(),
+           "parent" => $this->parent()
         ];
     }
 
@@ -38,6 +40,16 @@ class Project extends Composer
         ];
     }
 
+    public function parent() {
+        global $post;
+            if (!$post->post_parent || get_post_status($post->post_parent) == 'private') return null;
+
+            $parent = new \stdClass;
+            $parent->title = get_the_title($post->post_parent);
+            $parent->permalink = get_permalink($post->post_parent);
+            return $parent;
+    }
+
     public function resources() {
         return get_field('resources') ? array_slice(get_field('resources'),0, 6) : null;
     }
@@ -46,13 +58,13 @@ class Project extends Composer
         return get_posts([
             'post_type'        => 'post',
             'numberposts' => 3,
-            'meta_query' => array(
-                array(
+            'meta_query' => [
+                [
                     'key' => 'related_project',
                     'value' => '"' . get_the_ID() . '"',
                     'compare' => 'LIKE'
-                )
-            )
+                ]
+            ]
         ]);
     }
 
@@ -61,7 +73,8 @@ class Project extends Composer
             'orderby' => 'menu_order',
             'order' => 'ASC',
             'post_type' => 'project',
-            'numberposts' => -1
+            'numberposts' => -1,
+            'post_parent' => 0
         ]);
     }
 }

@@ -16,6 +16,7 @@ add_action('init', function() {
             'edit_item'         => 'Edit project'
           ),
           'public' => true,
+          'hierarchical' => true,
           'has_archive' => true,
           'rewrite' => array(
               'slug' => str_replace('/','',wp_make_link_relative(get_permalink(get_option('page_for_projects'))))

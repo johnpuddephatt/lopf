@@ -14,7 +14,6 @@ class Page extends Composer
     protected static $views = [
         'page',
         'template-fullwidth',
-        'single'
     ];
 
     /**

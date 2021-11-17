@@ -39,7 +39,8 @@ class archiveProject extends Composer
             'orderby' => 'menu_order',
             'order' => 'ASC',
             'post_type' => 'project',
-            'numberposts' => -1
+            'numberposts' => -1,
+            'post_parent' => 0
         ]);
     }
 }
