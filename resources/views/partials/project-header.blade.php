@@ -13,15 +13,15 @@
 
       @if(isset($post) && isset($post->post_type) && $post->post_type == 'post')
       <div class="mb-4 text-xl font-bold md:text-2xl md:mb-8">{{ get_the_date() }}</div>
-      @elseif(isset($parent))
+      @else
       <div class="inline-flex mt-12 mb-4 text-xl text-gray-500 md:mb-6">
         <a class="" href="/">Home</a>
         <span class="px-3">&gt;</span>
-        @if(isset($parent))
         <a class="" href="/projects-and-campaigns">Projects & campaigns</a>
+        @if(isset($parent))
         <span class="px-3">&gt;</span>
-        @endif
         <a class="" href="{{ $parent->permalink}}">{!! $parent->title !!}</a>
+        @endif
       </div>
       @endif
 
