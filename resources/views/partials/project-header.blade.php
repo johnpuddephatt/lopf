@@ -18,7 +18,7 @@
         <a class="" href="/">Home</a>
         <span class="px-3">&gt;</span>
         @if(isset($parent))
-        <a class="" href="/projects">Projects</a>
+        <a class="" href="/projects-and-campaigns">Projects & campaigns</a>
         <span class="px-3">&gt;</span>
         @endif
         <a class="" href="{{ $parent->permalink}}">{!! $parent->title !!}</a>

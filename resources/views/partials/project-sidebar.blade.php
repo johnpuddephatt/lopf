@@ -1,8 +1,8 @@
 <aside class="hidden pt-24 pb-12 border-r lg:block">
     <nav class="">
         <h2 class="px-8 mb-6 text-xl font-bold text-blue">
-            <a class="block mx-auto mr-16 w-60" href="/projects">
-                Projects
+            <a class="block mx-auto mr-16 w-60" href="/projects-and-campaigns">
+                Projects & campaigns
             </a>
         </h2>
 
