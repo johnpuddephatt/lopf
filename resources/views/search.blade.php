@@ -3,7 +3,7 @@
 @section('content')
 @include('partials.page-header')
 
-<div class="container my-12 xl:max-w-5xl">
+<div class="container min-h-full my-12 xl:max-w-5xl">
   @if (! have_posts())
   <x-alert type="warning">
     {!! __('Sorry, no results were found.', 'sage') !!}
