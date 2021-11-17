@@ -7,7 +7,9 @@
 @php query_posts([
 'post_type' => 'resource',
 'numberposts' => -1,
+'posts_per_page' => -1,
 'order' => isset($_GET['order']) ? $_GET['order'] : 'ASC',
+'meta_key' => isset($_GET['orderby']) && isset($_GET['orderby']) == 'date' ? 'date' : null,
 'orderby' => isset($_GET['orderby']) ? $_GET['orderby'] : 'date',
 'meta_query' => isset($_GET['resourceProjectID']) ? [
 [
@@ -39,8 +41,8 @@
     <div>
       <a href="?all&orderby=title&order=ASC"
         class="px-4 py-2 text-xl leading-loose rounded-full @if('?' . $_SERVER['QUERY_STRING'] == '?all&orderby=title&order=ASC') bg-blue text-white @else bg-sky-light @endif">Alphabetical</a>
-      <a href="?all&orderby=post_date&order=DESC"
-        class="px-4 py-2 text-xl leading-loose rounded-full @if('?' . $_SERVER['QUERY_STRING'] == '?all&orderby=post_date&order=DESC') bg-blue text-white @else bg-sky-light @endif">Newest
+      <a href="?all&orderby=date&order=DESC"
+        class="px-4 py-2 text-xl leading-loose rounded-full @if('?' . $_SERVER['QUERY_STRING'] == '?all&orderby=date&order=DESC') bg-blue text-white @else bg-sky-light @endif">Newest
         first</a>
     </div>
     @endif
@@ -83,7 +85,8 @@
 
   <div class="flex flex-col max-w-3xl mx-auto lg:space-y-12">
     <h2 class="text-3xl font-bold lg:text-4xl text-blue">Browse all resources</h2>
-    <a href="?all" class="flex flex-row items-center content-center space-x-4 md:items-start xl:space-x-12">
+    <a href="?all&orderby=title&order=ASC"
+      class="flex flex-row items-center content-center space-x-4 md:items-start xl:space-x-12">
       @svg('icons.report', 'flex-none h-20 w-20 xl:w-40
       xl:h-40')
       <div>
