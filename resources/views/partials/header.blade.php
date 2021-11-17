@@ -14,6 +14,9 @@
     <div class="">
 
       @if(isset($post) && isset($post->post_type) && $post->post_type == 'post')
+      <a class="inline-block mb-6 text-gray-600" href="{{ get_permalink(get_option( 'page_for_posts' ))}}">&larr; Back
+        to all posts</a>
+
       <div class="mb-4 text-xl font-bold md:text-2xl md:mb-8">{{ get_the_date() }}</div>
       @endif
 

@@ -67,8 +67,9 @@
     <input type="hidden" name="post_type" value="resource" />
     <select class="w-full px-3 py-2 text-xl text-gray-700 border rounded shadow focus:outline-none focus:shadow-outline"
       name="post_resourcetype">
+      <option value="">All resources</option>
       @foreach($types as $key => $type)
-      <option value="{{$type->term_id}}">{{ $type->name}}</option>
+      <option value="{{$type->term_id}}">{!! $type->name !!}</option>
       @endforeach
     </select>
     <input
