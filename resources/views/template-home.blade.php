@@ -89,7 +89,7 @@ Template Name: Home
     <div class="grid grid-cols-1 gap-16 mt-16 lg:grid-cols-2">
       @foreach($posts as $post)
       @include('partials.post-card', [
-      'hide_circles' => true,
+      // 'hide_circles' => true,
       'post_id' => $post->ID
       ])
       @endforeach
