@@ -55,11 +55,11 @@
 }
 
 .is-style-large {
-  @apply text-2xl font-extrabold;
+  @apply text-2xl font-extrabold #{!important};
 }
 
 .is-style-small {
-  @apply text-sm text-gray-500;
+  @apply text-sm text-gray-500 #{!important};
 }
 
 .alignfull {
