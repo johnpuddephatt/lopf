@@ -129,7 +129,7 @@ Template Name: Home
         <p class="max-w-xl text-4xl antialiased font-bold leading-none lg:text-6xl lg:leading-none text-sky">
           {!! $join_title !!}
         </p>
-        <a href="/get-involved/become-a-member-organisation/"
+        <a href="/get-involved/sign-up-as-a-member-organisation/"
           class="px-8 py-2 text-lg font-bold text-white border-2 border-white rounded-2xl">
           find out more
         </a>

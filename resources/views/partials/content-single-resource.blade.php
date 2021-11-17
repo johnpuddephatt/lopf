@@ -5,6 +5,8 @@
 
       @if(isset($file_oembed) && $file_oembed)
       {!! $file_oembed !!}
+      @elseif($external_url)
+      <x-button href="{{ $external_url }}">Download file</x-button>
       @else
       <x-button href="{{ $file_upload }}">Download file</x-button>
       @endif

@@ -10,7 +10,6 @@
         <span class="px-3">&gt;</span>
 
         @if($resource_types)
-
         <a href="{{ get_term_link($resource_types[0]->term_id, 'resourcetype') }}">
           {!! $resource_types[0]->name !!}
         </a>
@@ -23,7 +22,19 @@
         {!! $title !!}
       </h2>
 
-      <p class="mt-4">{{ get_field( 'date', $post_id ?? null ) }}</p>
+      <div class="flex flex-col gap-4 mt-4 text-lg md:flex-row">
+        @if(get_field("date"))
+        <div class="text-gray-600">
+          {{ get_field( "date", $post_id ?? null ) }} </div>
+        @endif
+        @if(get_field("publisher") && get_field("date"))
+        <span class="hidden text-gray-300 md:block">&mdash;</span>
+        @endif
+        @if(get_field("publisher"))
+        <div>
+          {{ get_field( "publisher", $post_id ?? null ) }} </div>
+        @endif
+      </div>
 
       @if(!empty($post->post_excerpt))
       <p class="max-w-xl mt-8 text-xl font-extrabold leading-snug tracking-tight md:text-2xl">{!! $post->post_excerpt
@@ -31,11 +42,13 @@
       @endif
 
       @if($resource_keylearnings)
-      <div class="mt-6">
+      <div class="flex items-center gap-2 mt-6">
+        <span>Key learnings:</span>
         @foreach($resource_keylearnings as $keylearning)
-        <x-button href="{{ get_term_link($keylearning->term_id, 'resourcekeylearning') }}">
+        <a class="px-6 py-2 bg-gray-100 rounded-full"
+          href="{{ get_term_link($keylearning->term_id, 'resourcekeylearning') }}">
           {{ $keylearning->name }}
-        </x-button>
+        </a>
         @endforeach
       </div>
       @endif

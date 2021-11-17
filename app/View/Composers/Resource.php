@@ -29,6 +29,7 @@ class Resource extends Composer
             return [
             "file_upload" =>get_field('file_upload', $post->ID),
             "file_oembed" => get_field('file_oembed', $post->ID),
+            "external_url" => get_field('external_url', $post->ID),
             "resource_types" => get_the_terms($post->ID, 'resourcetype') ?? [],
             "resource_keylearnings" => get_the_terms($post->ID, 'resourcekeylearning') ?? [],
             "types" => get_terms([
