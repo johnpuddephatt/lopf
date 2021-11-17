@@ -47,6 +47,11 @@ wp.domReady(function() {
     label: 'Large',
   });
 
+  wp.blocks.registerBlockStyle('core/paragraph', {
+    name: 'small',
+    label: 'Small',
+  });
+
   wp.blocks.registerBlockStyle('core/image', {
     name: 'cut-corner-bottom-left',
     label: 'Cut corner (bottom left)',

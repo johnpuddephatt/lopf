@@ -58,6 +58,10 @@
   @apply text-2xl font-extrabold;
 }
 
+.is-style-small {
+  @apply text-sm text-gray-500;
+}
+
 .alignfull {
   width: 100% !important;
   max-width: none !important;
