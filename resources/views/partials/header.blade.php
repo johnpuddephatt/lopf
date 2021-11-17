@@ -40,7 +40,7 @@
             </a>
           </p>
           @if(get_field('role', 'user_' . get_the_author_meta('ID')))
-          <p class="text-xs font-normal tracking-tight text-gray-400">
+          <p class="text-xs font-normal tracking-tight text-gray-600">
             {{ the_field('role', 'user_' . get_the_author_meta('ID')) }}
           </p>
           @endif
