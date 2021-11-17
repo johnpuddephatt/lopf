@@ -6,11 +6,11 @@
         </h3>
         <div class="flex flex-col gap-4 mt-4 md:flex-row">
             @if(get_field("date"))
-            <div>
+            <div class="text-gray-600">
                 {{ get_field( "date", $post_id ?? null ) }} </div>
     @endif
     @if(get_field("publisher") && get_field("date"))
-    <span class="hidden md:block">&nbsp;&mdash;&nbsp;</span>
+    <span class="hidden text-gray-300 md:block">&mdash;</span>
     @endif
     @if(get_field("publisher"))
     <div>
