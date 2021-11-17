@@ -1,7 +1,8 @@
 <a href="{{ get_permalink($post_id ?? null) }}" @php(post_class('flex items-center flex-row body-font max-w-3xl'))>
     @if(!isset($hide_circles) || !$hide_circles)
     @if(has_post_thumbnail())
-    {!! get_the_post_thumbnail(null, 'square', [ 'class' => 'mr-12 rounded-full w-36 h-36 hidden lg:block flex-none' ])
+    {!! get_the_post_thumbnail(null, 'square', [ 'class' => 'object-cover object-center mr-12 rounded-full w-36 h-36
+    hidden lg:block flex-none' ])
     !!}
     @else
     <div class="flex-none hidden mr-12 rounded-full lg:block h-36 w-36 bg-orange-lightest"></div>

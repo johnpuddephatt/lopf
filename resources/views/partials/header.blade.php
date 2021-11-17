@@ -5,7 +5,8 @@
     isset(wp_get_attachment_metadata(get_post_thumbnail_id($post && isset($post->ID) ? $post->ID :
     ''))['sizes']['square']))
     <div class="ml-auto w-80 overlay -mb-12 @if(isset($parent)) md:-mb-24 @endif">
-      {!! get_the_post_thumbnail(isset($post->ID) ? $post->ID : '', 'square-s', ['class' => "clip-teardrop w-full
+      {!! get_the_post_thumbnail(isset($post->ID) ? $post->ID : '', 'square-s', ['class' => "object-cover object-center
+      clip-teardrop w-full
       md:w-full"]) !!}
     </div>
     @endif
