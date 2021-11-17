@@ -75,7 +75,7 @@ add_filter('pre_get_posts', function($query){
             $query->set('post_type',[$_GET['post_type']]);
         }        
 
-        if(isset($_GET['post_resourcetype'])) {
+        if(isset($_GET['post_resourcetype']) && $_GET['post_resourcetype']) {
           $query->set( 'tax_query', [
             [
                 'taxonomy' => 'resourcetype',
