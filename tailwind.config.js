@@ -17,10 +17,7 @@ module.exports = {
       sans: ['LOPF-Sans', 'Helvetica', 'Arial', 'sans-serif'],
       serif: ['LOPF-Serif', 'Times', 'Times New Roman'],
     },
-    minHeight: {
-      header: '36em',
-      'header-sm': '24em',
-    },
+
     container: {
       center: true,
       padding: {
@@ -84,6 +81,10 @@ module.exports = {
       borderRadius: {
         big: '6em',
         giant: '12em',
+      },
+      minHeight: {
+        header: '36em',
+        'header-sm': '24em',
       },
       borderWidth: {
         10: '10px',
