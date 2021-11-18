@@ -53,7 +53,7 @@ add_filter('pre_get_posts', function($query){
       $query->set( 'meta_query', [
           [
               'key' => 'related_project',
-              'value' => '"' . $_GET['postprojectID'] . '"',
+              'value' => '"' . $_GET['postProjectID'] . '"',
               'compare' => 'LIKE'
           ]
         ]);
