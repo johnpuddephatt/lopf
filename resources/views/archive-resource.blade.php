@@ -108,7 +108,7 @@
       @svg('icons.' . get_field('icon', 'resourcetype_' . $type->term_id), 'flex-none h-20 w-20 xl:w-40
       xl:h-40')
       <div>
-        <h3 class="mt-2 text-2xl font-bold text-blue">{{ $type->name }}</h3>
+        <h3 class="mt-2 text-2xl font-bold text-blue">{!! $type->name !!}</h3>
         <p class="hidden mt-4 md:block lg:text-lg">{{ $type->description}}</p>
         <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
       </div>
@@ -125,7 +125,7 @@
       @svg('icons.' . get_field('icon', 'resourcekeylearning_' . $keylearning->term_id), 'flex-none h-20 w-20 xl:w-40
       xl:h-40')
       <div>
-        <h3 class="mt-2 text-2xl font-bold text-blue">{{ $keylearning->name }}</h3>
+        <h3 class="mt-2 text-2xl font-bold text-blue">{!! $keylearning->name !!}</h3>
         <p class="hidden mt-4 md:block lg:text-lg">{{ $keylearning->description}}</p>
         <p class="hidden mt-4 text-lg font-bold md:block text-blue">View</p>
       </div>
