@@ -115,8 +115,16 @@
           }"
           v-for="group in filteredList"
         >
-          <h3 class="text-lg font-bold" v-html="group.title.rendered"></h3>
+          <h3
+            class="text-lg font-bold leading-tight"
+            v-html="group.title.rendered"
+          ></h3>
           <p class="text-sm truncate">
+            <span
+              class="inline-block px-3 mr-1 rounded-full bg-sky text-blue"
+              v-if="group.area_covered"
+              >{{ group.area_covered }}</span
+            >
             {{ group.address.address }}
           </p>
         </a>
@@ -155,6 +163,11 @@
           <span v-html="group.title.rendered"></span>
         </h3>
         <p class="text-sm truncate">
+          <span
+            class="inline-block px-3 mr-1 rounded-full bg-sky text-blue"
+            v-if="group.area_covered"
+            >{{ group.area_covered }}</span
+          >
           {{ group.address.address }}
         </p>
       </a>

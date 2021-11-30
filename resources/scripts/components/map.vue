@@ -129,7 +129,10 @@
           >
             Neighbourhood Network
           </p>
-          <h3 class="text-lg font-bold" v-html="group.title.rendered"></h3>
+          <h3
+            class="text-lg font-bold leading-tight"
+            v-html="group.title.rendered"
+          ></h3>
 
           <div
             class="text-sm"
