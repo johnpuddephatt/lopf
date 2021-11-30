@@ -14,7 +14,7 @@ Template Name: Home
       <div class="max-w-4xl pb-12 md:flex-1 md:pb-0">
 
         <h2
-          class="text-4xl font-bold leading-none tracking-tight xl:text-6xl lg:leading-none xl:leading-none lg:text-5xl text-purple">
+          class="pr-6 text-4xl font-bold leading-none tracking-tight xl:text-6xl 2xl:text-7xl lg:leading-none xl:leading-none 2xl:leading-none lg:text-5xl text-purple">
           {!! $hero_title
           !!}</h2>
 
