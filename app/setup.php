@@ -11,6 +11,7 @@ use function Roots\asset;
 include('PostTypes/Project.php');
 include('PostTypes/Resource.php');
 include('PostTypes/Member.php');
+include('PostTypes/Business.php');
 
 
 add_action( 'wp_head', function() {
