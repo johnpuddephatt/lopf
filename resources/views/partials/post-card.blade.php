@@ -11,7 +11,7 @@
     @endif
     <div class="pl-8 border-l-8 border-orange">
         <div class="mb-1 font-semibold text-blue ">{{ get_the_date(null, $post_id ?? null) }}</div>
-        <h3 class="mt-0 mb-2 text-2xl font-bold">
+        <h3 class="mt-0 mb-2 text-xl font-bold lg:text-2xl">
             {!! get_the_title($post_id ?? null) !!}
         </h3>
         <div class="text-sm lg:text-base">
