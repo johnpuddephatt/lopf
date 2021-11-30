@@ -85,6 +85,7 @@ Template Name: Home
 
   @endif
 
+
   @if($blog_enabled)
   <div class="container pt-32 border-t max-w-8xl">
     <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">Latest posts</h2>

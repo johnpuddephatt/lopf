@@ -67,12 +67,10 @@ class Home extends Composer
             ]),
 
             "blog_enabled" => get_theme_mod('home_blog_enabled'),
-            "posts" => get_posts([
-                'include_sticky_posts' => true,
-                'post_type' => 'post',
-                'numberposts' => 4
+            "posts" => (new \WP_Query)->query([
+                    'posts_per_page' => 4
             ]),
-
+        
             "signup_title" => get_theme_mod('home_signup_title'),
             "signup_buttontext" => get_theme_mod('home_signup_buttontext'),
             "signup_enabled" => get_theme_mod('home_signup_enabled'),
