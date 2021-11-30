@@ -13,11 +13,12 @@ Template Name: Home
 
       <div class="max-w-4xl pb-12 md:flex-1 md:pb-0">
 
-        <h2 class="text-4xl font-bold leading-none xl:text-6xl lg:leading-none lg:text-5xl text-purple">
+        <h2
+          class="text-4xl font-bold leading-none tracking-tight xl:text-6xl lg:leading-none xl:leading-none lg:text-5xl text-purple">
           {!! $hero_title
           !!}</h2>
 
-        <p class="mt-4 text-xl antialiased font-semibold md:mt-8 text-max-w-xl">{!! $hero_subtitle
+        <p class="mt-4 antialiased font-semibold lg:text-xl md:mt-8 text-max-w-xl">{!! $hero_subtitle
           !!}</p>
 
       </div>
