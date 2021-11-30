@@ -3,7 +3,7 @@
 
     <div>
 
-      <div class="inline-flex mt-12 mb-4 text-xl text-gray-500 md:mb-6">
+      <div class="inline-flex mt-12 mb-4 text-gray-500 lg:text-xl md:mb-6">
         <a class="" href="/">Home</a>
         <span class="px-3">&gt;</span>
         <a class="" href="/resources">Resources</a>
@@ -18,7 +18,7 @@
 
 
 
-      <h2 class="font-serif text-6xl text-blue">
+      <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-blue">
         {!! $title !!}
       </h2>
 

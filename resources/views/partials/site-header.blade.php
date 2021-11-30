@@ -6,7 +6,7 @@
   <x-logo :text="$alternative_header ? 'blue': 'sky'" :background="$alternative_header ? 'sky': 'blue'" />
 </a>
 
-<div class="container py-12 text-right lg:hidden">
+<div class="container py-2 text-right md:py-12 lg:hidden">
   <button id="main-menu-button"
     class="relative z-50 inline-block px-4 py-2 ml-auto font-semibold bg-white border-2 rounded text-blue border-blue">
     Menu

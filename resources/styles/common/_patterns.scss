@@ -138,13 +138,14 @@
 
   &::before {
     content: '';
-    @apply bg-pink rounded-full block w-24 h-24 absolute left-0 top-0;
+    @apply bg-orange rounded-full block w-24 h-24 absolute left-0 -top-12;
   }
 
   &::after {
     --tw-gradient-stops: white, white 50%, var(--tw-gradient-to) 50%,
       var(--tw-gradient-to);
     content: '';
+    z-index: -1;
     @apply rounded-full block w-48 h-48 absolute bottom-0 right-0  to-sky bg-gradient-to-br;
   }
 }

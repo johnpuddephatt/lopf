@@ -13,7 +13,7 @@ Template Name: Full-width Template
 
     <article @php(post_class())>
 
-      <div class="w-full max-w-none md:mt-24">
+      <div class="w-full my-12 max-w-none md:mt-24">
         @php(the_content())
       </div>
 

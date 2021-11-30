@@ -5,23 +5,24 @@ Template Name: Home
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col w-screen pb-12 space-y-12 overflow-x-hidden lg:mb-16 lg:space-y-16 2xl:mb-24 2xl:space-y-24">
+<div
+  class="flex flex-col w-screen space-y-12 overflow-x-hidden md:pb-12 lg:mb-16 lg:space-y-16 2xl:mb-24 2xl:space-y-24">
   <div class="relative pr-8 bg-sky">
     <div
       class="container z-10 flex flex-col-reverse items-center pr-0 mx-auto max-w-7xl min-h-header-sm lg:min-h-header md:flex-row">
 
-      <div class="max-w-4xl pb-24 md:flex-1 md:pb-0">
+      <div class="max-w-4xl pb-12 md:flex-1 md:pb-0">
 
         <h2 class="text-4xl font-bold leading-none xl:text-6xl lg:leading-none lg:text-5xl text-purple">
           {!! $hero_title
           !!}</h2>
 
-        <p class="mt-8 text-xl antialiased font-semibold text-max-w-xl">{!! $hero_subtitle
+        <p class="mt-4 text-xl antialiased font-semibold md:mt-8 text-max-w-xl">{!! $hero_subtitle
           !!}</p>
 
       </div>
 
-      <div class="relative flex-none w-1/2 mb-20 ml-auto -mr-8 lg:my-0 md:pl-40 ">
+      <div class="relative flex-none w-2/3 mb-6 ml-auto -mr-8 md:w-1/2 lg:my-0 md:pl-40 ">
         <div class="overlay">
           {!! $hero_image !!}
         </div>
@@ -49,14 +50,14 @@ Template Name: Home
 
   @if($groups_enabled)
   <div class="container flex flex-col items-center space-y-8 lg:space-x-16 lg:space-y-0 lg:flex-row max-w-7xl">
-    <div class="flex-none w-2/5 py-12 text-center ">
+    <div class="flex-none w-full text-center md:py-12 md:w-2/5 ">
       <img alt="Map icon" src="@asset('/images/map.svg')" />
     </div>
     <div class="flex flex-col items-start space-y-6">
-      <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $groups_title !!}</h2>
+      <h2 class="font-serif text-4xl 2xl:text-5xl 2xl:leading-none text-blue">{!! $groups_title !!}</h2>
       <p>{!! $groups_description !!}</p>
 
-      <a href="{{ $groups_link }}" class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue">
+      <a href="{{ $groups_link }}" class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue text-blue">
         {{ $groups_linktext ? $groups_linktext : 'read more' }}
       </a>
     </div>
@@ -94,9 +95,9 @@ Template Name: Home
       ])
       @endforeach
     </div>
-    <div class="mt-16 text-center">
+    <div class="mt-32 text-center">
       <a href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}"
-        class="inline-block px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue">
+        class="inline-block px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue text-blue">
         see all posts
       </a>
     </div>
@@ -109,24 +110,24 @@ Template Name: Home
       <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">{!! $research_title !!}</h2>
       <p>{!! $research_description !!}</p>
       <a href="{{ get_permalink(get_option('page_for_resources')) }}"
-        class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue">
+        class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue text-blue">
         explore our resources
       </a>
     </div>
-    <div class="flex-none w-2/5 py-12 text-center">
+    <div class="flex-none w-3/5 py-6 text-center md:py-12 md:w-2/5">
       <img alt="Icon of clipboard" src="@asset('/images/resources.svg')" />
     </div>
   </div>
   @endif
 
   @if($join_enabled)
-  <div class="container relative lg:pr-8">
+  <div class="container relative pt-12 lg:pr-8">
     <div
-      class="z-10 flex flex-col-reverse items-center px-8 pb-8 mx-auto text-white xl:pl-32 lg:py-16 lg:pr-0 rounded-bl-giant bg-purple min-h-header-sm lg:min-h-header md:flex-row">
+      class="z-10 flex flex-col-reverse items-center px-4 pb-8 mx-auto text-white md:px-8 xl:pl-32 lg:py-16 lg:pr-0 rounded-bl-giant bg-purple min-h-header-sm lg:min-h-header md:flex-row">
       <div
-        class="flex flex-col items-end space-y-8 text-right lg:text-left lg:items-start xl:max-w-5xl md:flex-1 md:flex-grow">
+        class="flex flex-col items-end w-full space-y-4 text-right md:space-y-8 lg:text-left lg:items-start xl:max-w-5xl md:flex-1 md:flex-grow">
         <h2 class="font-serif text-2xl antialiased text-white lg:text-4xl">{!! $join_pretitle !!}</h2>
-        <p class="max-w-xl text-4xl antialiased font-bold leading-none lg:text-6xl lg:leading-none text-sky">
+        <p class="max-w-xl text-3xl antialiased font-bold leading-none lg:text-6xl lg:leading-none text-sky">
           {!! $join_title !!}
         </p>
         <a href="/get-involved/sign-up-as-a-member-organisation/"
@@ -149,7 +150,7 @@ Template Name: Home
         !!}</h2>
       <form method="POST"
         action="//timetoshineleeds.us1.list-manage.com/subscribe/post?u=37893676631f957b3e7e5b3f7&id=d4a417b661"
-        class="flex flex-row w-full space-x-4">
+        class="flex flex-col w-full gap-4 md:flex-row">
         <input name="EMAIL" placeholder="Enter your email address" aria-label="Enter your email address"
           class="flex-1 w-full px-8 py-2 text-lg border-2 rounded-2xl border-blue" type="text" />
         <input type="submit" value="{{ $signup_buttontext }}"

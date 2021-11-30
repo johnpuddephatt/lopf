@@ -18,5 +18,5 @@
     @endif
     </div>
     </div>
-    <x-icon.arrow-right class="w-8 h-12 text-pink" />
+    <x-icon.arrow-right class="flex-none w-8 h-12 text-pink" />
 </a>

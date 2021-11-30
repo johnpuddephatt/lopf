@@ -59,7 +59,7 @@
               class="px-4 py-3"
               :class="{ 'bg-blue-light text-white': filterTab == 'postcode' }"
             >
-              Sort by postcode
+              Search by postcode
             </button>
           </div>
           <div
@@ -354,7 +354,7 @@ export default {
 .map-container {
   padding-top: 56.25%;
   @media (orientation: portrait) {
-    padding-top: 50vw;
+    padding-top: 100vw;
   }
 }
 
