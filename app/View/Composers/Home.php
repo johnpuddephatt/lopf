@@ -68,6 +68,7 @@ class Home extends Composer
 
             "blog_enabled" => get_theme_mod('home_blog_enabled'),
             "posts" => get_posts([
+                'include_sticky_posts' => true,
                 'post_type' => 'post',
                 'numberposts' => 4
             ]),
