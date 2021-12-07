@@ -12,12 +12,12 @@
   {!! get_search_form(false) !!}
   @endif
 
-  <div class="space-y-4">
+  <div class="space-y-16">
     @while(have_posts()) @php(the_post())
     @if(isset($_GET['post_type']))
     @include('partials.resource-card')
     @else
-    @include('partials.content-search')
+    @include('partials.post-card')
     @endif
     @endwhile
   </div>

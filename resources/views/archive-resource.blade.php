@@ -68,7 +68,7 @@
   <form class="max-w-3xl mx-auto " role="search" action="{{ home_url('/') }}" method="get" id="searchform">
     <h2 class="mb-6 text-3xl font-bold lg:text-4xl text-blue">Search for resources</h2>
     <div class="flex flex-wrap px-8 py-12 space-y-2 bg-sky-light lg:space-y-0 lg:space-x-2 lg:flex-nowrap">
-      <input type="text" name="s" placeholder="Search resources"
+      <input aria-label="Text to search for" type="text" name="s" placeholder="Search resources"
         class="w-full px-3 py-2 text-xl leading-tight text-gray-700 border rounded appearance-none lg:text-2xl focus:outline-none focus:shadow-outline" />
       <input type="hidden" name="post_type" value="resource" />
       <select class="w-full px-3 py-2 text-xl text-gray-700 border rounded focus:outline-none focus:shadow-outline"
