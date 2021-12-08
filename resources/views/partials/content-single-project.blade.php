@@ -42,7 +42,7 @@
         <h2 class="text-3xl font-bold text-blue">Project updates</h2>
         <p class="mt-4 mb-16">The latest articles about <strong>{{ the_title() }}</strong></p>
 
-        <div class="space-y-8">
+        <div class="space-y-16">
           @foreach($posts as $related_post)
           @include('partials.post-card', ['post_id' => $related_post->ID])
           @endforeach
@@ -66,7 +66,7 @@
         <h2 class="text-3xl font-bold text-blue">Related resources</h2>
         <p class="mt-4 mb-8">Reports and files relating to <strong>{{ the_title() }}</strong></p>
 
-        <div class="space-y-4">
+        <div class="space-y-8">
           @foreach($resources as $resource)
           @include('partials.project-resource-card')
           @endforeach
