@@ -13,6 +13,7 @@
   @endif
 
   <form class="max-w-3xl mx-auto mb-24" role="search" action="{{ home_url('/') }}" method="get" id="searchform">
+    <input type="hidden" name="post_type" value="post" />
     <div class="flex flex-wrap px-8 py-12 space-y-2 bg-orange-lightest lg:space-y-0 lg:space-x-2 lg:flex-nowrap">
       <input type="text" aria-label="Text to search for" name="s" placeholder="Search news"
         class="w-full px-3 py-2 text-xl leading-tight text-gray-700 border rounded appearance-none lg:text-2xl focus:outline-none focus:shadow-outline" />
