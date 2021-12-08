@@ -16,7 +16,7 @@
     @while(have_posts()) @php(the_post())
     @if(isset($_GET['post_type']) && $_GET['post_type'] == 'resource')
     @include('partials.resource-card')
-    @if(isset($_GET['post_type']) && $_GET['post_type'] == 'post')
+    @elseif(isset($_GET['post_type']) && $_GET['post_type'] == 'post')
     @include('partials.post-card')
     @else
     @include('partials.content-search')
