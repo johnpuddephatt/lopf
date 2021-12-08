@@ -14,9 +14,9 @@
 
   <div class="space-y-16">
     @while(have_posts()) @php(the_post())
-    @if(isset($_GET['post_type'] == 'resource'))
+    @if(isset($_GET['post_type']) && $_GET['post_type'] == 'resource')
     @include('partials.resource-card')
-    @elseif(isset($_GET['post_type'] == 'post'))
+    @if(isset($_GET['post_type']) && $_GET['post_type'] == 'post')
     @include('partials.post-card')
     @else
     @include('partials.content-search')
