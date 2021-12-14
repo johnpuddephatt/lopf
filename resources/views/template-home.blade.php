@@ -42,7 +42,8 @@ Template Name: Home
         <h3 class="text-xl font-bold">{!! $announcement_title ? $announcement_title : 'Announcement' !!}</h3>
         <p>{!! $announcement_text !!}</p>
       </div>
-      <a href="{{ $announcement_link }}" class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-pink">
+      <a href="{{ $announcement_link }}"
+        class="px-8 py-2 text-lg font-bold border-2 rounded-2xl border-pink whitespace-nowrap">
         {{ $announcement_linktext ? $announcement_linktext : 'read more' }}
       </a>
     </div>
