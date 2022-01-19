@@ -17,3 +17,4 @@ border-l-2
 pl-6
 divide-y
 pt-5
+mb-0
