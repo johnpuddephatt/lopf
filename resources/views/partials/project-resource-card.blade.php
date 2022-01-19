@@ -9,7 +9,7 @@
 
         <div class="flex flex-col gap-4 mt-4 md:flex-row">
         
-        @if(get_field(' date', $resource->ID))
+        @if(get_field('date', $resource->ID))
     <div class="text-gray-600">
         {{ get_field('date', $resource->ID ) }}
     </div>
