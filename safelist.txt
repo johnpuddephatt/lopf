@@ -12,7 +12,7 @@ border-sky
 border-2
 border-black
 p-6
-min-h-96
+min-h-[17em]
 border-l-2
 pl-6
 divide-y
