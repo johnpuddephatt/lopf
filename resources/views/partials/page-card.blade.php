@@ -1,12 +1,14 @@
 <a href="{{ get_permalink($page->ID) }}" @php(post_class('flex flex-row md:space-x-16'))>
+    <!-- transform transform-gpu fixes safari rending bug with clip-path, where path is not scaled to object. -->
     <div
-        class="w-20 mb-auto hidden md:block md:w-48 flex-0 relative {{ match($key % 4) { 0 => 'circle-orange', 1 => 'circle-blue', 2 => 'circle-sky', 3 => 'circle-pink'} }}">
+        class="transform transform-gpu w-20 mb-auto hidden md:block md:w-48 flex-0 relative {{ match($key % 4) { 0 => 'circle-orange', 1 => 'circle-blue', 2 => 'circle-sky', 3 => 'circle-pink'} }}">
         @if(has_post_thumbnail(isset($page->ID) ? $page->ID : '') &&
         isset(wp_get_attachment_metadata(get_post_thumbnail_id($page->ID))['sizes']['square-xs']))
         {!! get_the_post_thumbnail($page->ID, 'square-xs', ['class' => "w-20 md:w-48 clip-teardrop max-w-none block "])
         !!}
         @else
-        <img src="https://via.placeholder.com/150" class="block w-48 clip-teardrop max-w-none" />
+        <img src="https://via.placeholder.com/150" class="block w-20 clip-teardrop md:w-48 max-w-none" />
+
         @endif
     </div>
     <div
