@@ -43,9 +43,7 @@
         @include('partials.resource-card')
         @endwhile
 
-        {!! the_posts_pagination([
-          'class' => 'max-w-3xl pt-4 border-t border-gray-500'
-          ]) !!}
+        {!! the_posts_pagination() !!}
       </div>
       
     </div>

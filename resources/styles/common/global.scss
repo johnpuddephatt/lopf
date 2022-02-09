@@ -137,3 +137,18 @@ cite p::before,
 cite p::after {
   content: none !important;
 }
+
+.nav-links {
+  @apply max-w-3xl pt-4 border-t border-gray-500 justify-start space-x-8;
+
+  .current {
+    @apply font-bold bg-gray-500;
+  }
+
+  .page-numbers {
+    @apply px-1 rounded;
+    &:hover {
+      @apply bg-gray-300;
+    }
+  }
+}
