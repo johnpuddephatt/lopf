@@ -22,7 +22,7 @@
           get_queried_object()->description !!}</p>
 
         <div class="mt-8 prose">
-          {!!get_field('content', get_queried_object()->taxonomy . '_' . get_queried_object()->term_id) !!}
+          {!! get_field('content', get_queried_object()->taxonomy . '_' . get_queried_object()->term_id) !!}
         </div>
       </div>
 
@@ -33,6 +33,7 @@
     <div class="bg-gray-100">
       <div class="container py-24 space-y-8 xl:max-w-5xl">
 
+      @php $wp_the_query = new WP_Query() @endphp
       <div class="text-right">
         {{ $wp_the_query->post_count }} resources.
       </div>
