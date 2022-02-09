@@ -139,14 +139,14 @@ cite p::after {
 }
 
 .nav-links {
-  @apply max-w-3xl pt-4 border-t border-gray-500 justify-start space-x-8;
+  @apply text-lg max-w-3xl pt-4 border-t border-gray-300 justify-start space-x-8;
 
   .current {
-    @apply font-bold bg-gray-500;
+    @apply font-bold bg-gray-300;
   }
 
   .page-numbers {
-    @apply px-1 rounded;
+    @apply py-1 px-2 rounded;
     &:hover {
       @apply bg-gray-300;
     }
