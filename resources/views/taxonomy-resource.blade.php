@@ -33,6 +33,10 @@
     <div class="bg-gray-100">
       <div class="container py-24 space-y-8 xl:max-w-5xl">
 
+      <div class="text-right">
+        {{ $wp_the_query->post_count }} resources.
+      </div>
+
         @if (! have_posts())
         <x-alert type="warning">
           {!! __('Sorry, no matching resources were found.', 'sage') !!}
