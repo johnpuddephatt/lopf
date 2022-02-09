@@ -42,9 +42,10 @@
         @while(have_posts()) @php(the_post())
         @include('partials.resource-card')
         @endwhile
+
+        {!! the_posts_pagination() !!}
       </div>
       
-      {!! the_posts_pagination() !!}
     </div>
   </div>
 
