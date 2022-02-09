@@ -34,8 +34,9 @@
       <div class="container py-24 space-y-8 xl:max-w-5xl">
 
       @php $wp_the_query = new WP_Query() @endphp
-      <div class="text-right">
-        {{ $wp_the_query->post_count }} resources.
+      <div class="max-w-3xl text-right">
+        
+        {{ get_queried_object()->count }} resources.
       </div>
 
         @if (! have_posts())

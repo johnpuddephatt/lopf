@@ -5,7 +5,7 @@
 
 <div class="container min-h-screen my-12 xl:max-w-5xl">
   @if (! have_posts())
-  <x-alert type="warning">
+  <x-alert type="warning" class="mb-16">
     {!! __('Sorry, no results were found.', 'sage') !!}
   </x-alert>
 
@@ -13,6 +13,10 @@
   @endif
 
   <div class="space-y-16">
+    @php global $wp_query @endphp
+    @if($wp_query->found_posts)
+      <div class="max-w-3xl text-right">Found {{ $wp_query->found_posts }} results</div>
+    @endif
     @while(have_posts()) @php(the_post())
     @if(isset($_GET['post_type']) && $_GET['post_type'] == 'resource')
     @include('partials.resource-card')
@@ -24,6 +28,6 @@
     @endwhile
   </div>
 
-  {!! get_the_posts_navigation() !!}
+  {!! the_posts_pagination() !!}
 </div>
 @endsection
