@@ -139,7 +139,7 @@ cite p::after {
 }
 
 .nav-links {
-  @apply text-lg max-w-3xl pt-4 border-t border-gray-300 justify-start space-x-8;
+  @apply mt-16 text-lg max-w-3xl pt-4 border-t border-gray-300 justify-start space-x-8;
 
   .current {
     @apply font-bold bg-gray-300;
