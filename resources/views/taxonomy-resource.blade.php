@@ -43,6 +43,8 @@
         @include('partials.resource-card')
         @endwhile
       </div>
+      
+      {!! get_the_posts_navigation() !!}
     </div>
   </div>
 
