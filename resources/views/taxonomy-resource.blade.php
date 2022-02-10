@@ -35,18 +35,19 @@
 
       @php $wp_the_query = new WP_Query() @endphp
       <div class="max-w-3xl text-right">
-        
-        {{ get_queried_object()->count }} resources.
+        Showing {{ get_queried_object()->count }} resources.
       </div>
 
         @if (! have_posts())
+
         <x-alert type="warning">
           {!! __('Sorry, no matching resources were found.', 'sage') !!}
         </x-alert>
 
         @endif
+
         @while(have_posts()) @php(the_post())
-        @include('partials.resource-card')
+          @include('partials.resource-card')
         @endwhile
 
         {!! the_posts_pagination() !!}

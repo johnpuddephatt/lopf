@@ -15,7 +15,7 @@
   <div class="space-y-16">
     @php global $wp_query @endphp
     @if($wp_query->found_posts)
-      <div class="max-w-3xl text-right">Found {{ $wp_query->found_posts }} results</div>
+      <div class="max-w-3xl text-right">Showing {{ $wp_query->found_posts }} results</div>
     @endif
     @while(have_posts()) @php(the_post())
     @if(isset($_GET['post_type']) && $_GET['post_type'] == 'resource')
