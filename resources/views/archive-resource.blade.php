@@ -48,7 +48,7 @@
     @endif
 
     @php global $wp_query @endphp
-    <div class="max-w-3xl text-right">Showing {{ $wp_query->found_posts }} resources</div>
+    <div class="max-w-3xl text-right">Found {{ $wp_query->found_posts }} resources</div>
 
     @while(have_posts()) @php(the_post())
     @include('partials.resource-card')

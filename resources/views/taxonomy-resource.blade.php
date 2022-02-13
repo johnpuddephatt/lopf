@@ -35,7 +35,7 @@
 
       @php $wp_the_query = new WP_Query() @endphp
       <div class="max-w-3xl text-right">
-        Showing {{ get_queried_object()->count }} resources.
+        Found {{ get_queried_object()->count }} resources.
       </div>
 
         @if (! have_posts())
