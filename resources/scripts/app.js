@@ -6,9 +6,11 @@ import './people-blocks';
 import Vue from 'vue';
 import groupMap from './components/map.vue';
 import businessMap from './components/business-map.vue';
+import localleedsMap from './components/localleeds-map.vue';
 
 Vue.component('group-map', groupMap);
 Vue.component('business-map', businessMap);
+Vue.component('localleeds-map', localleedsMap);
 
 var vm = new Vue({
   el: '#app',

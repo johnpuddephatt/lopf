@@ -62,12 +62,12 @@ class Nav extends Composer
 
     public function navigation($name, $args = [], $styles = []) {
         if (has_nav_menu($name)) {
-            return wp_nav_menu(array_merge([
+            return (wp_nav_menu(array_merge([
                 'theme_location' => $name,
                 'walker' => new \App\Navwalker($styles),
                 'menu_class' => 'nav flex',
                 'echo' => false
-            ], $args));
+            ], $args)));
         }
     }
 }
