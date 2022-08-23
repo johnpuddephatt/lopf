@@ -24,6 +24,14 @@ add_action('init', function() {
        )
     );
 
+    add_filter('rest_business_query', function ($args, $request) {
+        if(isset($request["type"])) {
+            $args['meta_key'] = $request["type"];
+            $args['meta_value'] = 1;
+        }       
+        return $args;
+    }, 10, 2);
+
     /*
     *
     * Add address to REST API
@@ -35,6 +43,7 @@ add_action('init', function() {
         // if( $type ) {
         //     $data->data['type'] = $type;
         // }
+
         $address = get_field('address', $post->ID, true );
         if( $address ) {
             $data->data['address'] = $address;

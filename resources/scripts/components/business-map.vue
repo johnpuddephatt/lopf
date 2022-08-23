@@ -285,7 +285,9 @@ export default {
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;
     let groups = fetch(
-      `/wp-json/wp/v2/${this.type}?orderby=title&per_page=100&order=asc`
+      `/wp-json/wp/v2/business?orderby=title&per_page=100&order=asc${
+        this.type ? '&type=' + this.type : null
+      }`
     )
       .then(response => response.json())
       .then(data => (this.groups = data));
