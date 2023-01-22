@@ -25,10 +25,15 @@ add_action('init', function() {
     );
 
     add_filter('rest_business_query', function ($args, $request) {
-        if(isset($request["type"])) {
-            $args['meta_key'] = $request["type"];
-            $args['meta_value'] = 1;
+         if(isset($request["age_and_dementia_friendly"])) {
+            $args['meta_key'] = 'age_and_dementia_friendly';
+            $args['meta_value'] = $request["age_and_dementia_friendly"];
+        }   
+        if(isset($request["come_in_and_rest"])) {
+            $args['meta_key'] = 'come_in_and_rest';
+            $args['meta_value'] = $request["come_in_and_rest"];
         }       
+
         return $args;
     }, 10, 2);
 
@@ -39,11 +44,6 @@ add_action('init', function() {
     */
 
     add_filter( 'rest_prepare_business', function ( $data, $post, $context ) {
-        // $type = get_field('type', $post->ID, true );
-        // if( $type ) {
-        //     $data->data['type'] = $type;
-        // }
-
         $address = get_field('address', $post->ID, true );
         if( $address ) {
             $data->data['address'] = $address;
@@ -57,6 +57,11 @@ add_action('init', function() {
         $area_covered = get_field('area_covered', $post->ID, true );
         if( $area_covered ) {
             $data->data['area_covered'] = $area_covered;
+        }
+
+        $area_covered = get_field('area_covered_adf', $post->ID, true );
+        if( $area_covered ) {
+            $data->data['area_covered_adf'] = $area_covered;
         }
         
         // $neighbourhood_network = get_field('neighbourhood_network', $post->ID, true );

@@ -109,7 +109,7 @@
           target="_blank"
           :href="group.url"
           :key="group.slug"
-          class="block px-4 py-6 border-b border-blue-lightest hover:bg-sky-light"
+          class="block px-4 py-4 border-b border-blue-lightest hover:bg-sky-light"
           :class="{
             'bg-sky-light ml-0 border-l-8 border-blue': selected == group.slug,
           }"
@@ -120,12 +120,13 @@
             v-html="group.title.rendered"
           ></h3>
           <p class="text-sm truncate">
-            <span
-              class="inline-block px-3 mr-1 rounded-full bg-sky text-blue"
-              v-if="group.area_covered"
-              >{{ group.area_covered }}</span
-            >
             {{ group.address.address }}
+          </p>
+          <p
+            class="text-sm mt-1 inline-block px-3 mr-1 rounded-full bg-sky text-blue"
+            v-if="group.area_covered_adf"
+          >
+            {{ group.area_covered_adf }}
           </p>
         </a>
 
@@ -165,8 +166,8 @@
         <p class="text-sm truncate">
           <span
             class="inline-block px-3 mr-1 rounded-full bg-sky text-blue"
-            v-if="group.area_covered"
-            >{{ group.area_covered }}</span
+            v-if="group.area_covered_adf"
+            >{{ group.area_covered_adf }}</span
           >
           {{ group.address.address }}
         </p>
@@ -190,7 +191,6 @@ import { latLng } from 'leaflet';
 
 export default {
   name: 'groupMap',
-  props: ['type'],
   components: {
     LControlAttribution,
     LIconDefault,
@@ -200,7 +200,6 @@ export default {
   },
   data() {
     return {
-      showing: 'neighbourhood_networks',
       filterTab: 'name',
       latLng: null,
       postcode: null,
@@ -285,9 +284,7 @@ export default {
   mounted() {
     this.imagePath = `${window.directory_uri.stylesheet_directory_uri}/public/images/leaflet/`;
     let groups = fetch(
-      `/wp-json/wp/v2/business?orderby=title&per_page=100&order=asc${
-        this.type ? '&type=' + this.type : null
-      }`
+      `/wp-json/wp/v2/business?orderby=title&per_page=100&order=asc&age_and_dementia_friendly=1`
     )
       .then(response => response.json())
       .then(data => (this.groups = data));

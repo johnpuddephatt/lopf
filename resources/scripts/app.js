@@ -5,11 +5,13 @@ import './people-blocks';
 
 import Vue from 'vue';
 import groupMap from './components/map.vue';
-import businessMap from './components/business-map.vue';
+import adfMap from './components/adf-map.vue';
+import ciarMap from './components/ciar-map.vue';
 import localleedsMap from './components/localleeds-map.vue';
 
 Vue.component('group-map', groupMap);
-Vue.component('business-map', businessMap);
+Vue.component('adf-map', adfMap);
+Vue.component('ciar-map', ciarMap);
 Vue.component('localleeds-map', localleedsMap);
 
 var vm = new Vue({
