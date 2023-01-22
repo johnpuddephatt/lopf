@@ -6,7 +6,7 @@
 
 namespace App;
 
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 
 add_filter('acf/fields/google_map/api', function( $api ){
   $api['key'] = env('GOOGLE_MAPS', 'AIzaSyAnc7Dwhlv93SenK1wFiQ-LW5dMTXydHKw');
