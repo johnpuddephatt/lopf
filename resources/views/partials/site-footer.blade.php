@@ -7,7 +7,7 @@
           <x-logo :large="false" text="blue" background="white" />
           <x-forum-central-logo />
         </div>
-        <div class="flex-shrink w-full mr-auto lg:pt-4 2xl:w-1/3 md:w-1/4 !lg:mr-auto">
+        <div class="flex-shrink w-full mr-auto lg:pt-4 md:w-1/3 !lg:mr-auto">
           @if(get_theme_mod('contact_address'))
           <p class="mb-4 text-base site-footer--address contact-address">{!!
             nl2br(strip_tags(get_theme_mod('contact_address')))
