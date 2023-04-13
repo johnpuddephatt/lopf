@@ -2,7 +2,7 @@
   <div class="antialiased text-gray-100 bg-blue">
     <div class="container pt-24 pb-16 ">
       <div
-        class="flex flex-wrap order-first space-y-8 text-center space-x-4 2xl:space-x-8 md:space-y-0 md:text-left">
+        class="flex flex-wrap order-first space-y-8 text-center space-x-4 2xl:space-x-8  md:text-left">
         <div class="flex-shrink flex flex-row justify-center md:justify-start w-full gap-4 mt-3 text-center md:text-left lg:w-1/4 mr-auto md:w-1/2">
           <x-logo :large="false" text="blue" background="white" />
           <x-forum-central-logo />
