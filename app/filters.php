@@ -7,7 +7,12 @@
 namespace App;
 
 // add_filter('acf/settings/show_admin', '__return_false');
+function increase_per_page_max($params){
+    $params['per_page']['maximum'] = 10000;
+    return $params;
+}
 
+add_filter('rest_{$post_type}_collection_params', 'increase_per_page_max');
 add_filter('acf/fields/google_map/api', function( $api ){
   $api['key'] = env('GOOGLE_MAPS', 'AIzaSyAnc7Dwhlv93SenK1wFiQ-LW5dMTXydHKw');
   return $api;
