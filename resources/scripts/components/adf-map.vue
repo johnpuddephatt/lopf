@@ -119,7 +119,7 @@
             class="text-lg font-bold leading-tight"
             v-html="group.title.rendered"
           ></h3>
-          <p class="text-sm truncate">
+          <p v-if="group.address" class="text-sm truncate">
             {{ group.address.address }}
           </p>
           <p
