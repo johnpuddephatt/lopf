@@ -248,9 +248,12 @@ export default {
         return null;
       }
 
-      let groupsWithAddress = this.groups.filter(group => {
-        return group.address;
-      });
+      let groupsWithAddress =
+        this.view == 'list'
+          ? this.groups
+          : this.groups.filter(group => {
+              return group.address;
+            });
 
       if (this.filterTab == 'name' && this.search) {
         return groupsWithAddress.filter(group => {
