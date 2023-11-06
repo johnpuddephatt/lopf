@@ -163,7 +163,7 @@
         <h3 class="text-xl font-bold">
           <span v-html="group.title.rendered"></span>
         </h3>
-        <p class="text-sm truncate">
+        <p class="text-sm truncate" v-if="group.address">
           <span
             class="inline-block px-3 mr-1 rounded-full bg-sky text-blue"
             v-if="group.area_covered_adf"
