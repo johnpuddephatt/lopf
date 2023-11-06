@@ -119,7 +119,7 @@
             class="text-lg font-bold leading-tight"
             v-html="group.title.rendered"
           ></h3>
-          <p class="text-sm truncate">
+          <p v-if="group.address" class="text-sm truncate">
             {{ group.address.address }}
           </p>
           <p
@@ -163,7 +163,7 @@
         <h3 class="text-xl font-bold">
           <span v-html="group.title.rendered"></span>
         </h3>
-        <p class="text-sm truncate">
+        <p v-if="group.address" class="text-sm truncate">
           <span
             class="inline-block px-3 mr-1 rounded-full bg-sky text-blue"
             v-if="group.area_covered"
@@ -248,9 +248,12 @@ export default {
         return null;
       }
 
-      let groupsWithAddress = this.groups.filter(group => {
-        return group.address;
-      });
+      let groupsWithAddress =
+        this.view == 'list'
+          ? this.groups
+          : this.groups.filter(group => {
+              return group.address;
+            });
 
       if (this.filterTab == 'name' && this.search) {
         return groupsWithAddress.filter(group => {
@@ -258,7 +261,7 @@ export default {
             group.title.rendered
               .toLowerCase()
               .includes(this.search.toLowerCase()) ||
-            group.address.address
+            group.address?.address
               .toLowerCase()
               .includes(this.search.toLowerCase())
           );
