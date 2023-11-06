@@ -261,7 +261,7 @@ export default {
             group.title.rendered
               .toLowerCase()
               .includes(this.search.toLowerCase()) ||
-            group.address.address
+            group.address?.address
               .toLowerCase()
               .includes(this.search.toLowerCase())
           );
