@@ -103,9 +103,13 @@ Template Name: Home
   @endif @if($blog_enabled)
   <div class="container pt-32 border-t max-w-8xl">
     <h2 class="font-serif text-4xl 2xl:text-5xl text-blue">Latest posts</h2>
-    <div class="grid grid-cols-1 gap-16 mt-16 lg:grid-cols-2">
-      @foreach($posts as $post) @include('partials.post-card', [ //
-      'hide_circles' => true, 'post_id' => $post->ID ]) @endforeach
+    <div class="grid grid-cols-1 gap-16 mt-16 lg:grid-cols-2 xl:grid-cols-3">
+      @foreach($posts as $post) 
+      {{-- @include('partials.post-card', [ //
+      'hide_circles' => true, 'post_id' => $post->ID ])  --}}
+@include('partials.post-card-new', ['post_id' => $post->ID])
+
+      @endforeach
     </div>
     <div class="mt-32 text-center">
       <a

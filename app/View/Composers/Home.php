@@ -18,14 +18,15 @@ class Home extends Composer
         'template-home',
     ];
 
-    public function with() {
+    public function with()
+    {
 
         return [
             "hero_title" => get_theme_mod('home_hero_title'),
             "hero_subtitle" => get_theme_mod('home_hero_subtitle'),
             "hero_image" => wp_get_attachment_image(get_theme_mod('home_hero_image'), 'square', false, [
-               'class' => 'w-full clip-teardrop',
-               'sizes' => '(orientation: portrait) 100vw, 50vw'
+                'class' => 'w-full clip-teardrop',
+                'sizes' => '(orientation: portrait) 100vw, 50vw'
             ]),
 
             "announcement_title" => get_theme_mod('home_announcement_title'),
@@ -42,12 +43,12 @@ class Home extends Composer
 
             "blocks_enabled" => get_theme_mod('home_blocks_enabled'),
             "blocks" => get_posts([
-            'post_type' => 'any',
-            'orderby' => 'post__in',
-            'numberposts' => '4',
-            'include' => array_reduce(
-                get_option('home_blocks')['blocks'],
-                    function( $result, $item ) {
+                'post_type' => 'any',
+                'orderby' => 'post__in',
+                'numberposts' => '6',
+                'include' => array_reduce(
+                    get_option('home_blocks')['blocks'],
+                    function ($result, $item) {
                         $result[] = intval($item['item']);
                         return $result;
                     }
@@ -62,15 +63,15 @@ class Home extends Composer
             "join_title" => get_theme_mod('home_join_title'),
             "join_enabled" => get_theme_mod('home_join_enabled'),
             "join_image" => wp_get_attachment_image(get_theme_mod('home_join_image'), 'twothirds', false, [
-               'class' => 'w-full rounded',
-               'sizes' => '(orientation: portrait) 100vw, 30vw'
+                'class' => 'w-full rounded',
+                'sizes' => '(orientation: portrait) 100vw, 30vw'
             ]),
 
             "blog_enabled" => get_theme_mod('home_blog_enabled'),
             "posts" => (new \WP_Query)->query([
-                    'posts_per_page' => 4
+                'posts_per_page' => 6
             ]),
-        
+
             "signup_title" => get_theme_mod('home_signup_title'),
             "signup_buttontext" => get_theme_mod('home_signup_buttontext'),
             "signup_enabled" => get_theme_mod('home_signup_enabled'),

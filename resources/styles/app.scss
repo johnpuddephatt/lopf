@@ -3,3 +3,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'common/global';
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}

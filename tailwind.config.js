@@ -58,6 +58,11 @@ module.exports = {
         light: '#ebf7ef',
         lightest: '#f5fbf8',
       },
+      green: {
+        DEFAULT: '#008d2d',
+        light: '#5a9a7b',
+        lightest: '#cde9d6',
+      },
       gray: {
         50: '#F9FAFB',
         100: '#F3F4F6',
@@ -95,7 +100,7 @@ module.exports = {
         none: '1.1',
       },
       backgroundImage: () => ({}),
-      typography: theme => ({
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             a: {
@@ -118,7 +123,7 @@ module.exports = {
         },
       }),
     },
-    gutenberg: theme => ({
+    gutenberg: (theme) => ({
       // Create block color palette utility classes that WordPress uses.
       // @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#block-color-palettes
       colors: {
