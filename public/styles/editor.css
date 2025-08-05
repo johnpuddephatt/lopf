@@ -1618,6 +1618,9 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 .h-20 {
 	height: 5rem;
 }
+.h-8 {
+	height: 2rem;
+}
 .h-48 {
 	height: 12rem;
 }
@@ -1645,9 +1648,6 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 .h-24 {
 	height: 6rem;
 }
-.h-8 {
-	height: 2rem;
-}
 .min-h-\[16em\] {
 	min-height: 16em;
 }
@@ -1671,6 +1671,9 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 }
 .w-20 {
 	width: 5rem;
+}
+.w-8 {
+	width: 2rem;
 }
 .w-48 {
 	width: 12rem;
@@ -1713,9 +1716,6 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 }
 .w-24 {
 	width: 6rem;
-}
-.w-8 {
-	width: 2rem;
 }
 .max-w-5xl {
 	max-width: 64rem;
@@ -1822,6 +1822,9 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 .gap-3 {
 	gap: 0.75rem;
 }
+.gap-2 {
+	gap: 0.5rem;
+}
 .gap-8 {
 	gap: 2rem;
 }
@@ -1833,9 +1836,6 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 }
 .gap-4 {
 	gap: 1rem;
-}
-.gap-2 {
-	gap: 0.5rem;
 }
 .space-y-24 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-y-reverse: 0;
@@ -2104,6 +2104,9 @@ wp-block:not([data-align="full"]):not([data-align="wide"]) {
 }
 .p-1 {
 	padding: 0.25rem;
+}
+.p-2 {
+	padding: 0.5rem;
 }
 .p-3 {
 	padding: 0.75rem;
@@ -2993,6 +2996,10 @@ cite p::after {
 .hover\:bg-sky:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(225, 243, 233, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-lightest:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(185, 191, 209, var(--tw-bg-opacity));
 }
 .hover\:bg-sky-light:hover {
 	--tw-bg-opacity: 1;

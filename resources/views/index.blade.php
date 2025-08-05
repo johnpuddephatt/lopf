@@ -9,11 +9,11 @@
 
     <div class="flex justify-center flex-wrap text-blue font-semibold lg:text-xl items-end gap-3 lg:gap-6 xl:gap-8">
     <div class="pb-1 border-b-2 hidden lg:block border-transparent">Filter by:</div>
-      <a href="{{ home_url('/news') }}" class="{{ !isset($_GET['category']) || $_GET['category'] === '' ? ' !border-blue' : '' }} inline-flex items-center  py-1    hover:border-blue-light border-b-2 border-transparent focus:outline-none">
+      <a href="{{ home_url('/news') }}" class="{{ !isset($_GET['category']) || $_GET['category'] === '' ? ' !border-blue' : 'border-transparent' }} inline-flex items-center  py-1    hover:border-blue-light border-b-2  focus:outline-none">
         All
       </a>
 @foreach(['news', 'events', 'research', 'funding', 'training'] as $category)
-      <a href="{{ home_url('/news/') . '?category=' . $category }}" class="{{ isset($_GET['category']) && $_GET['category'] === $category ? ' border-blue' : '' }}   py-1  flex flex-col border-b-2 border-transparent items-center   hover:border-blue-light focus:outline-none">
+      <a href="{{ home_url('/news/') . '?category=' . $category }}" class="{{ isset($_GET['category']) && $_GET['category'] === $category ? ' border-blue' : 'border-transparent' }}   py-1  flex flex-col border-b-2  items-center   hover:border-blue-light focus:outline-none">
       <div class="rounded-full mb-1 p-1 {{ [
             'news' => 'bg-sky-lightest',
             'events' => 'bg-pink-lightest',
@@ -44,11 +44,24 @@
   </form>
 
 <div class="container px-4 py-24 mx-auto xl:max-w-5xl">
+
+@if(isset($_GET['category']))
+  <a class="inline-flex mb-12 border-2 gap-2 text-lg items-center font-semibold hover:bg-blue-lightest text-blue border-blue p-2" href="{{ home_url('/news') }}">
+ Only showing {{ $_GET['category'] }} articles
+
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+
+  </a>
+@endif
   @if (! have_posts())
   <x-alert type="warning">
     {!! __('Sorry, no results were found.', 'sage') !!}
   </x-alert>
   @endif
+
+
 
   <div class="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
   @php($index = 0)
