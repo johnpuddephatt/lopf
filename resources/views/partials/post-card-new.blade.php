@@ -29,8 +29,8 @@
 
     @if($category) 
 
-    <div class="absolute -bottom-2 rounded-full {{ $category && array_key_exists($category->slug, $categoryBackgroundClasses) ? $categoryBackgroundClasses[$category->slug] : 'bg-sky-light' }} p-1 -left-4">
-        @includeIf('components.icon.category-' . $category->slug, ['class' => 'w-12 h-12 text-blue'])
+    <div class="absolute -bottom-2 rounded-full {{ $category && array_key_exists($category->slug, $categoryBackgroundClasses) ? $categoryBackgroundClasses[$category->slug] : 'bg-sky-light' }} p-2 -left-4">
+        @includeIf('components.icon.category-' . $category->slug, ['class' => 'w-10 h-10 text-blue'])
     </div>
 
     @endif

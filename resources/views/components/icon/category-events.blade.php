@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="{{ $class }}" viewBox="0 0 49.39 48.66">
-    {{-- <defs>
-        <style>
-            .prefix__cls-1{stroke-linejoin:round}.prefix__cls-1,.prefix__cls-2,.prefix__cls-3{fill:none;stroke:currentColor;stroke-width:2.5px}.prefix__cls-1,.prefix__cls-3{stroke-linecap:round}.prefix__cls-2{fill-rule:evenodd}.prefix__cls-2,.prefix__cls-3{stroke-miterlimit:10}
-        </style>
-    </defs> --}}
+
     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
         <path d="M1.25 15.24c0-5.72-.17-10.36 5.55-10.36h35.8c5.72 0 5.55 4.64 5.55 10.36v21.81c0 5.72.17 10.36-5.55 10.36H6.8c-5.72 0-5.55-4.64-5.55-10.36V15.24Z"/>
     <path d="M1.25 15.24c0-5.72-.17-10.36 5.55-10.36h35.8c5.72 0 5.55 4.64 5.55 10.36v21.81c0 5.72.17 10.36-5.55 10.36H6.8c-5.72 0-5.55-4.64-5.55-10.36V15.24Z" class="prefix__cls-2"/>

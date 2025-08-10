@@ -14,14 +14,14 @@
       </a>
 @foreach(['news', 'events', 'research', 'funding', 'training'] as $category)
       <a href="{{ home_url('/news/') . '?category=' . $category }}" class="{{ isset($_GET['category']) && $_GET['category'] === $category ? ' border-blue' : 'border-transparent' }}   py-1  flex flex-col border-b-2  items-center   hover:border-blue-light focus:outline-none">
-      <div class="rounded-full mb-1 p-1 {{ [
+      <div class="rounded-full mb-1 p-1.5 lg:p-2 {{ [
             'news' => 'bg-sky-lightest',
             'events' => 'bg-pink-lightest',
             'research' => 'bg-orange-lightest',
             'funding' => 'bg-blue-lightest',
             'training' => 'bg-green-lightest'
         ][$category] ?? 'bg-sky-light' }}">
-              @includeIf('components.icon.category-' . $category, ['class' => 'w-6 h-6 lg:w-9 lg:h-9 '])
+              @includeIf('components.icon.category-' . $category, ['class' => 'w-6 h-6 lg:w-8 lg:h-8 '])
       </div>
 
 
