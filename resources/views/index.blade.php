@@ -77,7 +77,7 @@
         <p class="text-lg mb-8">If you have something newsworthy to share, we want to hear from you!</p>
 
 
-        <a href="/send-us-your-news" class=" px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue text-blue">
+        <a target="_blank" href="https://form.jotform.com/252233286513049" class=" px-8 py-2 text-lg font-bold border-2 rounded-2xl border-blue text-blue">
       Send us your news or events
       </a>
         </div> <div class="relative flex-1 w-48 mb-4 ml-auto lg:mb-0 lg:max-w-none lg:ml-16  pattern">
