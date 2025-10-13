@@ -32,6 +32,7 @@ document.getElementById('main-menu-button').addEventListener('click', (e) => {
 // do this be preventing the submit action on the form
 
 document.querySelectorAll('form.hf-form').forEach((form) => {
+  form.querySelector('input[type="submit"]').disabled = true;
   form.addEventListener('submit', (e) => {
     if (!form.classList.contains('hf-form--enabled')) {
       e.preventDefault();
@@ -42,5 +43,6 @@ document.querySelectorAll('form.hf-form').forEach((form) => {
 
   setTimeout(() => {
     form.classList.add('hf-form--enabled');
+    form.querySelector('input[type="submit"]').disabled = false;
   }, 10000);
 });
