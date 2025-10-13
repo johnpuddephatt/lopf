@@ -33,7 +33,7 @@ document.getElementById('main-menu-button').addEventListener('click', (e) => {
 
 document.querySelectorAll('form.hf-form').forEach((form) => {
   form.querySelector('input[type="submit"]').disabled = true;
-  form.querySelector('input[type="submit"]').innerText = 'Please wait...';
+  form.querySelector('input[type="submit"]').value = 'Please wait...';
   form.addEventListener('submit', (e) => {
     if (!form.classList.contains('hf-form--enabled')) {
       e.preventDefault();
@@ -45,6 +45,6 @@ document.querySelectorAll('form.hf-form').forEach((form) => {
   setTimeout(() => {
     form.classList.add('hf-form--enabled');
     form.querySelector('input[type="submit"]').disabled = false;
-    form.querySelector('input[type="submit"]').innerText = 'Submit';
+    form.querySelector('input[type="submit"]').value = 'Submit';
   }, 10000);
 });
