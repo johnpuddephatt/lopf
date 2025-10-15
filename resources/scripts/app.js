@@ -28,23 +28,23 @@ document.getElementById('main-menu-button').addEventListener('click', (e) => {
   document.getElementById('main-menu-container').scrollTop = 0;
 });
 
-// find all forms with a class of 'hf-form', and prevent them from being submitted for 10 seconds after the page loads
-// do this be preventing the submit action on the form
+// // find all forms with a class of 'hf-form', and prevent them from being submitted for 10 seconds after the page loads
+// // do this be preventing the submit action on the form
 
-document.querySelectorAll('form.hf-form').forEach((form) => {
-  form.querySelector('input[type="submit"]').disabled = true;
-  form.querySelector('input[type="submit"]').value = 'Please wait...';
-  form.addEventListener('submit', (e) => {
-    if (!form.classList.contains('hf-form--enabled')) {
-      e.preventDefault();
-      alert('Please wait a few seconds before submitting the form.');
-      return false;
-    }
-  });
+// document.querySelectorAll('form.hf-form').forEach((form) => {
+//   form.querySelector('input[type="submit"]').disabled = true;
+//   form.querySelector('input[type="submit"]').value = 'Please wait...';
+//   form.addEventListener('submit', (e) => {
+//     if (!form.classList.contains('hf-form--enabled')) {
+//       e.preventDefault();
+//       alert('Please wait a few seconds before submitting the form.');
+//       return false;
+//     }
+//   });
 
-  setTimeout(() => {
-    form.classList.add('hf-form--enabled');
-    form.querySelector('input[type="submit"]').disabled = false;
-    form.querySelector('input[type="submit"]').value = 'Submit';
-  }, 10000);
-});
+//   setTimeout(() => {
+//     form.classList.add('hf-form--enabled');
+//     form.querySelector('input[type="submit"]').disabled = false;
+//     form.querySelector('input[type="submit"]').value = 'Submit';
+//   }, 10000);
+// });
