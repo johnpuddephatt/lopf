@@ -6,6 +6,13 @@
   position: relative;
 }
 
+iframe[title='YouTube video player'] {
+  display: block;
+  width: 100% !important;
+  aspect-ratio: 1.6;
+  height: auto !important;
+}
+
 .has-background {
   @apply p-4 md:p-8 #{!important};
 
