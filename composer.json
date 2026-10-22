@@ -40,7 +40,15 @@
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2.0"
+    },
+    "policy": {
+      "advisories": {
+        "ignore": ["league/flysystem"]
+      }
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

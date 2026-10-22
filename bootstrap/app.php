@@ -11,6 +11,15 @@
 |
 */
 
+/*
+| Acorn's exception handler converts every PHP notice and deprecation into a
+| fatal ErrorException, which breaks the site on newer PHP versions. Leave
+| error handling to WordPress instead.
+*/
+add_filter('acorn/bootstrap', function ($bootstrap) {
+    return array_diff($bootstrap, [\Roots\Acorn\Bootstrap\HandleExceptions::class]);
+});
+
 \Roots\bootloader();
 
 /*
